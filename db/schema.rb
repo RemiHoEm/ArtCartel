@@ -10,9 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_25_143838) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_25_164110) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artworks", force: :cascade do |t|
+    t.string "name"
+    t.string "artist"
+    t.float "longitude"
+    t.float "latitude"
+    t.integer "creation_date"
+    t.string "dimensions"
+    t.string "materials"
+    t.string "info_link"
+    t.string "attribution_licence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "artworks_categories", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "artwork_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_artworks_categories_on_artwork_id"
+    t.index ["category_id"], name: "index_artworks_categories_on_category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "theme"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "artist"
+    t.float "longitude"
+    t.float "latitude"
+    t.integer "creation_date"
+    t.float "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer "invitation_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "games_artworks", force: :cascade do |t|
+    t.integer "position"
+    t.bigint "game_id", null: false
+    t.bigint "artwork_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_games_artworks_on_artwork_id"
+    t.index ["game_id"], name: "index_games_artworks_on_game_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +82,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_143838) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_games", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_users_games_on_game_id"
+    t.index ["user_id"], name: "index_users_games_on_user_id"
+  end
+
+  add_foreign_key "artworks_categories", "artworks"
+  add_foreign_key "artworks_categories", "categories"
+  add_foreign_key "games_artworks", "artworks"
+  add_foreign_key "games_artworks", "games"
+  add_foreign_key "users_games", "games"
+  add_foreign_key "users_games", "users"
 end

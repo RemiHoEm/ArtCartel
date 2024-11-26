@@ -1,14 +1,6 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
-              <h1>Joconde</h1>
-            </div>
-            <div style="display: flex; gap: 10px; flex; justify-content: center;n">
-                <p>Oil on canva</p>
-                <p>dim: 77 × 53 cm</p>
-                <p>Louvre</p>
-            </div>
             <%= simple_form_for(@challenge) do |f| %>
             <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess" %>
             <div style="position: relative;">

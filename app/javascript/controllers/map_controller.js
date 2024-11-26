@@ -13,10 +13,43 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
-    })
+      style: "mapbox://styles/mapbox/streets-v10",
+      zoom: 2
+    });
+
+    this.markers = [];
+    this.map.on("click", this.#handleMapClick.bind(this));
+
     // this.#addMarkersToMap()
   }
+
+  async #handleMapClick(event) {
+    const { lng, lat } = event.lngLat;
+    this.#removeAllMarkers();
+    await this.#addMarker(lng, lat);
+  }
+
+  async #addMarker(lng, lat) {
+    try {
+      const markerElement = document.createElement("div");
+      markerElement.innerHTML = `<i class="fa-solid fa-location-dot fa-2x"></i>`; // Font Awesome icône
+      markerElement.style.cursor = "pointer";
+
+      const marker = new mapboxgl.Marker( { element: markerElement})
+        .setLngLat([ lng, lat ])
+        .addTo(this.map)
+        this.markers.push(marker);
+      } catch (error) {
+        console.error("Error :", error);
+        }
+      }
+      #removeAllMarkers() {
+        this.markers.forEach((marker) => marker.remove());
+        this.markers = [];
+    }
+  }
+
+
 
     // #addMarkersToMap() {
     //   this.markersValue.forEach((marker) => {
@@ -25,4 +58,3 @@ export default class extends Controller {
     //       .addTo(this.map)
     //   })
     // }
-}

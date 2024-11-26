@@ -5,10 +5,10 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new
     @artwork = Artwork.find(Artwork.pluck(:id).sample)
     @markers =
-      {
+      [{
         lat: @artwork.latitude,
         lng: @artwork.longitude
-      }
+      }]
   end
 
   #not finished yet, add pop up with result and answer and potentially more

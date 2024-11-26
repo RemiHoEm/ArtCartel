@@ -39,11 +39,12 @@
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 80px;
+  top: 280px;
   width: 630px;
   background: white;
   padding: 10px;
-  padding-bottom: 60px;
+  padding-bottom: 10px;
+
 }
 
 .my-popup-close-btn-wrapper {
@@ -64,4 +65,28 @@
 .my-popup-close-btn:hover {
   cursor: pointer;
   background: #dbdbdb;
+}
+
+.footer_popup_answer {
+  margin: 16px 112px 16px 112px;
+
+}
+
+.text_popup_answer {
+  grid-column: 2 / 2;
+  grid-row: 1 / 3;
+  justify-items: center;
+  align-content: center;
+}
+
+.map_popup_answer {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+
+.map_txt_popup_answer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
 }

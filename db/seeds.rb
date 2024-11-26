@@ -78,7 +78,7 @@ artwork1 = Artwork.create!(
   info_link: "https://en.wikipedia.org/wiki/Giza_pyramid_complex",
   attribution_licence: "Par Ricardo Liberato — All Gizah Pyramids, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=2258048",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DT229_oeucil.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620097/All_Gizah_Pyramids_vpevqu.jpg").open
 artwork1.photo.attach(io: file, filename: "egyptianarchi.png", content_type: "image/png")
 
 artwork1.categories = [egyptian, architecture, insitu]
@@ -154,7 +154,7 @@ artwork6 = Artwork.create!(
   materials: "bronze",
   info_link: "https://www.metmuseum.org/art/collection/search/191811",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/Borbonicus_Codex_p14_Wiki_iiy1mk.png").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP-13618-012_xm6gip.jpg").open
 artwork6.photo.attach(io: file, filename: "eurosculpture.png", content_type: "image/png")
 
 artwork6.categories = [european, sculpture, met]
@@ -177,19 +177,19 @@ artwork7.photo.attach(io: file, filename: "euroarchi.png", content_type: "image/
 artwork7.categories = [european, architecture, insitu]
 
 artwork8 = Artwork.create!(
-  name: "Vase des Binelles",
-  artist: "Hector Guimard",
-  latitude: 48.829397,
-  longitude: 2.2234233,
-  creation_date: 1903,
-  dimensions: "H.: 130 cm",
-  materials: "stoneware with crystalline glaze",
-  info_link: "https://www.clevelandart.org/art/1994.107",
+  name: "Commode",
+  artist: "André Charles Boulle",
+  latitude: 48.8533567633097,
+  longitude: 2.34886825787723,
+  creation_date: 1715,
+  dimensions: "H.: 88 cm",
+  materials: "Walnut veneered with ebony, marquetry of engraved brass and tortoiseshell, gilt-bronze mounts, verd antique marble",
+  info_link: "https://www.metmuseum.org/art/collection/search/206990",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620097/1994.107_web_du8am1.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732631986/DP108742_fqqket.jpg").open
 artwork8.photo.attach(io: file, filename: "eurodeco.png", content_type: "image/png")
 
-artwork8.categories = [european, decorative, cleveland]
+artwork8.categories = [european, decorative, met]
 
 artwork9 = Artwork.create!(
   name: "Funerary mask ",
@@ -201,7 +201,7 @@ artwork9 = Artwork.create!(
   materials: "Gold, silver-copper alloy, cinnabar paint",
   info_link: "https://www.metmuseum.org/art/collection/search/309959",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620103/DT5333_arwfgj.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DT1274_hxln8n.jpg").open
 artwork9.photo.attach(io: file, filename: "precodeco.png", content_type: "image/png")
 
 artwork9.categories = [preco, decorative, met]
@@ -216,7 +216,7 @@ artwork10 = Artwork.create!(
   materials: "",
   info_link: "https://en.wikipedia.org/wiki/Machu_Picchu",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/Borbonicus_Codex_p14_Wiki_iiy1mk.png").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620097/Before_Machu_Picchu_corgsv.jpg").open
 artwork10.photo.attach(io: file, filename: "precoarchi.png", content_type: "image/png")
 
 artwork10.categories = [preco, architecture, insitu]
@@ -246,7 +246,7 @@ artwork12 = Artwork.create!(
   materials: "Limestone",
   info_link: "https://www.metmuseum.org/art/collection/search/313240",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DT229_oeucil.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DT1274_hxln8n.jpg").open
 artwork12.photo.attach(io: file, filename: "precosculpture.png", content_type: "image/png")
 
 artwork12.categories = [preco, sculpture, met]
@@ -366,7 +366,7 @@ artwork20 = Artwork.create!(
   materials: "Ivory, iron, copper (?)",
   info_link: "https://www.metmuseum.org/art/collection/search/318622",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP247658_lmbrbu.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP231460_gaod8n.jpg").open
 artwork20.photo.attach(io: file, filename: "africandeco.png", content_type: "image/png")
 
 artwork17.categories = [african, decorative, met]

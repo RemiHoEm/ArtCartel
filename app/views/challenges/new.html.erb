@@ -10,14 +10,13 @@
                 <p><%=@artwork.dimensions%></p>
                 <p><%=@artwork.museum%></p>
             </div>
-            <%= render "layouts/form-game", game: @game%>
+                <%= image_tag @artwork.photo, class: "d-block w-40 img-fluid rounded d-flex position-relative d-flex", alt: "Photo of #{@artwork.name}" %>
+                <div style="width: 100%; height: 100%;"
+                  data-controller="map"
+                  data-map-markers-value="<%= @markers.to_json %>"
+                  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                </div>
+                <%= render "layouts/form-game", game: @game%>
         </div>
     </div>
 </div>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-<%= render "layouts/form-game", game: @game%>

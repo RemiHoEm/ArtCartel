@@ -1,0 +1,6 @@
+<%= simple_form_for(@challenge) do |f| %>
+<%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess"%>
+<%= f.input :creation_date, as: :range, input_html:{ min:"0", max:"45", oninput:"updateTextInput(this.value)"}%>
+ <input type="text" id="textInput" value="">
+<%= f.submit "Submit answers", class:"btn btn-primary"%>
+<% end %>

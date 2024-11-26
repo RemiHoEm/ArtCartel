@@ -339,7 +339,7 @@ artwork18 = Artwork.create!(
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620103/The_entrance_gate_to_Esther_Mahlangu_s_homestead_jjo9jy.jpg").open
 artwork18.photo.attach(io: file, filename: "africanpainting.png", content_type: "image/png")
 
-artwork17.categories = [african, painting, insitu]
+artwork18.categories = [african, painting, insitu]
 
 artwork19 = Artwork.create!(
   name: "Great Mosque of Djenné",
@@ -354,7 +354,7 @@ artwork19 = Artwork.create!(
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620887/Great_Mosque_of_Djenn%C3%A9_1_uxng2r.jpg").open
 artwork19.photo.attach(io: file, filename: "arficanarchi.png", content_type: "image/png")
 
-artwork17.categories = [african, architecture, insitu]
+artwork19.categories = [african, architecture, insitu]
 
 artwork20 = Artwork.create!(
   name: "Queen Mother Pendant Mask: Iyoba",
@@ -369,6 +369,6 @@ artwork20 = Artwork.create!(
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP231460_gaod8n.jpg").open
 artwork20.photo.attach(io: file, filename: "africandeco.png", content_type: "image/png")
 
-artwork17.categories = [african, decorative, met]
+artwork20.categories = [african, decorative, met]
 
 puts "Seed succesfuly created !"

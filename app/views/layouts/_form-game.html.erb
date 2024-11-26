@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <%= simple_form_for(@challenge) do |f| %>
+            <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess" %>
+            <div style="position: relative;">
+                <%= f.input :creation_date, as: :range, input_html: { min: "0", max: "45", id: "slider", oninput: "updateSliderValue(this)" } %>
+                <span id="sliderValue" style="position: absolute; top: -5px; left: 50%; transform: translateX(-50%); background: #fff; padding: 2px 5px; border-radius: 4px; border: 1px solid #ccc;">0</span>
+            </div>
+            <%= f.submit "Submit answers", class: "btn btn-primary" %>
+            <% end %>
+
+            <script>
+            function updateSliderValue(slider) {
+                const value = slider.value;
+                const sliderValue = document.getElementById('sliderValue');
+                const sliderRect = slider.getBoundingClientRect();
+                
+                // Mettre à jour la valeur affichée
+                sliderValue.textContent = value;
+
+                // Calculer la position relative du curseur
+                const sliderWidth = slider.offsetWidth;
+                const position = ((value - slider.min) / (slider.max - slider.min)) * sliderWidth;
+
+                // Déplacer le span au-dessus du curseur
+                sliderValue.style.left = `${position}px`;
+            }
+            </script>
+        </div>
+    </div>
+</div>

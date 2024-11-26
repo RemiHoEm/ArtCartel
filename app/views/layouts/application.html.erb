@@ -10,8 +10,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+    <!-- Vérifiez si ce n'est pas la home page -->
+    <% if controller.controller_name != "pages" || controller.action_name != "home" %>
+      <%= render "shared/navbar" %>
+    <% end %>
+
+    <%= render "shared/flashes" %>
 
     <%= yield %>
   </body>

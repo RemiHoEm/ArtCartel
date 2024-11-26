@@ -1,13 +1,12 @@
-<div class="home-page">
+<div class="home-page" style="background-image: url('<%= asset_path('ban.jpg') %>');">
   <!-- Hero Section -->
   <div class="hero">
     <h1 class="game-title">ArtCartel</h1>
     <p class="subtitle">Discover. Play. Master.</p>
-
     <!-- Difficulty Switch -->
-    <div class="difficulty-switch" data-controller="difficulty">
-      <button class="difficulty-btn active" data-difficulty-target="normal">Normal</button>
-      <button class="difficulty-btn" data-difficulty-target="easy">Easy</button>
+    <div class="difficulty-switch">
+      <button class="difficulty-btn active" id="normal-btn" onclick="toggleDifficulty('normal')">Normal</button>
+      <button class="difficulty-btn" id="easy-btn" onclick="toggleDifficulty('easy')">Easy</button>
     </div>
   </div>
 
@@ -18,17 +17,74 @@
 
   <!-- Options Section -->
   <div class="options-section">
-    <div class="option-card">
-      <div class="icon categories-icon"></div>
-      <p>Categories</p>
+    <button type="button" class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#categoryModal">
+      <img src="<%= asset_path('earth-globe.png') %>" alt="Categories Icon" class="icon-img">
+    </button>
+
+    <button type="button" class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#techniqueModal">
+      <img src="<%= asset_path('color-palette.png') %>" alt="Techniques Icon" class="icon-img">
+    </button>
+
+    <button type="button" class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#museumModal">
+      <img src="<%= asset_path('museum.png') %>" alt="Museums Icon" class="icon-img">
+    </button>
+  </div>
+
+  <!-- Modals Section -->
+  <!-- Categories Modal -->
+  <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="categoryModalLabel">Categories</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <% Category.where(theme: "Culture").each do |category| %>
+              <li><%= category.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="option-card">
-      <div class="icon techniques-icon"></div>
-      <p>Techniques</p>
+  </div>
+
+  <!-- Techniques Modal -->
+  <div class="modal fade" id="techniqueModal" tabindex="-1" aria-labelledby="techniqueModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="techniqueModalLabel">Techniques</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <% Category.where(theme: "Technique").each do |technique| %>
+              <li><%= technique.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="option-card">
-      <div class="icon museums-icon"></div>
-      <p>Museums</p>
+  </div>
+
+  <!-- Museums Modal -->
+  <div class="modal fade" id="museumModal" tabindex="-1" aria-labelledby="museumModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="museumModalLabel">Museums</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <% Category.where(theme: "Museum").where.not(name: "in situ").each do |museum| %>
+              <li><%= museum.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

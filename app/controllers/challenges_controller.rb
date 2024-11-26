@@ -1,6 +1,14 @@
 class ChallengesController < ApplicationController
+
+  #not finished, need to add the logic that we do not show same artwork in one game & not only artworks from one category
   def new
     @challenge = Challenge.new
+    @artwork = Artwork.find(Artwork.pluck(:id).sample)
+    @markers =
+      {
+        lat: @artwork.latitude,
+        lng: @artwork.longitude
+      }
   end
 
   #not finished yet, add pop up with result and answer and potentially more

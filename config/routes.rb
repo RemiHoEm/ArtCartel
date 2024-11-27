@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :games_artworks, only: [] do
     resources :challenges, only: [:new, :create]
   end
+  resources :users_games, only: :show
 
   # Categories routes for filtering by theme
   resources :categories, only: [] do
@@ -18,5 +19,5 @@ Rails.application.routes.draw do
       get :filter_by_theme # Route for filtering categories by theme
     end
   end
-  
+
 end

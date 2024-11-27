@@ -11,5 +11,7 @@
 @import "components/index";
 @import "pages/index";
 
+// Le fichier contenant les styles pour le slider
+@import "pages/new";  // Assurez-vous que ce fichier est correctement référencé
 
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");

@@ -24,6 +24,10 @@ preco = Category.create!(
   name: "Pre-Columbian Art",
   theme: "Culture",
 )
+louvre = Category.create!(
+  name: "Musée du Louvre",
+  theme: "Museum",
+)
 met = Category.create!(
   name: "Metropolitan Museum of Art",
   theme: "Museum",
@@ -161,7 +165,7 @@ artwork6.categories = [european, sculpture, met]
 
 artwork7 = Artwork.create!(
   name: "Eiffel Tower",
-  artist: "Stéphen Sauvestre, Gustave Eiffel, Maurice Koechlin, Emile Nouguier",
+  artist: "Gustave Eiffel",
   latitude: 48.8582599  ,
   longitude: 2.2945006  ,
   creation_date: 1889,
@@ -246,7 +250,7 @@ artwork12 = Artwork.create!(
   materials: "Limestone",
   info_link: "https://www.metmuseum.org/art/collection/search/313240",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DT1274_hxln8n.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP104826_xuuhp8.jpg").open
 artwork12.photo.attach(io: file, filename: "precosculpture.png", content_type: "image/png")
 
 artwork12.categories = [preco, sculpture, met]
@@ -370,5 +374,80 @@ file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/
 artwork20.photo.attach(io: file, filename: "africandeco.png", content_type: "image/png")
 
 artwork20.categories = [african, decorative, met]
+
+artwork21 = Artwork.create!(
+  name: "The Coronation of Napoleon",
+  artist: "Jacques-Louis David",
+  latitude: 48.8611473,
+  longitude: 2.3380277,
+  creation_date: 1807,
+  dimensions: "6.21m x 9.79 m",
+  materials: "Oil on canvas",
+  info_link: "https://en.wikipedia.org/wiki/The_Coronation_of_Napoleon",
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/Jacques-Louis_David__The_Coronation_of_Napoleon_sqabmc.jpg").open
+artwork21.photo.attach(io: file, filename: "europainting2.png", content_type: "image/png")
+
+artwork21.categories = [european, painting, louvre]
+
+artwork22 = Artwork.create!(
+  name: "Finches and bamboo",
+  artist: "emperor Huizong",
+  latitude: 34.604167,
+  longitude: 114.497222,
+  creation_date: 1112,
+  dimensions: "33 cm x 55 cm",
+  materials: "ink, color, silk",
+  info_link: "https://www.metmuseum.org/art/collection/search/39936",
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/DP151504_CRD_gkin6t.jpg").open
+artwork22.photo.attach(io: file, filename: "asianpainting2.png", content_type: "image/png")
+
+artwork22.categories = [eastasian, painting, met]
+
+artwork23 = Artwork.create!(
+  name: "Chichén Itzá",
+  artist: "anonyme",
+  latitude: 20.6827778,
+  longitude: -88.56861111111111,
+  creation_date: 800,
+  dimensions: "H.: 30 m",
+  materials: "Limestone",
+  info_link: "https://en.wikipedia.org/wiki/Chichen_Itza",
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/1280px-El_Castillo_Stitch_2008_Edit_1_rylkrd.jpg").open
+artwork23.photo.attach(io: file, filename: "precoarchi2.png", content_type: "image/png")
+
+artwork23.categories = [preco, architecture, insitu]
+
+artwork24 = Artwork.create!(
+  name: "Great Sphinx of Giza",
+  artist: "anonyme",
+  latitude: 29.974670018453818,
+  longitude: 31.138332170455136,
+  creation_date: 2545,
+  dimensions: "H.: 20 m",
+  materials: "Limestone",
+  info_link: "https://en.wikipedia.org/wiki/Great_Sphinx_of_Giza",
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/The_amazing_Sphinx_ujxkvr.jpg").open
+artwork24.photo.attach(io: file, filename: "egyptsculpt2.png", content_type: "image/png")
+
+artwork24.categories = [egyptian, sculpture, insitu]
+
+artwork25 = Artwork.create!(
+  name: "Veranda Post",
+  artist: "anonyme",
+  latitude: 7.5135717,
+  longitude: 5.2202759,
+  creation_date: 1912,
+  dimensions: "H.: 152 cm",
+  materials: "Wood, pigments",
+  info_link: "https://www.artic.edu/artworks/102611/veranda-post-opo-ogoga",
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732715157/1984.550_-_Veranda_Post_%C3%92p%C3%B3_%C3%92g%C3%B2g%C3%A1_enazzk.jpg").open
+artwork25.photo.attach(io: file, filename: "africansculpt2.png", content_type: "image/png")
+
+artwork25.categories = [african, sculpture, chicago]
 
 puts "Seed succesfuly created !"

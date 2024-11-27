@@ -16,6 +16,9 @@
                   <span id="sliderDate" style="display: block; margin-top: 10px; font-size: 1.2rem;">Year: 0</span>
               </div>
 
+              <%= f.input :latitude, as: :hidden, input_html: { id: 'latitude' } %>
+              <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude' } %>
+
             <% end %>
             <button data-action="click->popup#openPopup">Submit answers</button>
 

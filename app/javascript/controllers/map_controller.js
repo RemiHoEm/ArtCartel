@@ -31,6 +31,10 @@ export default class extends Controller {
     this.#removeAllMarkers();
     await this.#addMarker(lng, lat);
     console.log(`Longitude: ${lng}, Latitude: ${lat}`);
+    let long = document.getElementById("longitude");
+    let lati = document.getElementById("latitude");
+    long.value= lng;
+    lati.value= lat;
 /*     this.#compareCoordinates(lat, lng);
  */  }
 

@@ -60,6 +60,8 @@ class ChallengesController < ApplicationController
     # Récupérer l'œuvre active (par exemple via session ou autre logique)
     artwork = Artwork.find(params[:artwork_id].to_i)
 
+    
+
     # Calculer la distance entre le point cliqué et l'œuvre
     distance = haversine_distance(user_latitude, user_longitude, artwork.latitude, artwork.longitude)
     # Calculer le Geoscore

@@ -39,11 +39,12 @@
             <p class="fw-bold mb-auto"><%=@artwork.artist%></p>
             <div class="p">artist score</div>
             <p class="fw-bold mb-auto"><%=@artwork.creation_date%></p>
-            <div class="div">date score</div>
-          </div>
+<%#             <div class="div"><%="Votre Time Score est de #{@data.time_score}."%></div>
+           </div>
         </div>
         <div class="div d-flex justify-content-between">
-          <div class="h3 ms-3">geo score</div>
+          
+<%#           <div class="h3 ms-3"><%="Vous êtes à #{@data.distance} km de la bonne réponse. Votre Geoscore est de #{@data.geoscore}."%></div>
           <div class="h2 fw-bold me-3">total score</div>
         </div>
         <div class="div footer_popup_answer d-flex justify-content-between">
@@ -64,4 +65,4 @@
 
   </div>
 </div>
->>>>>>> master
+

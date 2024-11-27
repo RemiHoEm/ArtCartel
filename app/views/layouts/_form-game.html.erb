@@ -3,8 +3,11 @@
         <div class="col-12">
 
             <%= simple_form_for([@games_artwork, @challenge]) do |f| %>
+              <% if (@artwork.artist == "anonyme") %>
+                <div class="p">Artist: Anonyme</div>
+              <% else %>
                 <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess" %>
-              <% end %>
+              <% end  %>
               <!-- Jauge de date avec plage de -3000 à 2024 -->
               <div style="position: relative;">
                   <%= f.input :creation_date, as: :range, input_html: { min: "-3000", max: "2024", value: "0", step: "1", oninput: "updateSliderValue(this)" } %>
@@ -12,7 +15,6 @@
                   <!-- Affichage de la date correspondante -->
                   <span id="sliderDate" style="display: block; margin-top: 10px; font-size: 1.2rem;">Year: 0</span>
               </div>
-
             <% end %>
             <button data-action="click->popup#openPopup">Submit answers</button>
 

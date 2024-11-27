@@ -19,7 +19,7 @@
   <!-- Play Button -->
   <div class="play-section">
     <%# <button class="play-btn">PLAY</button> %>
-    <%= link_to "Play", games_path, data: {turbo_method: :post} %>
+    <%= link_to "Play", games_path, class: "play-btn", data: {turbo_method: :post} %>
   </div>
 
   <!-- Options Section -->

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_27_114312) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_27_142837) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,7 +80,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_27_114312) do
     t.float "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "artwork_id"
+    t.bigint "users_game_id", null: false
+    t.bigint "games_artwork_id", null: false
+    t.index ["games_artwork_id"], name: "index_challenges_on_games_artwork_id"
+    t.index ["users_game_id"], name: "index_challenges_on_users_game_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -124,6 +127,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_27_114312) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "artworks_categories", "artworks"
   add_foreign_key "artworks_categories", "categories"
+  add_foreign_key "challenges", "games_artworks"
+  add_foreign_key "challenges", "users_games"
   add_foreign_key "games_artworks", "artworks"
   add_foreign_key "games_artworks", "games"
   add_foreign_key "users_games", "games"

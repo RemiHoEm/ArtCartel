@@ -32,11 +32,7 @@ export default class extends Controller {
   async #addMarker(lng, lat) {
     try {
       const markerElement = document.createElement("div");
-      markerElement.className = "custom-marker";
-      markerElement.style.width = "30px";
-      markerElement.style.height = "30px";
-      markerElement.style.backgroundColor = "red";
-      markerElement.style.borderRadius = "50%";
+      markerElement.innerHTML = `<i class="fa-solid fa-location-dot fa-2x"></i>`; // Font Awesome icône
       markerElement.style.cursor = "pointer";
 
       const marker = new mapboxgl.Marker( { element: markerElement})

@@ -161,7 +161,7 @@ artwork6.categories = [european, sculpture, met]
 
 artwork7 = Artwork.create!(
   name: "Eiffel Tower",
-  artist: "Stéphen Sauvestre, Gustave Eiffel, Maurice Koechlin, Emile Nouguier",
+  artist: "Gustave Eiffel",
   latitude: 48.8582599  ,
   longitude: 2.2945006  ,
   creation_date: 1889,
@@ -246,7 +246,7 @@ artwork12 = Artwork.create!(
   materials: "Limestone",
   info_link: "https://www.metmuseum.org/art/collection/search/313240",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DT1274_hxln8n.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP104826_xuuhp8.jpg").open
 artwork12.photo.attach(io: file, filename: "precosculpture.png", content_type: "image/png")
 
 artwork12.categories = [preco, sculpture, met]

@@ -1,5 +1,50 @@
+/* Styles existants codés par ton collègue */
 @media(max-width: 576px) {
-    .container {
-      grid-template-columns: 1fr 1fr;
-    }
+  .container {
+    grid-template-columns: 1fr 1fr;
   }
+}
+
+/* Jauge de date interactive */
+input[type="range"] {
+  -webkit-appearance: none; /* Pour que le style du range soit plus personnalisable */
+  width: 100%; /* Prend toute la largeur du conteneur */
+  height: 10px;
+  background: #ddd; /* Couleur de fond */
+  border-radius: 5px;
+  outline: none;
+  transition: background 0.3s ease; /* Effet de transition au survol */
+}
+
+input[type="range"]:focus {
+  background: #aaa; /* Plus sombre quand l'élément est en focus */
+}
+
+/* Affichage dynamique de la valeur au-dessus du curseur */
+#sliderValue {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Affichage de la date sous la jauge */
+#sliderDate {
+  font-size: 18px;
+  color: #007bff;
+  font-weight: 600;
+}
+
+/* Personnalisation pour l'écran mobile, ajuster la taille du slider */
+@media(max-width: 576px) {
+  input[type="range"] {
+    height: 8px; /* Taille du slider sur les petits écrans */
+  }
+
+  #sliderValue {
+    font-size: 14px;
+  }
+
+  #sliderDate {
+    font-size: 16px;
+  }
+}

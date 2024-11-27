@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <%= simple_form_for(@challenge) do |f| %>
+            <%= simple_form_for(@challenge, html: { data: { controller: "form", action: "submit->form#handleSubmit" } }) do |f| %>
             <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess" %>
             <div style="position: relative;">
                 <%= f.input :creation_date, as: :range, input_html: { min: "0", max: "45", id: "slider", oninput: "updateSliderValue(this)" } %>

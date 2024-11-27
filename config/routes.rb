@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Challenges routes
-  resources :challenges, only: [:new, :create, :show]
+  resources :challenges, only: [:new, :create, :show] do
+    post 'compare', on: :collection
+  end
 
   # Categories routes for filtering by theme
   resources :categories, only: [] do

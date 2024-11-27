@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :games, only: [:create]
   resources :games_artworks, only: [] do
-    resources :challenges, only: [:new, :create]
+    resources :challenges, only: [:new, :create] do
+      post 'compare', on: :collection
+    end
   end
   resources :users_games, only: :show
+
 
   # Categories routes for filtering by theme
   resources :categories, only: [] do

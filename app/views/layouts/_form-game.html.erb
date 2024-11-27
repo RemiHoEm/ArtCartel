@@ -7,15 +7,17 @@
                 <%= f.input :creation_date, as: :range, input_html: { min: "0", max: "45", id: "slider", oninput: "updateSliderValue(this)" } %>
                 <span id="sliderValue" style="position: absolute; top: -5px; left: 50%; transform: translateX(-50%); background: #fff; padding: 2px 5px; border-radius: 4px; border: 1px solid #ccc;">0</span>
             </div>
-            <%= f.submit "Submit answers", class: "btn btn-primary" %>
+            <% f.submit "Submit answers", class: "btn btn-primary" %>
+
             <% end %>
+            <button data-action="click->popup#openPopup">Submit answers</button>
 
             <script>
             function updateSliderValue(slider) {
                 const value = slider.value;
                 const sliderValue = document.getElementById('sliderValue');
                 const sliderRect = slider.getBoundingClientRect();
-                
+
                 // Mettre à jour la valeur affichée
                 sliderValue.textContent = value;
 

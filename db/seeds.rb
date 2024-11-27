@@ -161,7 +161,7 @@ artwork6.categories = [european, sculpture, met]
 
 artwork7 = Artwork.create!(
   name: "Eiffel Tower",
-  artist: "Stéphen Sauvestre, Gustave Eiffel, Maurice Koechlin, Emile Nouguier",
+  artist: "Gustave Eiffel",
   latitude: 48.8582599  ,
   longitude: 2.2945006  ,
   creation_date: 1889,

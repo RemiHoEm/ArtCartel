@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   # Health check route
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Challenges routes
-  resources :challenges, only: [:new, :create, :show]
+  # Defines the root path route ("/")
+  # root "posts#index"
+  resources :games, only: [:create]
+  resources :games_artworks, only: [] do
+    resources :challenges, only: [:new, :create]
+  end
 
   # Categories routes for filtering by theme
   resources :categories, only: [] do
@@ -14,4 +18,5 @@ Rails.application.routes.draw do
       get :filter_by_theme # Route for filtering categories by theme
     end
   end
+  
 end

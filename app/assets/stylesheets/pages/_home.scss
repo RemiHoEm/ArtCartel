@@ -58,8 +58,9 @@
         width: 120px;
 
         &.active {
-          background: #00aaff;
+          background: #333;
           color: white;
+          border: 2px solid white;
         }
 
         &:hover {
@@ -79,19 +80,24 @@
   }
 
   .play-btn {
-    background: linear-gradient(135deg, #007bff, #00aaff);
+    text-decoration: none;
+    background: #333;
     color: white;
-    padding: 20px 60px;
-    font-size: 2rem;
+    padding: 12px 30px;
+    font-size: 1.2rem;
     font-weight: 700;
-    border: none;
-    border-radius: 50px;
+    border: 2px solid white; /* Bordure blanche */
+    border-radius: 50px; /* Arrondi des bords */
     cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
     transition: all 0.3s ease;
+    display: inline-block; /* Pour que le texte et le bouton soient centrés */
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+    transition: all;
 
     &:hover {
-      background: linear-gradient(135deg, #00aaff, #007bff);
+      background: #555; /* Changement de couleur au survol */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
       transform: scale(1.1);
     }
 
@@ -105,18 +111,18 @@
     margin-top: 20px;
 
     .challenge-btn {
-      background-color: #007bff;
+      background-color: #333;
       color: white;
       padding: 12px 30px;
       font-size: 1.1rem;
-      border: none;
+      border: 2px solid white; /* Bordure blanche */
       border-radius: 50px;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
       transition: all 0.3s ease;
 
       &:hover {
-        background-color: #0056b3;
+        background-color: #555;
         box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
       }
 

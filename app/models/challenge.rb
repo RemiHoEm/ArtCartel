@@ -1,4 +1,4 @@
 class Challenge < ApplicationRecord
-  belongs_to :user_game
-  belongs_to :games_artworks
+  belongs_to :users_game
+  belongs_to :games_artwork
 end

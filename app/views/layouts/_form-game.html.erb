@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <%= simple_form_for(@challenge) do |f| %>
+            <%= simple_form_for([@games_artwork, @challenge]) do |f| %>
                 <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess" %>
 
                 <!-- Jauge de date avec plage de -3000 à 2024 -->

@@ -23,6 +23,7 @@ class ChallengesController < ApplicationController
 
   #not finished yet, add pop up with result and answer and potentially more
   def create
+    raise
     @games_artwork = GamesArtwork.find(params[:games_artwork_id])
     @challenge = Challenge.new(challenge_params)
     @challenge.games_artwork = @games_artwork
@@ -60,7 +61,7 @@ class ChallengesController < ApplicationController
     # Récupérer l'œuvre active (par exemple via session ou autre logique)
     artwork = Artwork.find(params[:artwork_id].to_i)
 
-    
+
 
     # Calculer la distance entre le point cliqué et l'œuvre
     distance = haversine_distance(user_latitude, user_longitude, artwork.latitude, artwork.longitude)

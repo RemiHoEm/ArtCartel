@@ -19,7 +19,7 @@
   <!-- Play Button -->
   <div class="play-section">
     <%# <button class="play-btn">PLAY</button> %>
-    <%= link_to "Play", games_path, data: {turbo_method: :post} %>
+    <%= link_to "Play", games_path, class: "play-btn", data: {turbo_method: :post} %>
   </div>
 
   <!-- Options Section -->
@@ -43,8 +43,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="categoryModalLabel">Categories</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h1 class="modal-title fs-5" id="categoryModalLabel">CATEGORIES</h1>
         </div>
         <div class="modal-body">
           <ul>
@@ -62,8 +61,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="techniqueModalLabel">Techniques</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h1 class="modal-title fs-5" id="techniqueModalLabel">TECHNIQUES</h1>
         </div>
         <div class="modal-body">
           <ul>
@@ -81,12 +79,11 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="museumModalLabel">Museums</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h1 class="modal-title fs-5" id="museumModalLabel">MUSEUMS</h1>
         </div>
         <div class="modal-body">
           <ul>
-            <% Category.where(theme: "Museum").where.not(name: "in situ").each do |museum| %>
+            <% Category.where(theme: "Museum").where(name: "Metropolitan Museum of Art").each do |museum| %>
               <li><%= museum.name %></li>
             <% end %>
           </ul>

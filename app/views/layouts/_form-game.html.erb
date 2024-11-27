@@ -1,7 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" data-controller="form-input">
             <%= simple_form_for([@games_artwork, @challenge]) do |f| %>
+              <%= f.input :latitude, as: :hidden, input_html: { id: 'latitude' } %>
+              <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude' } %>
               <% if (@artwork.artist == "anonyme") %>
                 <div class="p">Artist: Anonyme</div>
               <% else %>
@@ -15,12 +17,11 @@
                   <!-- Affichage de la date correspondante -->
                   <span id="sliderDate" style="display: block; margin-top: 10px; font-size: 1.2rem;">Year: 0</span>
               </div>
+                    <!-- Affichage de la date correspondante -->                
 
-              <%= f.input :latitude, as: :hidden, input_html: { id: 'latitude' } %>
-              <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude' } %>
-
-            <% end %>
-            <button data-action="click->popup#openPopup">Submit answers</button>
+                <%= f.submit "Submit answers", class: "btn btn-primary", data: { action: "click->form-input#submit"} %>
+           <% end %>
+            <button data-form-input-target="popup" data-action="click->popup#openPopup">Submit answers</button>
 
             <script>
             function updateSliderValue(slider) {

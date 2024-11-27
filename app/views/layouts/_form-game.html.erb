@@ -14,15 +14,14 @@
                 </div>
 
                 <%= f.submit "Submit answers", class: "btn btn-primary" %>
-            <% end %>
+           <% end %>
+            <button data-action="click->popup#openPopup">Submit answers</button>
 
             <script>
             function updateSliderValue(slider) {
                 const value = slider.value;
                 const sliderValue = document.getElementById('sliderValue');
-                const sliderDate = document.getElementById('sliderDate');
 
-                // Mettre à jour la valeur affichée au-dessus du curseur
                 sliderValue.textContent = value;
 
                 // Afficher la date correspondante dans le span en bas de la jauge

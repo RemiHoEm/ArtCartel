@@ -6,6 +6,7 @@
                 <div class="p">Artist: Anonyme</div>
               <% else %>
                 <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess" %>
+
               <% end  %>
               <!-- Jauge de date avec plage de -3000 à 2024 -->
               <div style="position: relative;">
@@ -14,6 +15,7 @@
                   <!-- Affichage de la date correspondante -->
                   <span id="sliderDate" style="display: block; margin-top: 10px; font-size: 1.2rem;">Year: 0</span>
               </div>
+
             <% end %>
             <button data-action="click->popup#openPopup">Submit answers</button>
 

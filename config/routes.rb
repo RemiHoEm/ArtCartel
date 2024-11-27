@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :games_artworks, only: [] do
     resources :challenges, only: [:new, :create] do
       post 'compare', on: :collection
+    end
   end
   resources :users_games, only: :show
 

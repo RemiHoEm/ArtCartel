@@ -64,7 +64,7 @@ export default class extends Controller {
   console.log("Lat: " + lat, "Lng: " + lng, "Artwork ID: " + this.artworkValue, "User Date: " + userDate);
     console.log(lat, lng, this.artworkValue, userDate);
     try {
-      const response = await fetch('/challenges/compare', {
+      const response = await fetch(`/games_artworks/${this.artworkValue}/challenges`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

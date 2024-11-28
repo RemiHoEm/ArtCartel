@@ -48,3 +48,48 @@ input[type="range"]:focus {
     font-size: 16px;
   }
 }
+
+.attrib {
+  color: #aaa;
+  font-size: 10px;
+}
+
+.btn-open {
+  position: absolute;
+  bottom: 10%;  /* Distance du bas de l'image */
+  right: 8%;   /* Distance du côté droit de l'image */
+  text-decoration: none;
+  background: #333;
+  color: white;
+  padding: 8px 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 2px solid white; /* Bordure blanche */
+  border-radius: 50px; /* Arrondi des bords */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block; /* Pour que le texte et le bouton soient centrés */
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+  transition: all;
+
+  &:hover {
+    background: #555; /* Changement de couleur au survol */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.btn-open img {
+  height: 30px;
+  weight: 30px;
+}
+
+.icon-img {
+  height: 5px;
+  weight: 5px;
+}

@@ -219,6 +219,7 @@ artwork10 = Artwork.create!(
   dimensions: "",
   materials: "",
   info_link: "https://en.wikipedia.org/wiki/Machu_Picchu",
+  attribution_licence: "Par icelight from Boston, MA, US — Before Machu Picchu, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=4200586"
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620097/Before_Machu_Picchu_corgsv.jpg").open
 artwork10.photo.attach(io: file, filename: "precoarchi.png", content_type: "image/png")
@@ -234,6 +235,7 @@ artwork11 = Artwork.create!(
   dimensions: "39 × 40 cm (14 m long)",
   materials: "amate",
   info_link: "https://en.wikipedia.org/wiki/Codex_Borbonicus",
+  attribution_licence: "Par Auteur inconnu — Codex Borbonicus from the Loubat collection : http://www.famsi.org/research/loubat/Borbonicus/thumbs0.html, Domaine public, https://commons.wikimedia.org/w/index.php?curid=88926447"
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/Borbonicus_Codex_p14_Wiki_iiy1mk.png").open
 artwork11.photo.attach(io: file, filename: "precopainting.png", content_type: "image/png")
@@ -309,6 +311,8 @@ artwork16 = Artwork.create!(
   dimensions: "",
   materials: "",
   info_link: "https://en.wikipedia.org/wiki/Forbidden_City",
+  attribution_licence: "De Viault - Trabajo propio, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=20498607"
+
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620103/La_cit%C3%A9_interdite_0244_dxmkqu.jpg").open
 artwork16.photo.attach(io: file, filename: "asianarchi.png", content_type: "image/png")
@@ -339,6 +343,7 @@ artwork18 = Artwork.create!(
   dimensions: "",
   materials: "",
   info_link: "https://en.wikipedia.org/wiki/Esther_Mahlangu",
+  attribution_licence: "De Viault - Trabajo propio, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=20498607",
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620103/The_entrance_gate_to_Esther_Mahlangu_s_homestead_jjo9jy.jpg").open
 artwork18.photo.attach(io: file, filename: "africanpainting.png", content_type: "image/png")
@@ -354,6 +359,7 @@ artwork19 = Artwork.create!(
   dimensions: "H.: 16 m",
   materials: "Adobe",
   info_link: "https://en.wikipedia.org/wiki/Great_Mosque_of_Djenn%C3%A9",
+  attribution_licence: "Par Andy Gilham — from [1] JCarriker (304322 bytes) (used with the permission of Andy Gilham of www.andygilham.com, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=165257",
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620887/Great_Mosque_of_Djenn%C3%A9_1_uxng2r.jpg").open
 artwork19.photo.attach(io: file, filename: "arficanarchi.png", content_type: "image/png")
@@ -384,6 +390,7 @@ artwork21 = Artwork.create!(
   dimensions: "6.21m x 9.79 m",
   materials: "Oil on canvas",
   info_link: "https://en.wikipedia.org/wiki/The_Coronation_of_Napoleon",
+  attribution_licence: "Par Jacques-Louis David — wartburg.edu, Domaine public, https://commons.wikimedia.org/w/index.php?curid=5719207",
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/Jacques-Louis_David__The_Coronation_of_Napoleon_sqabmc.jpg").open
 artwork21.photo.attach(io: file, filename: "europainting2.png", content_type: "image/png")
@@ -414,6 +421,7 @@ artwork23 = Artwork.create!(
   dimensions: "H.: 30 m",
   materials: "Limestone",
   info_link: "https://en.wikipedia.org/wiki/Chichen_Itza",
+  attribution_licence: "Par Fcb981 — Travail personnel, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=3953928",
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/1280px-El_Castillo_Stitch_2008_Edit_1_rylkrd.jpg").open
 artwork23.photo.attach(io: file, filename: "precoarchi2.png", content_type: "image/png")
@@ -429,6 +437,7 @@ artwork24 = Artwork.create!(
   dimensions: "H.: 20 m",
   materials: "Limestone",
   info_link: "https://en.wikipedia.org/wiki/Great_Sphinx_of_Giza",
+  attribution_licence: "Par Moh hakem — Travail personnel, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=51754051",
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/The_amazing_Sphinx_ujxkvr.jpg").open
 artwork24.photo.attach(io: file, filename: "egyptsculpt2.png", content_type: "image/png")

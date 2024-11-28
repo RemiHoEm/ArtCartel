@@ -5,7 +5,7 @@
               <% if (@artwork.artist == "anonyme") %>
                 <div class="p">Artist: Anonyme</div>
               <% else %>
-                <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess" %>
+                <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess", input_html: { data: {popup_target: "artist" } } %>
 
               <% end  %>
               <!-- Jauge de date avec plage de -3000 à 2024 -->
@@ -15,9 +15,9 @@
                   <!-- Affichage de la date correspondante -->
                   <span id="sliderDate" style="display: block; margin-top: 10px; font-size: 1.2rem;">Year: 0</span>
               </div>
+              <button data-action="click->popup#openPopup" type="submit">Submit answers</button>
 
             <% end %>
-            <button data-action="click->popup#openPopup">Submit answers</button>
 
             <script>
             function updateSliderValue(slider) {

@@ -24,7 +24,7 @@
 
                 <%= f.submit "Submit answers", class: "btn btn-primary", data: { action: "click->form-input#submit"} %>
            <% end %>
-            <button data-form-input-target="popup" data-action="click->popup#openPopup">Submit answers</button>
+            <button data-form-input-target="popup" class="d-none" data-action="click->popup#openPopup">Submit answers</button>
 
             <script>
             function updateSliderValue(slider) {

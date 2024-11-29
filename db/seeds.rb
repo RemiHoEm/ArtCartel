@@ -191,7 +191,7 @@ artwork8 = Artwork.create!(
   materials: "Walnut veneered with ebony, marquetry of engraved brass and tortoiseshell, gilt-bronze mounts, verd antique marble",
   info_link: "https://www.metmuseum.org/art/collection/search/206990",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732631986/DP108742_fqqket.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732881675/DP108742_q6w8qs.jpg").open
 artwork8.photo.attach(io: file, filename: "eurodeco.png", content_type: "image/png")
 
 artwork8.categories = [european, decorative, met]
@@ -455,7 +455,7 @@ artwork25 = Artwork.create!(
   materials: "Wood, pigments",
   info_link: "https://www.artic.edu/artworks/102611/veranda-post-opo-ogoga",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732715157/1984.550_-_Veranda_Post_%C3%92p%C3%B3_%C3%92g%C3%B2g%C3%A1_enazzk.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732881675/1984.550_-_Veranda_Post_%C3%92p%C3%B3_%C3%92g%C3%B2g%C3%A1_zupygv.jpg").open
 artwork25.photo.attach(io: file, filename: "africansculpt2.png", content_type: "image/png")
 
 artwork25.categories = [african, sculpture, chicago]

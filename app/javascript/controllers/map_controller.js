@@ -31,6 +31,10 @@ export default class extends Controller {
     this.#removeAllMarkers();
     await this.#addMarker(lng, lat);
     console.log(`Longitude: ${lng}, Latitude: ${lat}`);
+    let long = document.getElementById("longitude");
+    let lati = document.getElementById("latitude");
+    long.value= lng;
+    lati.value= lat;
 /*     this.#compareCoordinates(lat, lng);
  */  }
 
@@ -60,7 +64,7 @@ export default class extends Controller {
   console.log("Lat: " + lat, "Lng: " + lng, "Artwork ID: " + this.artworkValue, "User Date: " + userDate);
     console.log(lat, lng, this.artworkValue, userDate);
     try {
-      const response = await fetch('/challenges/compare', {
+      const response = await fetch(`/games_artworks/${this.artworkValue}/challenges`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

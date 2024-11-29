@@ -41,9 +41,11 @@ export default class extends Controller {
       let sentence = document.getElementById("pop-text");
       let score = document.getElementById('pop-score');
       let time = document.getElementById('pop-time');
-      sentence.textContent = `Vous êtes à ${data.distance} km de la bonne réponse. Votre Geoscore est de ${data.geoscore}`
-      score.textContent = data.total_score;
-      time.textContent = `Votre Time Score est de ${data.time_score}`
+      let artist = document.getElementById('artist-score');
+      sentence.textContent = `You are ${data.distance} km away. Geoscore : ${data.geoscore}`
+      score.textContent = `Total score : ${data.total_score}`;
+      time.textContent = `Time score : ${data.time_score}`
+      artist.textContent = `Artist score : ${data.artist_score}`
 
       let next = document.getElementById('next')
       let end = document.getElementById('end-game')

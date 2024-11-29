@@ -26,11 +26,6 @@ class ChallengesController < ApplicationController
   def create
     @games_artwork = GamesArtwork.find(params[:games_artwork_id])
     @challenge = Challenge.new(challenge_params)
-    # @challenge.update(artist: params[:artist] ? params[:artist] : "anonyme" )
-    # @challenge.games_artwork = @games_artwork
-    # if @artwork.artist == "anonyme"
-      # @challenge.artist = "anonyme"
-    # end
     game = @games_artwork.game
     users_game = UsersGame.find_by(game: game, user: current_user)
     @challenge.users_game = users_game
@@ -42,8 +37,11 @@ class ChallengesController < ApplicationController
       user_longitude = params[:longitude].to_f
       user_date = Date.new(params[:date].to_i) # Assurez-vous que la date est bien envoyée
       user_artist = params[:artist]
-      
+
       artwork = Artwork.find(@games_artwork.artwork.id)
+      fuzzy_artist = FuzzyMatch.new(Artwork.pluck(:artist))
+      corrected_artist_name = fuzzy_artist.find(user_artist)
+      artist_score = corrected_artist_name == artwork.artist ? 2000 : 0
 
       distance = haversine_distance(user_latitude, user_longitude, artwork.latitude, artwork.longitude)
       
@@ -52,7 +50,7 @@ class ChallengesController < ApplicationController
       
       time_score = calculate_time_score(user_date, artwork.creation_date)
 
-      total_score = geoscore + time_score
+      total_score = geoscore + time_score + artist_score
 
       @challenge.score = total_score
       if @challenge.save!
@@ -62,6 +60,7 @@ class ChallengesController < ApplicationController
           distance: distance.to_i,
           geoscore: geoscore.to_i,
           time_score: time_score.to_i,
+          artist_score: artist_score,
           total_score: total_score.to_i,
           is_last: @games_artwork.last?
         }, status: :ok

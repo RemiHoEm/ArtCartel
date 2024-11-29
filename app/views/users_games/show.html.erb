@@ -18,10 +18,7 @@
             <% end %>
             <div class="card-product-total d-flex justify-content-between p-2">
               <div class="div">
-                <%= # charts %>
-                <div class="card-product-infos">
-                  <p class="d-flex justify-content-center m-1 p-1">Informations about stats</p>
-                </div>
+                <%= column_chart({ @users_game.challenges[0].artwork.name => @users_game.challenges[0].score.to_i, @users_game.challenges[1].artwork.name => @users_game.challenges[1].score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].score.to_i, @users_game.challenges[4].artwork.name => @users_game.challenges[4].score.to_i }) %>
               </div>
               <div class="div ">
                 <h2 class="d-flex justify-content-center">total score</h2>

@@ -434,7 +434,7 @@ artwork24 = Artwork.create!(
   artist: "anonyme",
   latitude: 29.974670018453818,
   longitude: 31.138332170455136,
-  creation_date: 2545,
+  creation_date: -2545,
   dimensions: "H.: 20 m",
   materials: "Limestone",
   info_link: "https://en.wikipedia.org/wiki/Great_Sphinx_of_Giza",

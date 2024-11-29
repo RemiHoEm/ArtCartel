@@ -12,7 +12,7 @@
                 </div>
                 <div class="div">
                 <h2 class="fw-bold">score</h2>
-                <h2 class="fw-bolder"><%=challenge.score%></h2>
+                <h2 class="fw-bolder"><%=challenge.score.to_i%></h2>
                 </div>
               </div>
             <% end %>
@@ -25,7 +25,7 @@
               </div>
               <div class="div ">
                 <h2 class="d-flex justify-content-center">total score</h2>
-                <h2 class="total_score m-2 d-flex justify-content-center"><%= @users_game.total_score %></h2>
+                <h2 class="total_score m-2 d-flex justify-content-center"><%= @users_game.total_score.to_i %></h2>
               </div>
             </div>
             <div class="card-product-footer">

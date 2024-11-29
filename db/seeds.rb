@@ -1,3 +1,4 @@
+Challenge.destroy_all
 Category.destroy_all
 Artwork.destroy_all
 

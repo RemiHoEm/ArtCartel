@@ -24,7 +24,6 @@ class ChallengesController < ApplicationController
 
   #not finished yet, add pop up with result and answer and potentially more
   def create
-    puts params
     @games_artwork = GamesArtwork.find(params[:games_artwork_id])
     @challenge = Challenge.new(challenge_params)
     # @challenge.update(artist: params[:artist] ? params[:artist] : "anonyme" )
@@ -35,12 +34,9 @@ class ChallengesController < ApplicationController
     game = @games_artwork.game
     users_game = UsersGame.find_by(game: game, user: current_user)
     @challenge.users_game = users_game
-    puts @challenge
-    puts "n'importe quoi"
 
 
     if @challenge.save!
-      puts "heeerrrreee"
 
       user_latitude = params[:latitude].to_f
       user_longitude = params[:longitude].to_f
@@ -52,7 +48,6 @@ class ChallengesController < ApplicationController
       distance = haversine_distance(user_latitude, user_longitude, artwork.latitude, artwork.longitude)
       
 
-      puts "HHHHHH"
       geoscore = calculate_geoscore(distance)
       
       time_score = calculate_time_score(user_date, artwork.creation_date)
@@ -64,10 +59,10 @@ class ChallengesController < ApplicationController
       
         render json: { 
           artwork: { id: artwork.id, name: artwork.name, latitude: artwork.latitude, longitude: artwork.longitude },
-          distance: distance.round(2),
-          geoscore: geoscore.round(2),
-          time_score: time_score.round(2),
-          total_score: total_score,
+          distance: distance.to_i,
+          geoscore: geoscore.to_i,
+          time_score: time_score.to_i,
+          total_score: total_score.to_i,
           is_last: @games_artwork.last?
         }, status: :ok
 
@@ -150,8 +145,7 @@ class ChallengesController < ApplicationController
 
   def calculate_time_score(user_date, artwork_date)
     # Calculer la différence en jours
-    date_diff = (user_date.year - artwork_date.year).abs
-
+    date_diff = (user_date.year - artwork_date.to_i).abs
     # Paramètres de la formule (vous pouvez ajuster ces valeurs selon le besoin)
     max_score = 5000.0
     attenuation_factor = 0.1  # Moins affecté par de grandes différences de date que la distance géographique

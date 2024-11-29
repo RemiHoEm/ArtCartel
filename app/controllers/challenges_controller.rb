@@ -29,7 +29,7 @@ class ChallengesController < ApplicationController
     game = @games_artwork.game
     users_game = UsersGame.find_by(game: game, user: current_user)
     @challenge.users_game = users_game
-
+    @challenge.games_artwork = @games_artwork
 
     if @challenge.save!
 
@@ -44,18 +44,18 @@ class ChallengesController < ApplicationController
       artist_score = corrected_artist_name == artwork.artist ? 2000 : 0
 
       distance = haversine_distance(user_latitude, user_longitude, artwork.latitude, artwork.longitude)
-      
+
 
       geoscore = calculate_geoscore(distance)
-      
+
       time_score = calculate_time_score(user_date, artwork.creation_date)
 
       total_score = geoscore + time_score + artist_score
 
       @challenge.score = total_score
       if @challenge.save!
-      
-        render json: { 
+
+        render json: {
           artwork: { id: artwork.id, name: artwork.name, latitude: artwork.latitude, longitude: artwork.longitude },
           distance: distance.to_i,
           geoscore: geoscore.to_i,

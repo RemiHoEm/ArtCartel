@@ -11,6 +11,7 @@ export default class extends Controller {
   // Gather all data from the form
   async submit(event) {
     event.preventDefault();
+    console.log('test')
     let long = document.getElementById("longitude").value;
     let lati = document.getElementById("latitude").value;
     let art = document.getElementById("artist").value;
@@ -26,14 +27,14 @@ export default class extends Controller {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-          body: JSON.stringify({ latitude: lati, longitude: long, games_artwork_id: gameArtworkId, date: date, artist: art   }) 
+          body: JSON.stringify({ latitude: lati, longitude: long, games_artwork_id: gameArtworkId, date: date, artist: art   })
       });
-  
+
       if (!response.ok) {
         console.error('Erreur lors de la comparaison');
         return;
       }
-  
+
       const data = await response.json();
 
       console.log(data);

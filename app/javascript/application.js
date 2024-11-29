@@ -4,5 +4,5 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 
-import FormInputController from "./controllers/form_input.js"
-Stimulus.register("form-input", FormInputController)
+// import FormInputController from "./controllers/form_input.js"
+// Stimulus.register("form-input", FormInputController)

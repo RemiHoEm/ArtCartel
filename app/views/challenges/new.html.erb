@@ -10,7 +10,15 @@
           <p><%=@artwork.dimensions%></p>
           <p><%=@artwork.museum%></p>
         </div>
-          <%= image_tag @artwork.photo, class: "d-block w-40 img-fluid rounded d-flex position-relative d-flex", alt: "Photo of #{@artwork.name}" %>
+        <div class="div" style="position: relative;" >
+          <%= image_tag @artwork.photo,  class: "d-block w-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
+          <div class="p attrib"><%= @artwork.attribution_licence %></div>
+          <div class="options-section">
+            <button type="button" class="btn-open" data-bs-toggle="modal" data-bs-target="#categoryModal">
+              <img src="<%= asset_path('map.png') %>" alt="Categories Icon" class="icon-img">
+            </button>
+          </div>
+        </div>
 
                 <%# <div id="distance-message" style="text-align: center; margin-top: 20px;"></div>
                 <div id="time-message" style="text-align: center; margin-top: 20px;"> %>

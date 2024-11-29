@@ -8,6 +8,7 @@
                 <div class="p">Artist: Anonyme</div>
                 <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess", input_html: { id: 'artist', class: "d-none", value: "Anonyme" } %>
               <% else %>
+
                 <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess", input_html: { id: 'artist' } %>
 
               <% end  %>
@@ -18,6 +19,7 @@
                   <!-- Affichage de la date correspondante -->
                   <span id="sliderDate" style="display: block; margin-top: 10px; font-size: 1.2rem;">Year: 0</span>
               </div>
+
                     <!-- Affichage de la date correspondante -->                
 
                 <%= f.submit "Submit answers", class: "btn btn-primary", data: { action: "click->form-input#submit"} %>

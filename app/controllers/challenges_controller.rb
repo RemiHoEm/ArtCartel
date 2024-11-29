@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:compare]
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   #not finished, need to add the logic that we do not show same artwork in one game & not only artworks from one category
   def new
@@ -13,6 +13,7 @@ class ChallengesController < ApplicationController
       }]
     game = @games_artwork.game
     users_game = UsersGame.find_by(game: game, user: current_user)
+    @users_game = users_game
     if @games_artwork.last?
       @next_page_path = users_game_path(users_game)
     else
@@ -25,56 +26,82 @@ class ChallengesController < ApplicationController
   def create
     @games_artwork = GamesArtwork.find(params[:games_artwork_id])
     @challenge = Challenge.new(challenge_params)
-    @challenge.games_artwork = @games_artwork
     game = @games_artwork.game
     users_game = UsersGame.find_by(game: game, user: current_user)
     @challenge.users_game = users_game
-    if @challenge.save
-      if @games_artwork.last?
-        # TODO => redirect to score page
-        # redirect_to users_game_path(users_game)
+
+
+    if @challenge.save!
+
+      user_latitude = params[:latitude].to_f
+      user_longitude = params[:longitude].to_f
+      user_date = Date.new(params[:date].to_i) # Assurez-vous que la date est bien envoyée
+      user_artist = params[:artist]
+
+      artwork = Artwork.find(@games_artwork.artwork.id)
+      fuzzy_artist = FuzzyMatch.new(Artwork.pluck(:artist))
+      corrected_artist_name = fuzzy_artist.find(user_artist)
+      artist_score = corrected_artist_name == artwork.artist ? 2000 : 0
+
+      distance = haversine_distance(user_latitude, user_longitude, artwork.latitude, artwork.longitude)
+      
+
+      geoscore = calculate_geoscore(distance)
+      
+      time_score = calculate_time_score(user_date, artwork.creation_date)
+
+      total_score = geoscore + time_score + artist_score
+
+      @challenge.score = total_score
+      if @challenge.save!
+      
+        render json: { 
+          artwork: { id: artwork.id, name: artwork.name, latitude: artwork.latitude, longitude: artwork.longitude },
+          distance: distance.to_i,
+          geoscore: geoscore.to_i,
+          time_score: time_score.to_i,
+          artist_score: artist_score,
+          total_score: total_score.to_i,
+          is_last: @games_artwork.last?
+        }, status: :ok
+
       else
-        # redirect_to new_games_artwork_challenge_path(game.games_artworks.find_by(position: @games_artwork.position + 1))
+        render :new, status: :unprocessable_entity
       end
-    else
-      @artwork = @games_artwork.artwork
-      @markers =
-        [{
-          lat: @artwork.latitude,
-          lng: @artwork.longitude
-        }]
-      render :new, status: :unprocessable_entity
+
+      #if @games_artwork.last?
+        #redirect_to users_game_path(users_game)
+      #else
+       # redirect_to new_games_artwork_challenge_path(game.games_artworks.find_by(position: @games_artwork.position + 1))
     end
+    # else
+    #   @artwork = @games_artwork.artwork
+    #   @markers =
+    #     [{
+    #       lat: @artwork.latitude,
+    #       lng: @artwork.longitude
+    #     }]
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
 
-  def compare
-    Rails.logger.debug "Params: #{params.inspect}"  # Affiche les paramètres dans les logs
+  #def compare
+    #Rails.logger.debug "Params: #{params.inspect}"  # Affiche les paramètres dans les logs
     # Coordonnées envoyées par Stimulus
-    user_latitude = params[:latitude].to_f
-    user_longitude = params[:longitude].to_f
-    user_date = Date.new(params[:date].to_i) # Assurez-vous que la date est bien envoyée
 
-      Rails.logger.debug "User date: #{user_date}, Latitude: #{user_latitude}, Longitude: #{user_longitude}"
+      #Rails.logger.debug "User date: #{user_date}, Latitude: #{user_latitude}, Longitude: #{user_longitude}"
 
     # Récupérer l'œuvre active (par exemple via session ou autre logique)
-    artwork = Artwork.find(params[:artwork_id].to_i)
+
+
 
     # Calculer la distance entre le point cliqué et l'œuvre
-    distance = haversine_distance(user_latitude, user_longitude, artwork.latitude, artwork.longitude)
     # Calculer le Geoscore
-    geoscore = calculate_geoscore(distance)
 
-    time_score = calculate_time_score(user_date, artwork.creation_date)
 
     # Renvoyer la distance et le score
-    render json: { 
-      artwork: { id: artwork.id, name: artwork.name, latitude: artwork.latitude, longitude: artwork.longitude },
-      distance: distance.round(2),
-      geoscore: geoscore.round(2),
-      time_score: time_score.round(2)
-    }, status: :ok
-  end
+  #end
 
   #def create
   #  @challenge = Challenge.new(challenge_params)
@@ -89,7 +116,7 @@ class ChallengesController < ApplicationController
   private
 
   def challenge_params
-    params.require(:challenge).permit(:artist, :creation_date, :longitude, :latitude)
+    params.require(:challenge).permit(:artist, :date, :longitude, :latitude, :games_artwork_id)
   end
 
   def haversine_distance(lat1, lon1, lat2, lon2)
@@ -117,8 +144,7 @@ class ChallengesController < ApplicationController
 
   def calculate_time_score(user_date, artwork_date)
     # Calculer la différence en jours
-    date_diff = (user_date.year - artwork_date.year).abs
-
+    date_diff = (user_date.year - artwork_date.to_i).abs
     # Paramètres de la formule (vous pouvez ajuster ces valeurs selon le besoin)
     max_score = 5000.0
     attenuation_factor = 0.1  # Moins affecté par de grandes différences de date que la distance géographique

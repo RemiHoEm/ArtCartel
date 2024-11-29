@@ -1,11 +1,16 @@
 <div class="container">
     <div class="row">
         <div class="col-12" data-controller="form-input">
-            <%= simple_form_for([@games_artwork, @challenge]) do |f| %>
+            <%= simple_form_for([@games_artwork, @challenge], html: { data: { "form-input-target": "form", "games-artwork-id": @games_artwork.id } } )  do |f| %>
+              <%= f.input :latitude, as: :hidden, input_html: { id: 'latitude' } %>
+              <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude' } %>
               <% if (@artwork.artist == "anonyme") %>
                 <div class="p">Artist: Anonyme</div>
+                <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess", input_html: { id: 'artist', class: "d-none", value: "Anonyme" } %>
               <% else %>
-                <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess" %>
+
+                <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess", input_html: { id: 'artist' } %>
+
               <% end  %>
               <!-- Jauge de date avec plage de -3000 à 2024 -->
               <div style="position: relative;">
@@ -14,10 +19,12 @@
                   <!-- Affichage de la date correspondante -->
                   <span id="sliderDate" style="display: block; margin-top: 10px; font-size: 1.2rem;">Year: 0</span>
               </div>
+
+                    <!-- Affichage de la date correspondante -->                
+
                 <%= f.submit "Submit answers", class: "btn btn-primary", data: { action: "click->form-input#submit"} %>
            <% end %>
             <button data-form-input-target="popup" data-action="click->popup#openPopup">Submit answers</button>
-
 
             <script>
             function updateSliderValue(slider) {

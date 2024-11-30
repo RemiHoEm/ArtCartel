@@ -43,7 +43,7 @@ export default class extends Controller {
       let score = document.getElementById('pop-score');
       let time = document.getElementById('pop-time');
       let artist = document.getElementById('artist-score');
-      sentence.textContent = `You are ${data.distance} km away. Geoscore : ${data.geoscore}`
+      sentence.textContent = `You are ${data.distance} km away.  Geoscore : ${data.geoscore}`
       score.textContent = `Total score : ${data.total_score}`;
       time.textContent = `Time score : ${data.time_score}`
       artist.textContent = `Artist score : ${data.artist_score}`

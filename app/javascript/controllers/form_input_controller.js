@@ -79,6 +79,18 @@ export default class extends Controller {
         document.getElementById('incorrect_date').classList.remove('d-none');
       }
 
+      if (data.total_score > 9600) {
+        document.getElementById('fivestar').classList.remove('d-none');
+      } else if (data.total_score > 7200 && data.total_score <= 9600) {
+        document.getElementById('fourstar').classList.remove('d-none');
+      } else if (data.total_score > 4800 && data.total_score <= 7200) {
+        document.getElementById('threestar').classList.remove('d-none');
+      } else if (data.total_score > 2400 && data.total_score <= 4800) {
+        document.getElementById('twostar').classList.remove('d-none');
+      } else {
+        document.getElementById('onestar').classList.remove('d-none');
+      };
+
       // Afficher la distance
       // const distanceMessageElement = document.getElementById('distance-message');
       // distanceMessageElement.textContent = `Vous êtes à ${data.distance} km de la bonne réponse. Votre Geoscore est de ${data.geoscore}. Votre Time Score est de ${data.time_score}.`;

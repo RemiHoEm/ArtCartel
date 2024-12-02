@@ -2,6 +2,41 @@
   <div data-controller="popup">
     <div class="row" id="background">
       <div class="col-12">
+
+        <!-- Header Section -->
+        <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+          <h1><%= @artwork.name %></h1>
+        </div>
+        <!-- Details Section -->
+        <div style="display: flex; gap: 10px; justify-content: center;">
+          <p><%= @artwork.materials %></p>
+          <p><%= @artwork.dimensions %></p>
+          <p><%= @artwork.museum %></p>
+        </div>
+        <!-- Artwork Image Section -->
+        <div style="position: relative;">
+          <%= image_tag @artwork.photo, class: "d-block w-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
+          <div class="p attrib"><%= @artwork.attribution_licence %></div>
+          <!-- Attribution Toggle -->
+          <div id="toggleButton" class="mb-1">attribution licence</div>
+          <div id="attribution" class="p attrib" style="display:none;">
+            <%= @artwork.attribution_licence %>
+          </div>
+          <!-- Script for Toggle -->
+          <script>
+            const toggleButton = document.getElementById('toggleButton');
+            const attributionElement = document.getElementById('attribution');
+
+            toggleButton.addEventListener('click', function () {
+              if (attributionElement.style.display === 'none') {
+                attributionElement.style.display = 'block';
+              } else {
+                attributionElement.style.display = 'none';
+              }
+            });
+          </script>
+          <!-- Options Section -->
+
         <div class="jauge">
           <% if @games_artwork.first? %>
             <%= image_tag('barre1.png')%>
@@ -27,6 +62,8 @@
             </button>
           </div>
         </div>
+
+        <!-- Map Section -->
           <% if @artwork.attribution_licence.present? %>
             <div id="toggleButton">attribution licence</div>
             <div id="attribution" class="p attrib" style="display:none;">
@@ -66,8 +103,6 @@
           <div class="info">Conservation site : <%=@artwork.museum%></div>
         </div>
 
-
-
         <div
           style="width: 100%; height: 100%;"
           data-controller="map"
@@ -81,10 +116,11 @@
     <!-- Popup Section -->
     <div data-popup-target="rootPopup" class="my-popup">
       <div class="my-popup-content d-flex flex-column">
+        <!-- Results Header -->
         <div>
           <h2 class="p-2 text-center">Your results</h2>
-          <%= image_tag @artwork.photo, class: "img-popup d-block h-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
         </div>
+        <!-- Popup Map -->
         <div class="d-flex flex-column justify-content-center">
           <div
 
@@ -97,17 +133,16 @@
             data-artwork-coordinates-value="<%= @artwork_coordinates.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
-          
-          <div class="card-pop-up mt-2">
-            <p class="text-center" id="pop-text"></p>
-            <p class="text-center" id="geo-score"></p>
+        <div class="all-results">
+          <div class="card-pop-up-long">
+            <div class="text-center" id="pop-text" style="margin-bottom: 0;"></div>
+            <div class="text-center" id="geo-score" style="margin-bottom: 0;"></div>
           </div>
-        </div>
-
+        <!-- Artist and Date Details -->
         <div class="d-flex flex-column">
-          <div class="text_popup_answer p-2 d-flex flex-row">
+          <div class="text_popup_answer d-flex flex-row">
             <!-- Artist Section -->
-            <div class="card-pop-up p-1">
+            <div class="card-pop-up">
               <div id="correct_artist" class="d-none">
                 <p class="mb-auto text-center correct-answer"><b><%= @artwork.artist %></b></p>
               </div>
@@ -117,29 +152,46 @@
               </div>
               <p class="p text-center" id="artist-score"></p>
             </div>
-
             <!-- Date Section -->
-            <div class="card-pop-up p-1">
+            <div class="card-pop-up">
               <div id="correct_date" class="d-none">
                 <p class="mb-auto text-center correct-answer"><b><%= @artwork.creation_date %></b></p>
               </div>
-              <div id="incorrect_date", class="d-none">
+              <div id="incorrect_date" class="d-none">
                 <p class="mb-auto text-center false-answer" id="date-guess"></p>
                 <p class="mb-auto text-center correct-answer"><b><%= @artwork.creation_date %></b></p>
               </div>
               <p class="text-center" id="pop-time"></p>
             </div>
           </div>
-
-          <!-- Total Score -->
-          <div class="h2 fw-bold me-3 p-2 text-center p-4" id="pop-score"></div>
         </div>
-
-        <!-- Buttons -->
-        <div class="d-flex justify-content-around">
-          <a class="btn btn-primary" target="_blank" href="<%= @artwork.info_link %>">More Info</a>
-          <%= link_to "Next", @next_page_path, class: "my-popup-close-btn btn-custom text-decoration-none", id: 'next' %>
-          <%= link_to "End Game", users_game_path(@users_game), class: "my-popup-close-btn btn-custom text-decoration-none d-none", id: 'end-game' %>
+        <!-- Total Score Section -->
+        <div class="card-pop-up-long d-flex flex-column justify-content-center">
+          <div class="fw-bold text-center" id="pop-score"></div>
+          <!-- Star Ratings -->
+          <div class="d-none " id="fivestar" style="align-self: center;">
+            <%= image_tag("etoileargent5.png", style: "height: 30px !important; width: 150px;") %>
+          </div>
+          <div class="d-none " id="fourstar" style="align-self: center;">
+            <%= image_tag("etoileargent4.png", style: "height: 30px !important; width: 150px;") %>
+          </div>
+          <div class="d-none" id="threestar" style="align-self: center;">
+            <%= image_tag("etoileargent3.png", style: "height: 30px !important; width: 150px;") %>
+          </div>
+          <div class="d-none" id="twostar" style="align-self: center;">
+            <%= image_tag("etoileargent2.png", style: "height: 30px !important; width: 150px;") %>
+          </div>
+          <div class="d-none" id="onestar" style="align-self: center;">
+            <%= image_tag("etoileargent1.png", style: "height: 30px !important; width: 150px;") %>
+          </div>
+        </div>
+        <!-- Buttons Section -->
+        <div class="d-flex justify-content-around p-2">
+          <a class="btn btn-ghost" target="_blank" href="<%= @artwork.info_link %>">More Info</a>
+          <%= link_to "Next", @next_page_path, class: "my-popup-close-btn btn btn-ghost text-decoration-none", id: 'next' %>
+          <%= link_to "End Game", users_game_path(@users_game), class: "my-popup-close-btn btn btn-custom text-decoration-none d-none", id: 'end-game' %>
+        </div>
+        </div>
         </div>
       </div>
     </div>

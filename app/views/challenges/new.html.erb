@@ -3,38 +3,6 @@
     <div class="row" id="background">
       <div class="col-12">
 
-        <!-- Header Section -->
-        <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
-          <h1><%= @artwork.name %></h1>
-        </div>
-        <!-- Details Section -->
-        <div style="display: flex; gap: 10px; justify-content: center;">
-          <p><%= @artwork.materials %></p>
-          <p><%= @artwork.dimensions %></p>
-          <p><%= @artwork.museum %></p>
-        </div>
-        <!-- Artwork Image Section -->
-        <div style="position: relative;">
-          <%= image_tag @artwork.photo, class: "d-block w-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
-          <div class="p attrib"><%= @artwork.attribution_licence %></div>
-          <!-- Attribution Toggle -->
-          <div id="toggleButton" class="mb-1">attribution licence</div>
-          <div id="attribution" class="p attrib" style="display:none;">
-            <%= @artwork.attribution_licence %>
-          </div>
-          <!-- Script for Toggle -->
-          <script>
-            const toggleButton = document.getElementById('toggleButton');
-            const attributionElement = document.getElementById('attribution');
-
-            toggleButton.addEventListener('click', function () {
-              if (attributionElement.style.display === 'none') {
-                attributionElement.style.display = 'block';
-              } else {
-                attributionElement.style.display = 'none';
-              }
-            });
-          </script>
           <!-- Options Section -->
 
         <div class="jauge">
@@ -104,7 +72,7 @@
         </div>
 
         <div
-          style="width: 100%; height: 100%;"
+          style="width: 100%; height: 250px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

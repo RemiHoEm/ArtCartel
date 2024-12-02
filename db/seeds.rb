@@ -89,7 +89,7 @@ artwork1.photo.attach(io: file, filename: "egyptianarchi.png", content_type: "im
 artwork1.categories = [egyptian, architecture, insitu]
 
 artwork2 = Artwork.create!(
-  name: "Senwosret III as a Sphinx",
+  name: "Pharaoh as a Sphinx",
   artist: "anonyme",
   latitude: 25.7177778,
   longitude: 32.657777777777774,
@@ -120,7 +120,7 @@ artwork3.photo.attach(io: file, filename: "egyptianpainting.png", content_type: 
 artwork3.categories = [egyptian, painting, british]
 
 artwork4 = Artwork.create!(
-  name: "Hippopotamus (William)",
+  name: "Hippopotamus",
   artist: "anonyme",
   latitude: 27.4088889,
   longitude: 30.710555555555555,
@@ -135,7 +135,7 @@ artwork4.photo.attach(io: file, filename: "egyptiandeco.png", content_type: "ima
 artwork4.categories = [egyptian, decorative, met]
 
 artwork5 = Artwork.create!(
-  name: "Self-Portrait with a Straw Hat",
+  name: "Self-Portrait",
   artist: "Vincent van Gogh",
   latitude: 48.85335676330977,
   longitude: 2.34886825787723,
@@ -244,7 +244,7 @@ artwork11.photo.attach(io: file, filename: "precopainting.png", content_type: "i
 artwork11.categories = [preco, painting, assemblée]
 
 artwork12 = Artwork.create!(
-  name: "Relief with enthroned ruler",
+  name: "Relief with ruler",
   artist: "anonyme",
   latitude: 17.3273045,
   longitude: -89.9805902,
@@ -336,7 +336,7 @@ artwork17.photo.attach(io: file, filename: "africansculpture.png", content_type:
 artwork17.categories = [african, sculpture, chicago]
 
 artwork18 = Artwork.create!(
-  name: "Ndebele painted house",
+  name: "Painted house",
   artist: "Esther Mahlangu",
   latitude: -25.1323547,
   longitude: 29.0740855,
@@ -352,7 +352,7 @@ artwork18.photo.attach(io: file, filename: "africanpainting.png", content_type: 
 artwork18.categories = [african, painting, insitu]
 
 artwork19 = Artwork.create!(
-  name: "Great Mosque of Djenné",
+  name: "Great Mosque",
   artist: "Ismaïla Traoré",
   latitude: 13.9051631,
   longitude: -4.5548581,
@@ -368,7 +368,7 @@ artwork19.photo.attach(io: file, filename: "arficanarchi.png", content_type: "im
 artwork19.categories = [african, architecture, insitu]
 
 artwork20 = Artwork.create!(
-  name: "Queen Mother Pendant Mask: Iyoba",
+  name: "Pendant Mask",
   artist: "anonyme",
   latitude: 6.3330586,
   longitude: 5.6221058,

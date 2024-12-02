@@ -10,15 +10,43 @@
           <p><%= @artwork.dimensions %></p>
           <p><%= @artwork.museum %></p>
         </div>
+
         <div style="position: relative;">
           <%= image_tag @artwork.photo, class: "d-block w-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
           <div class="p attrib"><%= @artwork.attribution_licence %></div>
+
+        <div class="div" style="position: relative;" >
+          <%= image_tag @artwork.photo,  class: "d-block w-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
+          <div id="toggleButton" class="mb-1">attribution licence</div>
+          <div id="attribution" class="p attrib" style="display:none;">
+            <%= @artwork.attribution_licence %>
+          </div>
+
+          <script>
+            // Sélectionner le bouton et l'élément à masquer/afficher
+            const toggleButton = document.getElementById('toggleButton');
+            const attributionElement = document.getElementById('attribution');
+
+            // Ajouter un gestionnaire d'événements pour le bouton
+            toggleButton.addEventListener('click', function() {
+              // Vérifier l'état actuel de l'élément
+              if (attributionElement.style.display === 'none') {
+              // Si l'élément est caché, l'afficher
+                attributionElement.style.display = 'block';
+              } else {
+              // Si l'élément est visible, le cacher
+                attributionElement.style.display = 'none';
+              }
+            });
+          </script>
+
           <div class="options-section">
             <button type="button" class="btn-open" data-bs-toggle="modal" data-bs-target="#categoryModal">
               <img src="<%= asset_path('map.png') %>" alt="Categories Icon" class="icon-img">
             </button>
           </div>
         </div>
+
         <div
           style="width: 100%; height: 100%;"
           data-controller="map"
@@ -43,6 +71,7 @@
             data-map-markers-value="<%= @markers.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
+          
           <div class="card-pop-up mt-2">
             <p class="text-center" id="pop-text"></p>
             <p class="text-center" id="geo-score"></p>

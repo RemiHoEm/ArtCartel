@@ -52,6 +52,9 @@ class ChallengesController < ApplicationController
 
       total_score = geoscore + time_score + artist_score
 
+      @challenge.artist_score = artist_score
+      @challenge.time_score = time_score
+      @challenge.geo_score = geoscore
       @challenge.score = total_score
 
       # Display in pop-up depending on answers of user
@@ -155,7 +158,7 @@ class ChallengesController < ApplicationController
     date_diff = (user_date.year - artwork_date.to_i).abs
     # Paramètres de la formule (vous pouvez ajuster ces valeurs selon le besoin)
     max_score = 5000.0
-    attenuation_factor = 0.1  # Moins affecté par de grandes différences de date que la distance géographique
+    attenuation_factor = 0.9  # Moins affecté par de grandes différences de date que la distance géographique
     scaling_factor = 365.0    # Comparer sur l'échelle des jours dans une année (365 jours)
 
     # Calculer le Time Score basé sur la différence de date

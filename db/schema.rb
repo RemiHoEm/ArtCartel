@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_27_142837) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_02_100706) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,6 +82,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_27_142837) do
     t.datetime "updated_at", null: false
     t.bigint "users_game_id", null: false
     t.bigint "games_artwork_id", null: false
+    t.float "time_score"
+    t.float "geo_score"
+    t.float "artist_score"
     t.index ["games_artwork_id"], name: "index_challenges_on_games_artwork_id"
     t.index ["users_game_id"], name: "index_challenges_on_users_game_id"
   end

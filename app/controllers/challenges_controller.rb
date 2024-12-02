@@ -45,8 +45,8 @@ class ChallengesController < ApplicationController
 
       distance = haversine_distance(user_latitude, user_longitude, artwork.latitude, artwork.longitude)
 
-
       geoscore = calculate_geoscore(distance)
+      puts "This is my #{geoscore}"
 
       time_score = calculate_time_score(user_date, artwork.creation_date)
 
@@ -56,6 +56,12 @@ class ChallengesController < ApplicationController
       @challenge.time_score = time_score
       @challenge.geo_score = geoscore
       @challenge.score = total_score
+
+      # Display in pop-up depending on answers of user
+      @correct_artist_name = corrected_artist_name == artwork.artist
+
+      @correct_date = user_date == artwork.creation_date
+
       if @challenge.save!
 
         render json: {
@@ -65,7 +71,9 @@ class ChallengesController < ApplicationController
           time_score: time_score.to_i,
           artist_score: artist_score,
           total_score: total_score.to_i,
-          is_last: @games_artwork.last?
+          is_last: @games_artwork.last?,
+          correct_artist_name: @correct_artist_name,
+          correct_date: @correct_date
         }, status: :ok
 
       else
@@ -119,7 +127,7 @@ class ChallengesController < ApplicationController
   private
 
   def challenge_params
-    params.require(:challenge).permit(:artist, :date, :longitude, :latitude, :games_artwork_id)
+    params.require(:challenge).permit(:artist, :creation_date, :longitude, :latitude, :games_artwork_id)
   end
 
   def haversine_distance(lat1, lon1, lat2, lon2)

@@ -1,17 +1,17 @@
 <div class="container">
   <div data-controller="popup">
-    <div class="row">
+    <div class="row" id="background">
       <div class="col-12">
         <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
-          <h1><%=@artwork.name%></h1>
+          <h1><%= @artwork.name %></h1>
         </div>
-        <div style="display: flex; gap: 10px; flex; justify-content: center;">
-          <p><%=@artwork.materials%></p>
-          <p><%=@artwork.dimensions%></p>
-          <p><%=@artwork.museum%></p>
+        <div style="display: flex; gap: 10px; justify-content: center;">
+          <p><%= @artwork.materials %></p>
+          <p><%= @artwork.dimensions %></p>
+          <p><%= @artwork.museum %></p>
         </div>
-        <div class="div" style="position: relative;" >
-          <%= image_tag @artwork.photo,  class: "d-block w-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
+        <div style="position: relative;">
+          <%= image_tag @artwork.photo, class: "d-block w-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
           <div class="p attrib"><%= @artwork.attribution_licence %></div>
           <div class="options-section">
             <button type="button" class="btn-open" data-bs-toggle="modal" data-bs-target="#categoryModal">
@@ -19,63 +19,74 @@
             </button>
           </div>
         </div>
-
-                <%# <div id="distance-message" style="text-align: center; margin-top: 20px;"></div>
-                <div id="time-message" style="text-align: center; margin-top: 20px;"> %>
-                 <%# <%= @time_message %>
-              <%#   </div> %> 
-               
-          <div style="width: 100%; height: 100%;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-          <%= render "layouts/form-game", game: @game%>
+        <div
+          style="width: 100%; height: 100%;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+        <%= render "layouts/form-game", game: @game %>
       </div>
     </div>
+
+    <!-- Popup Section -->
     <div data-popup-target="rootPopup" class="my-popup">
-      <div class="my-popup-content">
-        <div class="map_txt_popup_answer div">
+      <div class="my-popup-content d-flex flex-column">
+        <div>
+          <h2 class="p-2 text-center">Your results</h2>
+          <%= image_tag @artwork.photo, class: "img-popup d-block h-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
+        </div>
+        <div class="d-flex flex-column justify-content-center">
           <div
-            class= "map_popup_answer"
-            style="width: 100%; height: 180px;"
+            style="height: 300px; width: 100%;"
             data-controller="map"
             data-map-markers-value="<%= @markers.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
-          <div class="div text_popup_answer">
-            <p class="fw-bold mb-auto"><%=@artwork.artist%></p>
-            <div class="p" id="artist-score"></div>
-            <p class="fw-bold mb-auto"><%=@artwork.creation_date%></p>
-           <div class="div" id="pop-time"></div>
-           </div>
+          <div class="card-pop-up mt-2">
+            <p class="text-center" id="pop-text"></p>
+            <p class="text-center" id="geo-score"></p>
+          </div>
         </div>
-        <div class="div d-flex justify-content-between">
-          
-      <div class="h3 ms-3" id="pop-text"></div>
-          <div class="h2 fw-bold me-3" id="pop-score"></div>
+
+        <div class="d-flex flex-column">
+          <div class="text_popup_answer p-2 d-flex flex-row">
+            <!-- Artist Section -->
+            <div class="card-pop-up p-1">
+              <div id="correct_artist" class="d-none">
+                <p class="mb-auto text-center correct-answer"><b><%= @artwork.artist %></b></p>
+              </div>
+              <div id="incorrect_artist" class="d-none">
+                <p class="mb-auto text-center false-answer" id="artist-guess"></p>
+                <p class="mb-auto text-center correct-answer"><b><%= @artwork.artist %></b></p>
+              </div>
+              <p class="p text-center" id="artist-score"></p>
+            </div>
+
+            <!-- Date Section -->
+            <div class="card-pop-up p-1">
+              <div id="correct_date" class="d-none">
+                <p class="mb-auto text-center correct-answer"><b><%= @artwork.creation_date %></b></p>
+              </div>
+              <div id="incorrect_date", class="d-none">
+                <p class="mb-auto text-center false-answer" id="date-guess"></p>
+                <p class="mb-auto text-center correct-answer"><b><%= @artwork.creation_date %></b></p>
+              </div>
+              <p class="text-center" id="pop-time"></p>
+            </div>
+          </div>
+
+          <!-- Total Score -->
+          <div class="h2 fw-bold me-3 p-2 text-center p-4" id="pop-score"></div>
         </div>
-        <div class="div footer_popup_answer d-flex justify-content-between p-6">
-          <a class="btn btn-primary" target="_blank" href="<%=@artwork.info_link%>">more info</a>
-          <%= link_to "Next",
-          @next_page_path,
-          class:"my-popup-close-btn btn-custom text-decoration-none", id: 'next' %>
-          <%= link_to "End game",
-          users_game_path(@users_game),
-          class:"my-popup-close-btn btn-custom text-decoration-none d-none", id: 'end-game' %>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-around">
+          <a class="btn btn-primary" target="_blank" href="<%= @artwork.info_link %>">More Info</a>
+          <%= link_to "Next", @next_page_path, class: "my-popup-close-btn btn-custom text-decoration-none", id: 'next' %>
+          <%= link_to "End Game", users_game_path(@users_game), class: "my-popup-close-btn btn-custom text-decoration-none d-none", id: 'end-game' %>
         </div>
-       <%#  // RENDER THIS BUTTTON IF FALSE OR RENDER THE END BUTTON IF TRUE :
-        // PUT AN ID ON EACH BUTTON, IN THE STIMULUS CONTROLLER D-NONE THE RIGHT ONE AFTER THE RESPONSE %>
       </div>
     </div>
-  </div>
-</div>
-
-
-
-
-
-
-
   </div>
 </div>

@@ -19,6 +19,9 @@
   visibility: visible;
   opacity: 1;
   transition: opacity 0.3s ease, visibility 0s linear;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  z-index: 2;
 }
 
 
@@ -40,11 +43,13 @@
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 280px;
-  width: 80%;
+  top: 40px;
+  bottom: 40px;
+  width: 90%;
   background: white;
   padding: 10px;
   padding-bottom: 10px;
+  border-radius: 20px;
 
 }
 
@@ -87,7 +92,38 @@
 }
 
 .map_txt_popup_answer {
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
+}
+
+.card-pop-up {
+  border-radius: 5%;
+  background-color: whitesmoke;
+  width: 95%;
+  height: 80px;
+  align-self: center;
+  margin: 2px;
+}
+
+.correct-answer {
+  color: green;
+}
+
+.false-answer {
+  color: darkred;
+  text-decoration: line-through;
+}
+
+.img-popup {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 150px;
+  margin-bottom: 4px;
+  object-fit: scale-down;
+}
+
+.fade {
+  background-color: rgba(255,255,255,0.5) !important;
 }

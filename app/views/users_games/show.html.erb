@@ -30,51 +30,43 @@
                 </div>
               </div>
             <% end %>
-            <div class="card-product-total d-flex justify-content-between p-2">
-              <div class="div">
-                <%= column_chart(
-                  {
-                    @users_game.challenges[0].artwork.name => @users_game.challenges[0].score.to_i,
-                    @users_game.challenges[1].artwork.name => @users_game.challenges[1].score.to_i,
-                    @users_game.challenges[2].artwork.name => @users_game.challenges[2].score.to_i,
-                    @users_game.challenges[3].artwork.name => @users_game.challenges[3].score.to_i,
-                    @users_game.challenges[4].artwork.name => @users_game.challenges[4].score.to_i
-                  },
-                  width: "180px",
-                  height: "160px"
-                ) %>              </div>
-              <div class="div_total_score">
-                <h2 class="d-flex justify-content-center">total score</h2>
-                <h2 class="total_score m-2 d-flex justify-content-center"><%= @users_game.total_score.to_i %></h2>
-                <div class="étoile-tot">
-                  <% if @users_game.total_score.to_i > 48000 %>
-                    <%= image_tag("étoileor5.png") %>
-                  <% elsif @users_game.total_score.to_i > 36000 && @users_game.total_score.to_i <= 48000 %>
-                    <%= image_tag("étoileor4.png") %>
-                  <% elsif @users_game.total_score.to_i > 24000 && @users_game.total_score.to_i <= 36000 %>
-                    <%= image_tag("étoileor3.png") %>
-                  <% elsif @users_game.total_score.to_i > 12000 && @users_game.total_score.to_i <= 24000 %>
-                    <%= image_tag("étoileor2.png") %>
-                  <% elsif @users_game.total_score.to_i > 0 && @users_game.total_score.to_i <= 12000 %>
-                    <%= image_tag("étoileor1.png") %>
-                  <% end %>
+            <div class="card-product-total d-flex justify-content-space-between p-2">
+                <div class="ms-3 py-2">
+                  <div class="d-flex justify-content-center card-product-total-title">total score</div>
+                  <h2 class="total_score m-1 d-flex justify-content-center"><%= @users_game.total_score.to_i %></h2>
+                  <div class="étoile-tot d-flex justify-content-center">
+                    <% if @users_game.total_score.to_i > 48000 %>
+                      <%= image_tag("étoileor5.png") %>
+                    <% elsif @users_game.total_score.to_i > 36000 && @users_game.total_score.to_i <= 48000 %>
+                      <%= image_tag("étoileor4.png") %>
+                    <% elsif @users_game.total_score.to_i > 24000 && @users_game.total_score.to_i <= 36000 %>
+                      <%= image_tag("étoileor3.png") %>
+                    <% elsif @users_game.total_score.to_i > 12000 && @users_game.total_score.to_i <= 24000 %>
+                      <%= image_tag("étoileor2.png") %>
+                    <% elsif @users_game.total_score.to_i > 0 && @users_game.total_score.to_i <= 12000 %>
+                      <%= image_tag("étoileor1.png") %>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
+                <div class="div">
+                      <%= link_to "Play again", games_path, class: "play-btn", data: {turbo_method: :post} %>
+                </div>
             </div>
+
             <div class="card-product-footer">
                 <div class="play-section d-flex justify-content-between p-2">
-                <%# <button class="play-btn">PLAY</button> %>
                   <div class="div">
-                    <%= link_to games_path, class: "share-btn", data: {turbo_method: :post} do %>
-                      <%= image_tag "facebook.png", alt: "Share your results" %>
-                    <% end %>
-                    <div class="p d-flex justify-content-center share">Share your results</div>
-                  </div>
-                  <div class="div">
-                  <%= link_to "Play again", games_path, class: "play-btn", data: {turbo_method: :post} %>
+                    <%= column_chart([
+                      { name: "artist score", data: { @users_game.challenges[0].artwork.name => @users_game.challenges[0].artist_score.to_i, @users_game.challenges[1].artwork.name => @users_game.challenges[1].artist_score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].artist_score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].artist_score.to_i, @users_game.challenges[4].artwork.name => @users_game.challenges[4].artist_score.to_i, } },
+                      { name: "geo score", data: { @users_game.challenges[0].artwork.name => @users_game.challenges[0].geo_score.to_i, @users_game.challenges[1].artwork.name => @users_game.challenges[1].geo_score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].geo_score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].geo_score.to_i, @users_game.challenges[4].artwork.name => @users_game.challenges[4].geo_score.to_i, } },
+                      { name: "date score", data: { @users_game.challenges[0].artwork.name => @users_game.challenges[0].time_score.to_i, @users_game.challenges[1].artwork.name => @users_game.challenges[1].time_score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].time_score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].time_score.to_i, @users_game.challenges[4].artwork.name => @users_game.challenges[4].time_score.to_i,} }
+                      ],
+                      width: "350px",
+                      height: "260px",
+                      stacked: true,
+                      colors: ["#ED6856", "#79CEB8", "#F1BF4A"]) %>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
       </div>

@@ -24,13 +24,13 @@ input[type="range"]:focus {
 #sliderValue {
   font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: #243642;
 }
 
 /* Affichage de la date sous la jauge */
 #sliderDate {
   font-size: 18px;
-  color: #007bff;
+  color: #243642;
   font-weight: 600;
 }
 
@@ -59,7 +59,7 @@ input[type="range"]:focus {
   bottom: 10%;  /* Distance du bas de l'image */
   right: 8%;   /* Distance du côté droit de l'image */
   text-decoration: none;
-  background: #333;
+  background: #243642;
   color: white;
   padding: 8px 8px;
   font-size: 0.8rem;
@@ -70,12 +70,12 @@ input[type="range"]:focus {
   transition: all 0.3s ease;
   display: inline-block; /* Pour que le texte et le bouton soient centrés */
   text-align: center;
-  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 6px 15px rgba(121, 206, 184, 0.9);
   transition: all;
 
   &:hover {
     background: #555; /* Changement de couleur au survol */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 15px #243642(0, 0, 0, 0.3);
     transform: scale(1.1);
   }
 
@@ -92,4 +92,15 @@ input[type="range"]:focus {
 .icon-img {
   height: 5px;
   weight: 5px;
+}
+
+#toggleButton {
+  color: #aaa;
+  font-size: 8px;
+  margin-bottom: 4px;
+}
+
+.info {
+  font-size: 12px;
+  margin-bottom: 6px;
 }

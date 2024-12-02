@@ -18,7 +18,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10",
+      style: "mapbox://styles/mapbox/light-v11",
       zoom: 2
     });
 
@@ -100,16 +100,16 @@ export default class extends Controller {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-          body: JSON.stringify({ latitude: lat, longitude: lng, artwork_id: this.artworkValue, date: userDate   }) 
+          body: JSON.stringify({ latitude: lat, longitude: lng, artwork_id: this.artworkValue, date: userDate   })
       });
-  
+
       if (!response.ok) {
         console.error('Erreur lors de la comparaison');
         return;
       }
-  
+
       const data = await response.json();
-  
+
       // Afficher la distance
       const distanceMessageElement = document.getElementById('distance-message');
       distanceMessageElement.textContent = `Vous êtes à ${data.distance} km de la bonne réponse. Votre Geoscore est de ${data.geoscore}. Votre Time Score est de ${data.time_score}.`;

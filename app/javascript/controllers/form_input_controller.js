@@ -28,7 +28,7 @@ export default class extends Controller {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-          body: JSON.stringify({ latitude: lati, longitude: long, games_artwork_id: gameArtworkId, date: date, artist: art   })
+          body: JSON.stringify({ latitude: lati, longitude: long, games_artwork_id: gameArtworkId, creation_date: date, artist: art   })
       });
 
       if (!response.ok) {
@@ -39,6 +39,7 @@ export default class extends Controller {
       const data = await response.json();
 
       let sentence = document.getElementById("pop-text");
+      let geoscore = document.getElementById("geo-score");
       let score = document.getElementById('pop-score');
       let time = document.getElementById('pop-time');
       let artist = document.getElementById('artist-score');
@@ -46,9 +47,17 @@ export default class extends Controller {
       this.buildMap(data);
 
       sentence.textContent = `You are ${data.distance} km away. Geoscore : ${data.geoscore}`
+
+      let artist_guess = document.getElementById('artist-guess');
+      let date_guess = document.getElementById('date-guess');
+      sentence.textContent = `You are ${data.distance} km away`
+
       score.textContent = `Total score : ${data.total_score}`;
-      time.textContent = `Time score : ${data.time_score}`
-      artist.textContent = `Artist score : ${data.artist_score}`
+      time.textContent = `Time score : ${data.time_score}`;
+      artist.textContent = `Artist score : ${data.artist_score}`;
+      artist_guess.textContent = `${art}`;
+      date_guess.textContent = `${date}`;
+      geoscore.textContent = `Geoscore : ${data.geoscore}`;
 
       let next = document.getElementById('next')
       let end = document.getElementById('end-game')
@@ -56,6 +65,18 @@ export default class extends Controller {
       if (data.is_last === true) {
         next.classList.add("d-none");
         end.classList.remove("d-none");
+      }
+
+      if (data.correct_artist_name === true) {
+        document.getElementById('correct_artist').classList.remove('d-none');
+      } else {
+        document.getElementById('incorrect_artist').classList.remove('d-none');
+      }
+
+      if (data.correct_date === true) {
+        document.getElementById('correct_date').classList.remove('d-none');
+      } else {
+        document.getElementById('incorrect_date').classList.remove('d-none');
       }
 
       // Afficher la distance

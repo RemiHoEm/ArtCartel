@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #243642;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +9,36 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+/* Cibler l'icône burger de manière plus spécifique */
+.navbar-toggler-icon {
+  background-color: transparent !important; /* Retirer le fond par défaut */
+
+  /* Cibler les barres du menu burger pour les rendre vertes */
+  &:before {
+    content: '';
+    display: block;
+    width: 30px; /* Largeur des barres */
+    height: 3px; /* Hauteur des barres */
+    background-color: #79CEB8;
+    margin: 6px auto;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #79CEB8;
+    margin: 6px auto;
+  }
+}
+
+.home-link {
+  color: #79CEB8; /* Change la couleur du texte à vert */
+}
+
+.home-link:hover {
+  color: #79CEB8; /* Changer la couleur au survol pour une meilleure expérience utilisateur */
 }

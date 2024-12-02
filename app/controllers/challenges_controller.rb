@@ -33,6 +33,7 @@ class ChallengesController < ApplicationController
 
     if @challenge.save!
 
+      
       user_latitude = params[:latitude].to_f
       user_longitude = params[:longitude].to_f
       user_date = Date.new(params[:date].to_i) # Assurez-vous que la date est bien envoyée
@@ -44,8 +45,6 @@ class ChallengesController < ApplicationController
       artist_score = corrected_artist_name == artwork.artist ? 2000 : 0
 
       distance = haversine_distance(user_latitude, user_longitude, artwork.latitude, artwork.longitude)
-
-
       geoscore = calculate_geoscore(distance)
 
       time_score = calculate_time_score(user_date, artwork.creation_date)
@@ -57,6 +56,8 @@ class ChallengesController < ApplicationController
 
         render json: {
           artwork: { id: artwork.id, name: artwork.name, latitude: artwork.latitude, longitude: artwork.longitude },
+          user_coordinates: { lat: user_latitude, lng: user_longitude }.to_json,
+          artwork_coordinates: { lat: artwork.latitude, lng: artwork.longitude }.to_json,
           distance: distance.to_i,
           geoscore: geoscore.to_i,
           time_score: time_score.to_i,

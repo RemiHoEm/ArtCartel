@@ -37,10 +37,12 @@
       <div class="my-popup-content">
         <div class="map_txt_popup_answer div">
           <div
+            id="results-map"
             class= "map_popup_answer"
             style="width: 100%; height: 180px;"
             data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
+            data-user-coordinates-value="<%= @user_coordinates.to_json %>"
+            data-artwork-coordinates-value="<%= @artwork_coordinates.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
           <div class="div text_popup_answer">

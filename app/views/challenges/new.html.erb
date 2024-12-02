@@ -2,6 +2,7 @@
   <div data-controller="popup">
     <div class="row" id="background">
       <div class="col-12">
+
         <!-- Header Section -->
         <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
           <h1><%= @artwork.name %></h1>
@@ -35,13 +36,73 @@
             });
           </script>
           <!-- Options Section -->
+
+        <div class="jauge">
+          <% if @games_artwork.first? %>
+            <%= image_tag('barre1.png')%>
+          <% elsif @games_artwork.second? %>
+            <%= image_tag('barre2.png')%>
+          <% elsif @games_artwork.third? %>
+            <%= image_tag('barre3.png')%>
+          <% elsif @games_artwork.fourth? %>
+            <%= image_tag('barre4.png')%>
+          <% elsif @games_artwork.last? %>
+            <%= image_tag('barre5.png')%>
+            <% end %>
+          </div>
+        <div style="display: flex; justify-content: center; align-items: center; height: 60px;">
+          <h1><%=@artwork.name%></h1>
+        </div>
+        <div class="div" style="position: relative;" >
+          <%= image_tag @artwork.photo,  class: "d-block w-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
+
           <div class="options-section">
             <button type="button" class="btn-open" data-bs-toggle="modal" data-bs-target="#categoryModal">
               <img src="<%= asset_path('map.png') %>" alt="Categories Icon" class="icon-img">
             </button>
           </div>
         </div>
+
         <!-- Map Section -->
+          <% if @artwork.attribution_licence.present? %>
+            <div id="toggleButton">attribution licence</div>
+            <div id="attribution" class="p attrib" style="display:none;">
+              <%= @artwork.attribution_licence %>
+            </div>
+            <script>
+            // Sélectionner le bouton et l'élément à masquer/afficher
+              const toggleButton = document.getElementById('toggleButton');
+              const attributionElement = document.getElementById('attribution');
+
+              // Ajouter un gestionnaire d'événements pour le bouton
+              toggleButton.addEventListener('click', function() {
+                // Vérifier l'état actuel de l'élément
+                if (attributionElement.style.display === 'none') {
+                // Si l'élément est caché, l'afficher
+                  attributionElement.style.display = 'block';
+                } else {
+                // Si l'élément est visible, le cacher
+                  attributionElement.style.display = 'none';
+                }
+              });
+            </script>
+          <% else %>
+            <p><%= "" %></p>
+          <% end %>
+        <div style="display: flex; gap: 10px; flex; justify-content: center;">
+          <% if @artwork.materials.present? %>
+            <div class="info">Materials : <%=@artwork.materials%></div>
+          <% else %>
+            <div class="info">Materials : / </div>
+          <% end %>
+          <% if @artwork.dimensions.present? %>
+            <div class="info">Dimensions : <%=@artwork.dimensions%></div>
+          <% else %>
+            <div class="info">Dimensions : / </div>
+          <% end %>
+          <div class="info">Conservation site : <%=@artwork.museum%></div>
+        </div>
+
         <div
           style="width: 100%; height: 100%;"
           data-controller="map"
@@ -62,9 +123,14 @@
         <!-- Popup Map -->
         <div class="d-flex flex-column justify-content-center">
           <div
-            style="height: 200px; width: 100%;"
+
+            id="results-map"
+            class= "map_popup_answer"
+            style="width: 100%; height: 180px;"
+
             data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
+            data-user-coordinates-value="<%= @user_coordinates.to_json %>"
+            data-artwork-coordinates-value="<%= @artwork_coordinates.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         <div class="all-results">

@@ -49,6 +49,7 @@ class ChallengesController < ApplicationController
       puts "This is my #{geoscore}"
 
       time_score = calculate_time_score(user_date, artwork.creation_date)
+      puts "we need the following from #{user_date}, from artwork#{artwork.creation_date}"
 
       total_score = geoscore + time_score + artist_score
 

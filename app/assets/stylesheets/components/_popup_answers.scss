@@ -20,7 +20,7 @@
   opacity: 1;
   transition: opacity 0.3s ease, visibility 0s linear;
   background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(3px);
+  // backdrop-filter: blur(3px);
   z-index: 2;
 }
 
@@ -43,8 +43,8 @@
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 40px;
-  bottom: 40px;
+  top: 250px;
+  bottom: 10px;
   width: 90%;
   background: white;
   padding: 10px;
@@ -97,12 +97,16 @@
 }
 
 .card-pop-up {
-  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
   background-color: whitesmoke;
   width: 95%;
-  height: 80px;
+  min-height: 90px;
   align-self: center;
   margin: 2px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 .correct-answer {
@@ -124,6 +128,37 @@
   object-fit: scale-down;
 }
 
-.fade {
-  background-color: rgba(255,255,255,0.5) !important;
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+.all-results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 4px;
+}
+
+.card-pop-up-long {
+  border-radius: 5%;
+  background-color: whitesmoke;
+  width: 95%;
+  min-height: 60px;
+  align-self: center;
+  margin: 2px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

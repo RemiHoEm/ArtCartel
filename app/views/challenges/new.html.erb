@@ -2,7 +2,19 @@
   <div data-controller="popup">
     <div class="row" id="background">
       <div class="col-12">
-
+        <div class="jauge">
+          <% if @games_artwork.first? %>
+            <%= image_tag('barre1.png')%>
+          <% elsif @games_artwork.second? %>
+            <%= image_tag('barre2.png')%>
+          <% elsif @games_artwork.third? %>
+            <%= image_tag('barre3.png')%>
+          <% elsif @games_artwork.fourth? %>
+            <%= image_tag('barre4.png')%>
+          <% elsif @games_artwork.last? %>
+            <%= image_tag('barre5.png')%>
+            <% end %>
+          </div>
         <div style="display: flex; justify-content: center; align-items: center; height: 60px;">
           <h1><%=@artwork.name%></h1>
         </div>

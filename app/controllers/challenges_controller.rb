@@ -52,6 +52,9 @@ class ChallengesController < ApplicationController
 
       total_score = geoscore + time_score + artist_score
 
+      @challenge.artist_score = artist_score
+      @challenge.time_score = time_score
+      @challenge.geo_score = geoscore
       @challenge.score = total_score
       if @challenge.save!
 

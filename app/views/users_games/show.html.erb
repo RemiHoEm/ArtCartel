@@ -30,7 +30,7 @@
                 </div>
               </div>
             <% end %>
-            <div class="card-product-total d-flex justify-content-space-evenly p-2">
+            <div class="card-product-total d-flex justify-content-space-between p-2">
                 <div class="ms-3 py-2">
                   <div class="d-flex justify-content-center card-product-total-title">total score</div>
                   <h2 class="total_score m-1 d-flex justify-content-center"><%= @users_game.total_score.to_i %></h2>
@@ -57,10 +57,14 @@
                 <div class="play-section d-flex justify-content-between p-2">
                   <div class="div">
                     <%= column_chart([
-                      { name: "artist score", data: { @users_game.challenges[0].artwork.name => @users_game.challenges[0].artist_score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].artist_score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].artist_score.to_i, @users_game.challenges[4].artwork.name => @users_game.challenges[4].artist_score.to_i, } },
+                      { name: "artist score", data: { @users_game.challenges[0].artwork.name => @users_game.challenges[0].artist_score.to_i, @users_game.challenges[1].artwork.name => @users_game.challenges[1].artist_score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].artist_score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].artist_score.to_i, @users_game.challenges[4].artwork.name => @users_game.challenges[4].artist_score.to_i, } },
                       { name: "geo score", data: { @users_game.challenges[0].artwork.name => @users_game.challenges[0].geo_score.to_i, @users_game.challenges[1].artwork.name => @users_game.challenges[1].geo_score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].geo_score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].geo_score.to_i, @users_game.challenges[4].artwork.name => @users_game.challenges[4].geo_score.to_i, } },
                       { name: "date score", data: { @users_game.challenges[0].artwork.name => @users_game.challenges[0].time_score.to_i, @users_game.challenges[1].artwork.name => @users_game.challenges[1].time_score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].time_score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].time_score.to_i, @users_game.challenges[4].artwork.name => @users_game.challenges[4].time_score.to_i,} }
-                    ], width: "350px", height: "180px", stacked: true) %>
+                      ],
+                      width: "350px",
+                      height: "260px",
+                      stacked: true,
+                      colors: ["#ED6856", "#79CEB8", "#F1BF4A"]) %>
                   </div>
                 </div>
             </div>

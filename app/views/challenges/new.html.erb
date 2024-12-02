@@ -2,44 +2,57 @@
   <div data-controller="popup">
     <div class="row">
       <div class="col-12">
-        <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+        <div style="display: flex; justify-content: center; align-items: center; height: 60px;">
           <h1><%=@artwork.name%></h1>
-        </div>
-        <div style="display: flex; gap: 10px; flex; justify-content: center;">
-          <p><%=@artwork.materials%></p>
-          <p><%=@artwork.dimensions%></p>
-          <p><%=@artwork.museum%></p>
         </div>
         <div class="div" style="position: relative;" >
           <%= image_tag @artwork.photo,  class: "d-block w-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
-          <div id="toggleButton" class="mb-1">attribution licence</div>
-          <div id="attribution" class="p attrib" style="display:none;">
-            <%= @artwork.attribution_licence %>
-          </div>
-
-          <script>
-            // Sélectionner le bouton et l'élément à masquer/afficher
-            const toggleButton = document.getElementById('toggleButton');
-            const attributionElement = document.getElementById('attribution');
-
-            // Ajouter un gestionnaire d'événements pour le bouton
-            toggleButton.addEventListener('click', function() {
-              // Vérifier l'état actuel de l'élément
-              if (attributionElement.style.display === 'none') {
-              // Si l'élément est caché, l'afficher
-                attributionElement.style.display = 'block';
-              } else {
-              // Si l'élément est visible, le cacher
-                attributionElement.style.display = 'none';
-              }
-            });
-          </script>
           <div class="options-section">
             <button type="button" class="btn-open" data-bs-toggle="modal" data-bs-target="#categoryModal">
               <img src="<%= asset_path('map.png') %>" alt="Categories Icon" class="icon-img">
             </button>
           </div>
         </div>
+          <% if @artwork.attribution_licence.present? %>
+            <div id="toggleButton">attribution licence</div>
+            <div id="attribution" class="p attrib" style="display:none;">
+              <%= @artwork.attribution_licence %>
+            </div>
+            <script>
+            // Sélectionner le bouton et l'élément à masquer/afficher
+              const toggleButton = document.getElementById('toggleButton');
+              const attributionElement = document.getElementById('attribution');
+
+              // Ajouter un gestionnaire d'événements pour le bouton
+              toggleButton.addEventListener('click', function() {
+                // Vérifier l'état actuel de l'élément
+                if (attributionElement.style.display === 'none') {
+                // Si l'élément est caché, l'afficher
+                  attributionElement.style.display = 'block';
+                } else {
+                // Si l'élément est visible, le cacher
+                  attributionElement.style.display = 'none';
+                }
+              });
+            </script>
+          <% else %>
+            <p><%= "" %></p>
+          <% end %>
+        <div style="display: flex; gap: 10px; flex; justify-content: center;">
+          <% if @artwork.materials.present? %>
+            <div class="info">Materials : <%=@artwork.materials%></div>
+          <% else %>
+            <div class="info">Materials : / </div>
+          <% end %>
+          <% if @artwork.dimensions.present? %>
+            <div class="info">Dimensions : <%=@artwork.dimensions%></div>
+          <% else %>
+            <div class="info">Dimensions : / </div>
+          <% end %>
+          <div class="info">Conservation site : <%=@artwork.museum%></div>
+        </div>
+
+
 
                 <%# <div id="distance-message" style="text-align: center; margin-top: 20px;"></div>
                 <div id="time-message" style="text-align: center; margin-top: 20px;"> %>

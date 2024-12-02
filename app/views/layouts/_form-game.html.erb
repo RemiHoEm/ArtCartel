@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-12" data-controller="form-input">
             <%= simple_form_for([@games_artwork, @challenge], html: { data: { "form-input-target": "form", "games-artwork-id": @games_artwork.id } } )  do |f| %>
-              <%= f.input :latitude, as: :hidden, input_html: { id: 'latitude' } %>
-              <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude' } %>
+              <%#= f.input :latitude, as: :hidden, input_html: { id: 'latitude' } %>
+              <%#= f.input :longitude, as: :hidden, input_html: { id: 'longitude' } %>
               <% if (@artwork.artist == "anonyme") %>
                 <div class="p">Artist: Anonyme</div>
                 <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess", input_html: { id: 'artist', class: "d-none", value: "Anonyme" } %>

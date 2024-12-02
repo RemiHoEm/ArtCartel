@@ -6,7 +6,9 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     markers: Array,
-    artwork: String
+    artwork: String,
+    userCoordinates: Object,
+    artworkCoordinates: Object 
   }
 
   static targets = ["artisant"]
@@ -22,8 +24,6 @@ export default class extends Controller {
 
     this.markers = [];
     this.map.on("click", this.#handleMapClick.bind(this));
-
-    // this.#addMarkersToMap()
   }
 
   async #handleMapClick(event) {
@@ -33,10 +33,10 @@ export default class extends Controller {
     console.log(`Longitude: ${lng}, Latitude: ${lat}`);
     let long = document.getElementById("longitude");
     let lati = document.getElementById("latitude");
-    long.value= lng;
-    lati.value= lat;
-/*     this.#compareCoordinates(lat, lng);
- */  }
+    long.value = lng;
+    lati.value = lat;
+
+  }
 
   async #addMarker(lng, lat) {
     try {
@@ -58,6 +58,36 @@ export default class extends Controller {
     this.markers = [];
   }
 
+  #addLineBetweenMarkers() {
+    const userLatLng = [this.userCoordinatesValue.lng, this.userCoordinatesValue.lat];
+    const artworkLatLng = [this.artworkCoordinatesValue.lng, this.artworkCoordinatesValue.lat];
+  
+    const line = new mapboxgl.LngLatBounds();
+    line.extend(userLatLng);
+    line.extend(artworkLatLng);
+  
+    this.map.addLayer({
+      id: 'line',
+      type: 'line',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'Feature',
+          geometry: {
+            type: 'LineString',
+            coordinates: [userLatLng, artworkLatLng]
+          }
+        }
+      },
+      paint: {
+        'line-color': '#FF0000',
+        'line-width': 3
+      }
+    });
+  
+    this.map.fitBounds(line, { padding: 50 });
+  }
+  
   async #compareCoordinates(lat, lng) {
     // Récupérer la date du slider (assurez-vous que le slider a un ID spécifique)
   const userDate = document.getElementById('sliderValue').innerText; // Exemple : récupère la valeur du slider

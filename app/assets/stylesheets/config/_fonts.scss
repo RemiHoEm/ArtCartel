@@ -1,16 +1,26 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-// Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+// Import local fonts
+@font-face {
+  font-family: "Neue Montreal";
+  src: url('/assets/fonts/NeueMontreal-Regular.woff2') format('woff2');
+}
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+// Define font variables
+// $my-font: "Neue Montreal", sans-serif;
+$body-font: "Abyssinica SIL", sans-serif;
+$headers-font: "Abyssinica SIL", sans-serif;
+
+// Global styles
+body {
+  font-family: $body-font;
+  font-size: 16px;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $headers-font;
+  font-weight: 700;
+}

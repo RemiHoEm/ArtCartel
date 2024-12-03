@@ -15,7 +15,7 @@ export default class extends Controller {
     // console.log('test')
     let long = document.getElementById("longitude").value;
     let lati = document.getElementById("latitude").value;
-    let art = document.getElementById("artist").value;
+    let art = document.getElementById("artist")?.value;
     let date = document.getElementById("sliderValue").innerText;
     // console.log(long, lati, art, date);
     let gameArtworkId = this.formTarget.dataset.gamesArtworkId;

@@ -5,16 +5,149 @@
   }
 }
 
-.jauge {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btn-primary {
+  background-color: white;
+  color: black;
+  padding: 10px 20px; /* Espacement interne du bouton */
+  font-size: 16px; /* Taille de la police */
+  border: none; /* Retirer la bordure */
+  border-radius: 5px; /* Bord arrondi */
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Animation pour l'effet de soulèvement et la couleur */
 }
 
-.jauge img {
-  width: 200px;
-  height: 40px;
+/* Lorsqu'on clique sur le bouton (état :active) */
+.btn-primary:active {
+  transform: translateY(-4px); /* Soulève légèrement le bouton */
+  background-color: white !important;
+  color: black !important;
+  border-color: white !important;
 }
+
+.btn:hover{
+  background-color: white !important;
+  color: black !important;
+  border-color: white !important;
+}
+
+#btn-map{
+  border-color: white;
+}
+
+#btn-artist{
+  border-color: white;
+}
+
+#btn-date{
+  border-color: white;
+}
+
+#btn-play{
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.my-popup{
+  color: black;
+}
+
+.my-popup-content{
+  background-color: #999999;
+}
+
+#mapModalLabel{
+  color: black;
+}
+
+#artistModalLabel{
+  color: black;
+}
+
+#artistModal{
+  color: black;
+}
+
+#whenModalLabel{
+  color: black;
+}
+
+#whenModal{
+  color: black;
+}
+
+#mapModal .modal-content {
+  background-color: #999999; /* Couleur de fond de la modal */
+}
+
+#artistModal .modal-content{
+  background-color: #999999;
+}
+
+#whenModal .modal-content{
+  background-color: #999999;
+}
+
+.container {
+  color: white; /* Tout le texte en blanc */
+}
+
+h1, .info, #toggleButton, #attribution {
+  color: white; /* Applique le texte blanc à ces éléments spécifiques */
+}
+
+#toggleButton {
+  margin-top: 20px; /* Marge au-dessus du bouton Attribution Licence */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#attribution {
+  margin-top: 10px; /* Marge entre le bouton et l'attribution */
+}
+
+.info {
+  margin-top: 15px; /* Marge entre les éléments de classe info */
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px; /* Marge en bas de l'image pour espacer du reste du contenu */
+  width: 100%; /* Prend toute la largeur disponible */
+}
+
+.image-container .image-blur {
+  position: absolute; /* Placer l'image floue en position absolue */
+  top: 0;
+  left: 0;
+  width: 100%; /* S'assure que l'image floue prend 100% de la largeur du conteneur */
+  height: 100%; /* S'assure que l'image floue prend 100% de la hauteur du conteneur */
+  object-fit: cover; /* Assure que l'image couvre l'intégralité du conteneur sans se déformer */
+  filter: blur(2px); /* Application du flou */
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.image-container .img-main {
+  position: absolute; /* Placer l'image principale au-dessus de l'image floue */
+  bottom: -10px; /* Légèrement en bas par rapport à l'image floue */
+  right: -10px; /* Légèrement à droite par rapport à l'image floue */
+  width: 95%; /* Réduit la largeur à 95% de l'image floue pour qu'elle dépasse légèrement */
+  height: auto; /* Conserve les proportions de l'image principale */
+  z-index: 2;
+  border-radius: 8px; /* Bords arrondis pour l'image principale */
+  object-fit: contain; /* S'assure que l'image garde ses proportions, sans déformation */
+}
+
+.wrapper {
+  width: 100%; /* Prend toute la largeur disponible */
+  display: flex;
+  justify-content: center; /* Centre le contenu horizontalement */
+  padding: 0 20px; /* Ajoute un espace des deux côtés */
+  box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+  margin-top: 30px;
+}
+
 
 /* Jauge de date interactive */
 input[type="range"] {

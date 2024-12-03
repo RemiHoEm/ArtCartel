@@ -31,6 +31,18 @@
     margin-top: 20px;
     flex-grow: 1;
 
+    .logo-title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 35px;
+      height: auto;
+    }
+
     .game-title {
       font-size: 3rem;
       font-weight: 700;

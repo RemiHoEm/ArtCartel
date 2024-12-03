@@ -31,14 +31,36 @@
     margin-top: 20px;
     flex-grow: 1;
 
+    .logo-title-container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 35px;
+      height: auto;
+    }
+
+    .logo-title-container {
+      display: flex; /* Aligne logo et titre horizontalement */
+      align-items: flex-end; /* Aligne sur le bas du conteneur */
+      justify-content: center; /* Centre le tout horizontalement */
+      gap: 10px; /* Espacement entre logo et titre */
+    }
+
     .game-title {
       font-size: 3rem;
       font-weight: 700;
       color: white;
-      // text-transform: uppercase;
       letter-spacing: 4px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-      margin-top: 15px;
+      margin: 0; /* Supprime tout espace par défaut */
+      padding: 0; /* Supprime tout espace par défaut */
+      line-height: 1; /* Ajuste la hauteur de ligne pour aligner parfaitement */
+    }
+
     }
 
     .subtitle {
@@ -85,7 +107,7 @@
       //     color: white;
       //   }
       // }
-    }
+    
 
 
   /* Play Section */

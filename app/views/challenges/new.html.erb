@@ -5,31 +5,23 @@
 
           <!-- Options Section -->
 
-        <div class="jauge">
-          <% if @games_artwork.first? %>
-            <%= image_tag('barre1.png')%>
-          <% elsif @games_artwork.second? %>
-            <%= image_tag('barre2.png')%>
-          <% elsif @games_artwork.third? %>
-            <%= image_tag('barre3.png')%>
-          <% elsif @games_artwork.fourth? %>
-            <%= image_tag('barre4.png')%>
-          <% elsif @games_artwork.last? %>
-            <%= image_tag('barre5.png')%>
-            <% end %>
-          </div>
         <div style="display: flex; justify-content: center; align-items: center; height: 60px;">
           <h1><%=@artwork.name%></h1>
         </div>
-        <div class="div" style="position: relative;" >
-          <%= image_tag @artwork.photo,  class: "d-block w-40 img-fluid rounded", alt: "Photo of #{@artwork.name}" %>
 
-          <div class="options-section">
-            <button type="button" class="btn-open" data-bs-toggle="modal" data-bs-target="#categoryModal">
-              <img src="<%= asset_path('map.png') %>" alt="Categories Icon" class="icon-img">
-            </button>
-          </div>
-        </div>
+        <div class="wrapper">
+            <div class="image-container" style="width: 300px; height: 300px;">
+      <!-- Image floue placée derrière -->
+          <%= image_tag @artwork.photo, 
+          class: "image-blur", 
+          alt: "Blurry photo of #{@artwork.name}" %>
+          
+    <!-- Image principale placée devant, en bas à droite -->
+          <%= image_tag @artwork.photo, 
+          class: "img-main d-block img-fluid rounded", 
+          alt: "Photo of #{@artwork.name}" %>
+  </div>
+</div>
 
         <!-- Map Section -->
           <% if @artwork.attribution_licence.present? %>
@@ -72,8 +64,10 @@
         </div>
 
         <div data-controller="flow">
-          <button class="btn btn-primary"
-            data-action="click->flow#start">Let's play!!</button>
+          <div id="btn-play">
+            <button class="btn btn-primary"
+              data-action="click->flow#start">Let's play!!</button>
+            </div>
           <!-- map modal btn -->
           <button data-flow-target="whereShowBtn" type="button" class="d-none btn btn-primary" data-bs-toggle="modal" data-bs-target="#mapModal">
             Where?
@@ -111,7 +105,7 @@
                       <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude' } %>
                     </div>
                     <div class="modal-footer">
-                      <button data-action="click->flow#goToSecondStep"type="button" class="btn btn-primary" data-bs-dismiss="modal">Next</button>
+                      <button data-action="click->flow#goToSecondStep"type="button" class="btn btn-primary" id="btn-map" data-bs-dismiss="modal">Next</button>
                     </div>
                   </div>
                 </div>
@@ -129,7 +123,7 @@
                         <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess", input_html: { id: 'artist' } %>
                       </div>
                       <div class="modal-footer">
-                        <button data-action="click->flow#goToThirdStep"type="button" class="btn btn-primary" data-bs-dismiss="modal">Next</button>
+                        <button data-action="click->flow#goToThirdStep"type="button" class="btn btn-primary" id="btn-artist" data-bs-dismiss="modal">Next</button>
                       </div>
                     </div>
                   </div>
@@ -154,7 +148,7 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <%= f.submit "Submit answers", class: "btn btn-primary", data: { action: "click->form-input#submit click->flow#close"} %>
+                      <%= f.submit "Submit answers", class: "btn btn-primary", id:"btn-date",  data: { action: "click->form-input#submit click->flow#close"} %>
                     </div>
                   </div>
                 </div>
@@ -271,3 +265,4 @@
       sliderValue.style.left = `${position}px`;
   }
   </script>
+

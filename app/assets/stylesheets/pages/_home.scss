@@ -31,13 +31,36 @@
     margin-top: 20px;
     flex-grow: 1;
 
+    .logo-title-container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 35px;
+      height: auto;
+    }
+
+    .logo-title-container {
+      display: flex; /* Aligne logo et titre horizontalement */
+      align-items: flex-end; /* Aligne sur le bas du conteneur */
+      justify-content: center; /* Centre le tout horizontalement */
+      gap: 10px; /* Espacement entre logo et titre */
+    }
+
     .game-title {
       font-size: 3rem;
       font-weight: 700;
       color: white;
-      // text-transform: uppercase;
       letter-spacing: 4px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      margin: 0; /* Supprime tout espace par défaut */
+      padding: 0; /* Supprime tout espace par défaut */
+      line-height: 1; /* Ajuste la hauteur de ligne pour aligner parfaitement */
+    }
+
     }
 
     .subtitle {
@@ -84,7 +107,7 @@
       //     color: white;
       //   }
       // }
-    }
+    
 
 
   /* Play Section */
@@ -92,25 +115,57 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 2;
     margin-top: 30px;
   }
 
   .play-btn {
     text-decoration: none;
-    background: #243642;
-    color: white;
-    padding: 15px 40px; /* Augmente le padding pour rendre le bouton plus grand */
-    font-size: 1.5rem; /* Augmente la taille du texte pour le rendre plus visible */
+    background: white;
+    color: black;
+    padding: 15px 40px;
+    font-size: 0.9rem;
     font-weight: 700;
-    border-radius: 50px; /* Garder l'arrondi des bords */
+    border-radius: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-block;
     text-align: center;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
-    outline: none; /* Supprime le contour lors du focus */
-    border: none;  /* Supprime la bordure par défaut */
+    outline: none;
+    border: none; /* Supprime la bordure par défaut */
+
+    &:hover {
+      background: #555;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      transform: scale(1.1);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+.button-section {
+  height: 80%;
+}
+
+  .play-master-btn {
+    text-decoration: none;
+    background: white;
+    color: black;
+    padding: 15px 40px;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
+    outline: none;
+    border: none; /* Supprime la bordure par défaut */
 
     &:hover {
       background: #555;
@@ -126,7 +181,6 @@
 
   /* Challenge Button Section */
   .challenge-btn-section {
-    margin-top: 20px;
 
     .challenge-btn {
       background-color: #243642;  /* Bleu foncé */

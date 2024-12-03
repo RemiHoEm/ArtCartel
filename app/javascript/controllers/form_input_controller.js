@@ -142,7 +142,7 @@ export default class extends Controller {
     bounds.extend([ userCoordinates.lng, userCoordinates.lat ])
     bounds.extend([ artworkCoordinates.lng, artworkCoordinates.lat ])
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-  }  
+  }
 
   #addLineBetweenMarkers(userCoordinates, artworkCoordinates) {
     // Vérifiez si la source existe déjà pour éviter les doublons

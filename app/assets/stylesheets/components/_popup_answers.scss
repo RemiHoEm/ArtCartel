@@ -50,7 +50,7 @@
   padding: 10px;
   padding-bottom: 10px;
   border-radius: 20px;
-
+  background: whitesmoke;
 }
 
 .my-popup-close-btn-wrapper {
@@ -61,11 +61,6 @@
 }
 
 .my-popup-close-btn {
-  background: #e6e6e6;
-  border: 0px;
-  padding: 5px 10px;
-  border-radius: 4px;
-
 }
 
 .my-popup-close-btn:hover {
@@ -84,6 +79,7 @@
   justify-items: center;
   align-content: center;
   font-size: 100%;
+  gap: 6px
 }
 
 .map_popup_answer {
@@ -99,7 +95,7 @@
 .card-pop-up {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   border-radius: 5px;
   background-color: whitesmoke;
   width: 95%;
@@ -110,11 +106,11 @@
 }
 
 .correct-answer {
-  color: green;
+  color: #79CEB8;
 }
 
 .false-answer {
-  color: darkred;
+  color: #ED6856;
   text-decoration: line-through;
 }
 
@@ -130,7 +126,8 @@
 
 
 .btn-ghost {
-  color: #4A4A4A;
+  color: white;
+  background-color: #243642;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
   border-radius: 50px;
@@ -146,12 +143,13 @@
 .all-results {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   margin: 4px;
+  margin-top: 8px;
 }
 
 .card-pop-up-long {
-  border-radius: 5%;
+  border-radius: 5px;
   background-color: whitesmoke;
   width: 95%;
   min-height: 60px;
@@ -160,5 +158,6 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  width: 100%;
 }

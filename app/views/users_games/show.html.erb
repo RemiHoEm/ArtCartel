@@ -36,15 +36,15 @@
                   <h2 class="total_score m-1 d-flex justify-content-center"><%= @users_game.total_score.to_i %></h2>
                   <div class="étoile-tot d-flex justify-content-center">
                     <% if @users_game.total_score.to_i > 48000 %>
-                      <%= image_tag("étoileor5.png") %>
+                      <%= image_tag("etoileor5.png") %>
                     <% elsif @users_game.total_score.to_i > 36000 && @users_game.total_score.to_i <= 48000 %>
-                      <%= image_tag("étoileor4.png") %>
+                      <%= image_tag("etoileor4.png") %>
                     <% elsif @users_game.total_score.to_i > 24000 && @users_game.total_score.to_i <= 36000 %>
-                      <%= image_tag("étoileor3.png") %>
+                      <%= image_tag("etoileor3.png") %>
                     <% elsif @users_game.total_score.to_i > 12000 && @users_game.total_score.to_i <= 24000 %>
-                      <%= image_tag("étoileor2.png") %>
+                      <%= image_tag("etoileor2.png") %>
                     <% elsif @users_game.total_score.to_i > 0 && @users_game.total_score.to_i <= 12000 %>
-                      <%= image_tag("étoileor1.png") %>
+                      <%= image_tag("etoileor1.png") %>
                     <% end %>
                   </div>
                 </div>

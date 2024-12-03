@@ -2,7 +2,8 @@
   <div data-controller="popup">
     <div class="row" id="background">
       <div class="col-12">
-        <!-- Options Section -->
+
+          <!-- Options Section -->
 
         <div class="jauge">
           <% if @games_artwork.first? %>
@@ -70,13 +71,100 @@
           <div class="info">Conservation site : <%=@artwork.museum%></div>
         </div>
 
-        <div
-          style="width: 100%; height: 250px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div data-controller="flow">
+          <button class="btn btn-primary"
+            data-action="click->flow#start">Let's play!!</button>
+          <!-- map modal btn -->
+          <button data-flow-target="whereShowBtn" type="button" class="d-none btn btn-primary" data-bs-toggle="modal" data-bs-target="#mapModal">
+            Where?
+          </button>
+          <% if (@artwork.artist == "anonyme") %>
+            <!-- artist name modal btn -->
+            <button data-flow-target="whoShowBtn" type="button" class="d-none btn btn-primary" data-bs-toggle="modal" data-bs-target="#artistModal">
+              Who?
+            </button>
+          <% end %>
+          <!-- when modal btn -->
+          <button data-flow-target="whenShowBtn" type="button" class="d-none btn btn-primary" data-bs-toggle="modal" data-bs-target="#whenModal">
+            When?
+          </button>
+
+
+          <div class="col-12" data-controller="form-input">
+            <%= simple_form_for([@games_artwork, @challenge], html: { data: { "form-input-target": "form", "games-artwork-id": @games_artwork.id } } )  do |f| %>
+              <!-- map modal -->
+              <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-bottom">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="mapModalLabel">Where was it made?</h1>
+                      <button data-flow-target="wherecloseBtn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div
+                        style="width: 100%; height: 250px;"
+                        data-controller="map"
+                        data-map-markers-value="<%= @markers.to_json %>"
+                        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                      </div>
+                      <%= f.input :latitude, as: :hidden, input_html: { id: 'latitude' } %>
+                      <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude' } %>
+                    </div>
+                    <div class="modal-footer">
+                      <button data-action="click->flow#goToSecondStep"type="button" class="btn btn-primary" data-bs-dismiss="modal">Next</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% if (@artwork.artist == "anonyme") %>
+                <!-- artist name modal -->
+                <div class="modal fade" id="artistModal" tabindex="-1" aria-labelledby="artistModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-bottom">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="artistModalLabel">Who made it?</h1>
+                        <button data-flow-target="whocloseBtn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess", input_html: { id: 'artist' } %>
+                      </div>
+                      <div class="modal-footer">
+                        <button data-action="click->flow#goToThirdStep"type="button" class="btn btn-primary" data-bs-dismiss="modal">Next</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+
+              <!-- when name modal -->
+              <div class="modal fade" id="whenModal" tabindex="-1" aria-labelledby="whenModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-bottom">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="whenModalLabel">When was it made?</h1>
+                      <button data-flow-target="whenCloseBtn" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- Jauge de date avec plage de -3000 à 2024 -->
+                      <div style="position: relative;">
+                        <%= f.input :creation_date, as: :range, input_html: { min: "-3000", max: "2024", value: "0", step: "1", oninput: "updateSliderValue(this)" } %>
+                        <span id="sliderValue" style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: #fff; padding: 5px 10px; border-radius: 4px; border: 1px solid #ccc; font-weight: bold;">0</span>
+                        <!-- Affichage de la date correspondante -->
+                        <span id="sliderDate" style="display: block; margin-top: 10px; font-size: 1.2rem;">Year: 0</span>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <%= f.submit "Submit answers", class: "btn btn-primary", data: { action: "click->form-input#submit click->flow#close"} %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <button data-form-input-target="popup" class="d-none" data-action="click->popup#openPopup">Submit answers</button>
+          </div>
+
+
         </div>
-        <%= render "layouts/form-game", game: @game %>
       </div>
     </div>
 
@@ -102,39 +190,39 @@
           </div>
         <div class="all-results">
           <div class="card-pop-up-long">
-            <div class="text-center" id="pop-text" style="margin-bottom: 0;"></div>
             <div class="text-center" id="geo-score" style="margin-bottom: 0;"></div>
+            <div class="text-center" id="pop-text" style="margin-bottom: 0;"></div>
           </div>
         <!-- Artist and Date Details -->
         <div class="d-flex flex-column">
           <div class="text_popup_answer d-flex flex-row">
             <!-- Artist Section -->
             <div class="card-pop-up">
+              <p class="text-center mb-0" id="artist-score"></p>
               <div id="correct_artist" class="d-none">
-                <p class="mb-auto text-center correct-answer"><b><%= @artwork.artist %></b></p>
+                <p class="mb-auto text-center correct-answer"> Correct: <%= @artwork.artist %></p>
               </div>
               <div id="incorrect_artist" class="d-none">
                 <p class="mb-auto text-center false-answer" id="artist-guess"></p>
-                <p class="mb-auto text-center correct-answer"><b><%= @artwork.artist %></b></p>
+                <p class="mb-auto text-center correct-answer">Correct: <%= @artwork.artist %></p>
               </div>
-              <p class="p text-center" id="artist-score"></p>
             </div>
             <!-- Date Section -->
             <div class="card-pop-up">
+              <p class="text-center mb-0" id="pop-time"></p>
               <div id="correct_date" class="d-none">
-                <p class="mb-auto text-center correct-answer"><b><%= @artwork.creation_date %></b></p>
+                <p class="mb-auto text-center correct-answer">Correct: <%= @artwork.creation_date %></p>
               </div>
               <div id="incorrect_date" class="d-none">
                 <p class="mb-auto text-center false-answer" id="date-guess"></p>
-                <p class="mb-auto text-center correct-answer"><b><%= @artwork.creation_date %></b></p>
+                <p class="mb-auto text-center correct-answer">Correct: <%= @artwork.creation_date %></p>
               </div>
-              <p class="text-center" id="pop-time"></p>
             </div>
           </div>
         </div>
         <!-- Total Score Section -->
         <div class="card-pop-up-long d-flex flex-column justify-content-center">
-          <div class="fw-bold text-center" id="pop-score"></div>
+          <div class="text-center" id="pop-score"></div>
           <!-- Star Ratings -->
           <div class="d-none " id="fivestar" style="align-self: center;">
             <%= image_tag("etoileargent5.png", style: "height: 30px !important; width: 150px;") %>
@@ -153,7 +241,7 @@
           </div>
         </div>
         <!-- Buttons Section -->
-        <div class="d-flex justify-content-around p-2">
+        <div class="d-flex justify-content-around pt-4">
           <a class="btn btn-ghost" target="_blank" href="<%= @artwork.info_link %>">More Info</a>
           <%= link_to "Next", @next_page_path, class: "my-popup-close-btn btn btn-ghost text-decoration-none", id: 'next' %>
           <%= link_to "End Game", users_game_path(@users_game), class: "my-popup-close-btn btn btn-custom text-decoration-none d-none", id: 'end-game' %>
@@ -164,3 +252,22 @@
     </div>
   </div>
 </div>
+
+<script>
+  function updateSliderValue(slider) {
+      const value = slider.value;
+      const sliderValue = document.getElementById('sliderValue');
+
+      sliderValue.textContent = value;
+
+      // Afficher la date correspondante dans le span en bas de la jauge
+      sliderDate.textContent = `Year: ${value}`;
+
+      // Calculer la position relative du curseur
+      const sliderWidth = slider.offsetWidth;
+      const position = ((value - slider.min) / (slider.max - slider.min)) * sliderWidth;
+
+      // Déplacer le span au-dessus du curseur
+      sliderValue.style.left = `${position}px`;
+  }
+  </script>

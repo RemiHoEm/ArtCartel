@@ -78,7 +78,7 @@
           <button data-flow-target="whereShowBtn" type="button" class="d-none btn btn-primary" data-bs-toggle="modal" data-bs-target="#mapModal">
             Where?
           </button>
-          <% if (@artwork.artist == "anonyme") %>
+          <% if (@artwork.artist != "anonyme") %>
             <!-- artist name modal btn -->
             <button data-flow-target="whoShowBtn" type="button" class="d-none btn btn-primary" data-bs-toggle="modal" data-bs-target="#artistModal">
               Who?
@@ -116,7 +116,7 @@
                   </div>
                 </div>
               </div>
-              <% if (@artwork.artist == "anonyme") %>
+              <% if (@artwork.artist != "anonyme") %>
                 <!-- artist name modal -->
                 <div class="modal fade" id="artistModal" tabindex="-1" aria-labelledby="artistModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-bottom">

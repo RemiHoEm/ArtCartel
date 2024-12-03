@@ -4,73 +4,74 @@
     <h1 class="game-title">ArtCartel</h1>
     <p class="subtitle">Discover. Play. Master.</p>
 
-    <div data-controller="invitation" data-invitation-path-value="<%= challenge_friend_games_path %>">
-      <!-- Challenge Button -->
-      <div class="challenge-btn-section" data-bs-toggle="modal" data-bs-target="#ChallengeModal">
-        <%# <button type="button" class="challenge-btn" data-bs-toggle="modal" data-bs-target="#ChallengeModal" >Challenge a Friend</button> %>
-        <%= link_to "Challenge a Friend", challenge_friend_games_path,
-          class: "play-btn",
-          data: {
-            action: "click->invitation#createGame",
-            turbo_method: :post
-          } %>
+  <div class="button-section d-flex flex-column justify-content-end gap-2">
+      <!-- Play Button -->
+      <div class="play-section mb-5">
+        <%# <button class="play-btn">PLAY</button> %>
+        <%= link_to "PLAY", games_path, class: "play-master-btn", data: {turbo_method: :post} %>
       </div>
-  <!-- Modal -->
-      <div id="ChallengeModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-        <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title"> Copy this link !</h4>
-            </div>
-            <div class="modal-body">
-            <!-- Game Code-->
-              <p data-invitation-target="invitationCode"></p>
-            <!-- Start Game directly -->
-              <%= link_to "start to play", "", class: 'btn btn-primary', data: { invitation_target: "playBtn" } %>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-  <!-- Join Button -->
-     <div class="join-btn-section" data-bs-toggle="modal" data-bs-target="JoinModal">
-        <button type="button" class="challenge-btn" data-bs-toggle="modal" data-bs-target="#JoinModal" >Join a game !</button>
-      </div>
-  <!-- Modal -->
-      <div id="JoinModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-        <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title"> Join a game !</h4>
-            </div>
-            <div class="modal-body">
-              <%= simple_form_for :invitation_code, url: users_games_path, method: :post do |f| %>
-              <%= f.input :invitation_code, label: "Your invitation link", placeholder: "Paste your invitation code" %>
-              <%= f.submit "Join game!", class: "btn btn-primary" %>
-              <% end %>
-            </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+      <div class="friends d-flex justify-content-center gap-2">
+      <div data-controller="invitation" data-invitation-path-value="<%= challenge_friend_games_path %>">
+        <!-- Challenge Button -->
+        <div class="challenge-btn-section" data-bs-toggle="modal" data-bs-target="#ChallengeModal">
+          <%# <button type="button" class="challenge-btn" data-bs-toggle="modal" data-bs-target="#ChallengeModal" >Challenge a Friend</button> %>
+          <%= link_to "Challenge a friend", challenge_friend_games_path,
+            class: "play-btn",
+            data: {
+              action: "click->invitation#createGame",
+              turbo_method: :post
+            } %>
+        </div>
+    <!-- Modal -->
+        <div id="ChallengeModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+          <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title"> Copy this link !</h4>
+              </div>
+              <div class="modal-body">
+              <!-- Game Code-->
+                <p data-invitation-target="invitationCode"></p>
+              <!-- Start Game directly -->
+                <%= link_to "start to play", "", class: 'btn btn-primary', data: { invitation_target: "playBtn" } %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>
-  <!-- Play Button -->
-  <div class="play-section">
-    <%# <button class="play-btn">PLAY</button> %>
-    <%= link_to "PLAY", games_path, class: "play-btn", data: {turbo_method: :post} %>
+      </div>
+
+    <!-- Join Button -->
+      <div class="join-btn-section" data-bs-toggle="modal" data-bs-target="JoinModal">
+          <button type="button" class="play-btn" data-bs-toggle="modal" data-bs-target="#JoinModal" >Join a game !</button>
+        </div>
+    <!-- Modal -->
+        <div id="JoinModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+          <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title"> Join a game !</h4>
+              </div>
+              <div class="modal-body">
+                <%= simple_form_for :invitation_code, url: users_games_path, method: :post do |f| %>
+                <%= f.input :invitation_code, label: "Your invitation link", placeholder: "Paste your invitation code" %>
+                <%= f.submit "Join game!", class: "btn btn-primary" %>
+                <% end %>
+              </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
   </div>
+      </div>
 
-  <!-- Challenge Button -->
-    <div class="challenge-btn-section">
-      <button class="challenge-btn">Challenge a friend</button>
-    </div>
   </div>
 
   <!-- Options Section -->

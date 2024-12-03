@@ -83,7 +83,7 @@ artwork1 = Artwork.create!(
   info_link: "https://en.wikipedia.org/wiki/Giza_pyramid_complex",
   attribution_licence: "Par Ricardo Liberato — All Gizah Pyramids, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=2258048",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620097/All_Gizah_Pyramids_vpevqu.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250032/All_Gizah_PyramidsFORMAT_oji44q.png").open
 artwork1.photo.attach(io: file, filename: "egyptianarchi.png", content_type: "image/png")
 
 artwork1.categories = [egyptian, architecture, insitu]
@@ -98,7 +98,7 @@ artwork2 = Artwork.create!(
   materials: "Gneiss",
   info_link: "https://www.metmuseum.org/art/collection/search/544186",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP247658_lmbrbu.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250064/DP247658FORMAT_bfnycx.png").open
 artwork2.photo.attach(io: file, filename: "egyptiansculpture.png", content_type: "image/png")
 
 artwork2.categories = [egyptian, sculpture, met]
@@ -114,7 +114,7 @@ artwork3 = Artwork.create!(
   info_link: "https://en.wikipedia.org/wiki/Tomb_of_Nebamun",
   attribution_licence: "Par anonyme — Gardner's Art Through the Ages, 12th edition, p. 77, Domaine public, https://commons.wikimedia.org/w/index.php?curid=4550408",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620103/Nebamun_tomb_fresco_dancers_and_musicians_e2fiku.png").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250138/Nebamun_tomb_fresco_dancers_and_musiciansFORMAT_nspmyz.png").open
 artwork3.photo.attach(io: file, filename: "egyptianpainting.png", content_type: "image/png")
 
 artwork3.categories = [egyptian, painting, british]
@@ -129,7 +129,7 @@ artwork4 = Artwork.create!(
   materials: "faience",
   info_link: "https://www.metmuseum.org/art/collection/search/544227",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP248993_hwyqpd.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250078/DP248993FORMAT_xecstk.png").open
 artwork4.photo.attach(io: file, filename: "egyptiandeco.png", content_type: "image/png")
 
 artwork4.categories = [egyptian, decorative, met]
@@ -144,7 +144,7 @@ artwork5 = Artwork.create!(
   materials: "Oil on canvas",
   info_link: "https://www.metmuseum.org/art/collection/search/436532",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620099/DT1502_cropped2_amqdim.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250103/DT1502_cropped2FORMAT_bnoalx.png").open
 artwork5.photo.attach(io: file, filename: "europeinture.png", content_type: "image/png")
 
 artwork5.categories = [european, painting, met]
@@ -159,7 +159,7 @@ artwork6 = Artwork.create!(
   materials: "bronze",
   info_link: "https://www.metmuseum.org/art/collection/search/191811",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP-13618-012_xm6gip.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250025/DP-13618-012FORMAT_cwrids.png").open
 artwork6.photo.attach(io: file, filename: "eurosculpture.png", content_type: "image/png")
 
 artwork6.categories = [european, sculpture, met]
@@ -176,7 +176,7 @@ artwork7 = Artwork.create!(
   attribution_licence: "Par Benh LIEU SONG — Travail personnel, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=6926930",
 
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620103/Tour_Eiffel_Wikimedia_Commons_gujc9h.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250114/Tour_Eiffel_Wikimedia_CommonsFORMAT_bmymls.png").open
 artwork7.photo.attach(io: file, filename: "euroarchi.png", content_type: "image/png")
 
 artwork7.categories = [european, architecture, insitu]
@@ -191,7 +191,7 @@ artwork8 = Artwork.create!(
   materials: "Walnut veneered with ebony, marquetry of engraved brass and tortoiseshell, gilt-bronze mounts, verd antique marble",
   info_link: "https://www.metmuseum.org/art/collection/search/206990",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732881675/DP108742_q6w8qs.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250053/DP108742_FORMAT_wh8v5n.png").open
 artwork8.photo.attach(io: file, filename: "eurodeco.png", content_type: "image/png")
 
 artwork8.categories = [european, decorative, met]
@@ -206,7 +206,7 @@ artwork9 = Artwork.create!(
   materials: "Gold, silver-copper alloy, cinnabar paint",
   info_link: "https://www.metmuseum.org/art/collection/search/309959",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DT1274_hxln8n.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250084/DT1274FORMAT_bwacdw.png").open
 artwork9.photo.attach(io: file, filename: "precodeco.png", content_type: "image/png")
 
 artwork9.categories = [preco, decorative, met]
@@ -222,7 +222,7 @@ artwork10 = Artwork.create!(
   info_link: "https://en.wikipedia.org/wiki/Machu_Picchu",
   attribution_licence: "Par icelight from Boston, MA, US — Before Machu Picchu, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=4200586"
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620097/Before_Machu_Picchu_corgsv.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250028/Before_Machu_Picchu_hrrbi1.jpg").open
 artwork10.photo.attach(io: file, filename: "precoarchi.png", content_type: "image/png")
 
 artwork10.categories = [preco, architecture, insitu]
@@ -238,7 +238,7 @@ artwork11 = Artwork.create!(
   info_link: "https://en.wikipedia.org/wiki/Codex_Borbonicus",
   attribution_licence: "Par Auteur inconnu — Codex Borbonicus from the Loubat collection : http://www.famsi.org/research/loubat/Borbonicus/thumbs0.html, Domaine public, https://commons.wikimedia.org/w/index.php?curid=88926447"
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/Borbonicus_Codex_p14_Wiki_iiy1mk.png").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250705/Borbonicus_Codex_p14_WikiFORMAT_u0pazu.png").open
 artwork11.photo.attach(io: file, filename: "precopainting.png", content_type: "image/png")
 
 artwork11.categories = [preco, painting, assemblée]
@@ -253,7 +253,7 @@ artwork12 = Artwork.create!(
   materials: "Limestone",
   info_link: "https://www.metmuseum.org/art/collection/search/313240",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP104826_xuuhp8.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250063/DP104826FORMAT_gmzyn5.png").open
 artwork12.photo.attach(io: file, filename: "precosculpture.png", content_type: "image/png")
 
 artwork12.categories = [preco, sculpture, met]
@@ -268,7 +268,7 @@ artwork13 = Artwork.create!(
   materials: "ink, color, gold, and gold leaf on paper",
   info_link: "https://www.metmuseum.org/art/collection/search/44858",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DT229_oeucil.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250103/DT229FORMAT_fwg4mq.png").open
 artwork13.photo.attach(io: file, filename: "asianpainting.png", content_type: "image/png")
 
 artwork13.categories = [eastasian, painting, met]
@@ -283,7 +283,7 @@ artwork14 = Artwork.create!(
   materials: "Iron, lacquer, copper-gold alloy (shakudō), silver, silk, horse hair, ivory ",
   info_link: "https://www.metmuseum.org/art/collection/search/24975",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620103/DT5333_arwfgj.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250082/DT5333FORMAT_rr8ssy.png").open
 artwork14.photo.attach(io: file, filename: "asiandeco.png", content_type: "image/png")
 
 artwork14.categories = [eastasian, decorative, met]
@@ -298,7 +298,7 @@ artwork15 = Artwork.create!(
   materials: "wood, lacquer",
   info_link: "https://www.clevelandart.org/art/1970.67",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620097/1970.67_web_dyun2o.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250018/1970.67_web_FORMAT_pm0er5.png").open
 artwork15.photo.attach(io: file, filename: "asiansculpture.png", content_type: "image/png")
 
 artwork15.categories = [eastasian, sculpture, cleveland]
@@ -315,7 +315,7 @@ artwork16 = Artwork.create!(
   attribution_licence: "De Viault - Trabajo propio, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=20498607"
 
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620103/La_cit%C3%A9_interdite_0244_dxmkqu.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250104/La_cit%C3%A9_interdite_0244FORMAT_dggsej.png").open
 artwork16.photo.attach(io: file, filename: "asianarchi.png", content_type: "image/png")
 
 artwork16.categories = [eastasian, architecture, insitu]
@@ -330,7 +330,7 @@ artwork17 = Artwork.create!(
   materials: "Wood, metal, glass, fabric, fiber, cowrie shells, bone, leather, gourd, and feathers",
   info_link: "https://www.artic.edu/artworks/151358/male-figure-nkisi-nkondi",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620097/1998.502_-_Male_Figure_Nkisi_Nkondi_vxsxn6.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250059/1998.502_-_Male_Figure_Nkisi_Nkondi_FORMAT_iyx0jh.png").open
 artwork17.photo.attach(io: file, filename: "africansculpture.png", content_type: "image/png")
 
 artwork17.categories = [african, sculpture, chicago]
@@ -346,7 +346,7 @@ artwork18 = Artwork.create!(
   info_link: "https://en.wikipedia.org/wiki/Esther_Mahlangu",
   attribution_licence: "De Viault - Trabajo propio, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=20498607",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620103/The_entrance_gate_to_Esther_Mahlangu_s_homestead_jjo9jy.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250126/The_entrance_gate_to_Esther_Mahlangu_s_homesteadFORMAT_sdndxb.png").open
 artwork18.photo.attach(io: file, filename: "africanpainting.png", content_type: "image/png")
 
 artwork18.categories = [african, painting, insitu]
@@ -362,7 +362,7 @@ artwork19 = Artwork.create!(
   info_link: "https://en.wikipedia.org/wiki/Great_Mosque_of_Djenn%C3%A9",
   attribution_licence: "Par Andy Gilham — from [1] JCarriker (304322 bytes) (used with the permission of Andy Gilham of www.andygilham.com, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=165257",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620887/Great_Mosque_of_Djenn%C3%A9_1_uxng2r.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250124/Great_Mosque_of_Djenn%C3%A9_1FORMAT_an6zdc.png").open
 artwork19.photo.attach(io: file, filename: "arficanarchi.png", content_type: "image/png")
 
 artwork19.categories = [african, architecture, insitu]
@@ -377,7 +377,7 @@ artwork20 = Artwork.create!(
   materials: "Ivory, iron, copper (?)",
   info_link: "https://www.metmuseum.org/art/collection/search/318622",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732620098/DP231460_gaod8n.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250063/DP231460FORMAT_mqd79a.png").open
 artwork20.photo.attach(io: file, filename: "africandeco.png", content_type: "image/png")
 
 artwork20.categories = [african, decorative, met]
@@ -393,7 +393,7 @@ artwork21 = Artwork.create!(
   info_link: "https://en.wikipedia.org/wiki/The_Coronation_of_Napoleon",
   attribution_licence: "Par Jacques-Louis David — wartburg.edu, Domaine public, https://commons.wikimedia.org/w/index.php?curid=5719207",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/Jacques-Louis_David__The_Coronation_of_Napoleon_sqabmc.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250110/Jacques-Louis_David__The_Coronation_of_NapoleonFORMAT_jpimox.png").open
 artwork21.photo.attach(io: file, filename: "europainting2.png", content_type: "image/png")
 
 artwork21.categories = [european, painting, louvre]
@@ -408,7 +408,7 @@ artwork22 = Artwork.create!(
   materials: "ink, color, silk",
   info_link: "https://www.metmuseum.org/art/collection/search/39936",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/DP151504_CRD_gkin6t.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250060/DP151504_CRDFORMAT_bzfynh.png").open
 artwork22.photo.attach(io: file, filename: "asianpainting2.png", content_type: "image/png")
 
 artwork22.categories = [eastasian, painting, met]
@@ -424,7 +424,7 @@ artwork23 = Artwork.create!(
   info_link: "https://en.wikipedia.org/wiki/Chichen_Itza",
   attribution_licence: "Par Fcb981 — Travail personnel, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=3953928",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/1280px-El_Castillo_Stitch_2008_Edit_1_rylkrd.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733249999/1280px-El_Castillo_Stitch_2008_Edit_1FORMAT_pswu0p.png").open
 artwork23.photo.attach(io: file, filename: "precoarchi2.png", content_type: "image/png")
 
 artwork23.categories = [preco, architecture, insitu]
@@ -440,7 +440,7 @@ artwork24 = Artwork.create!(
   info_link: "https://en.wikipedia.org/wiki/Great_Sphinx_of_Giza",
   attribution_licence: "Par Moh hakem — Travail personnel, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=51754051",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732714978/The_amazing_Sphinx_ujxkvr.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250134/The_amazing_SphinxFORMAT_b8smhs.png").open
 artwork24.photo.attach(io: file, filename: "egyptsculpt2.png", content_type: "image/png")
 
 artwork24.categories = [egyptian, sculpture, insitu]
@@ -455,7 +455,7 @@ artwork25 = Artwork.create!(
   materials: "Wood, pigments",
   info_link: "https://www.artic.edu/artworks/102611/veranda-post-opo-ogoga",
 )
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732881675/1984.550_-_Veranda_Post_%C3%92p%C3%B3_%C3%92g%C3%B2g%C3%A1_zupygv.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1733250015/1984.550_-_Veranda_Post_%C3%92p%C3%B3_%C3%92g%C3%B2g%C3%A1_FORMAT_ajtbrt.png").open
 artwork25.photo.attach(io: file, filename: "africansculpt2.png", content_type: "image/png")
 
 artwork25.categories = [african, sculpture, chicago]

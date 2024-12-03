@@ -9,7 +9,7 @@
 
   <div class="button-section d-flex flex-column justify-content-end gap-2">
       <!-- Play Button -->
-      <div class="play-section mb-5">
+      <div class="play-section mb-4">
         <%# <button class="play-btn">PLAY</button> %>
         <%= link_to "PLAY", games_path, class: "play-master-btn", data: {turbo_method: :post} %>
       </div>
@@ -50,7 +50,7 @@
 
     <!-- Join Button -->
       <div class="join-btn-section" data-bs-toggle="modal" data-bs-target="JoinModal">
-          <button type="button" class="play-btn" data-bs-toggle="modal" data-bs-target="#JoinModal" >Join a game !</button>
+          <button type="button" class="play-btn" data-bs-toggle="modal" data-bs-target="#JoinModal" >    Join a game    </button>
         </div>
     <!-- Modal -->
         <div id="JoinModal" class="modal fade" role="dialog">

@@ -115,25 +115,57 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 2;
     margin-top: 30px;
   }
 
   .play-btn {
     text-decoration: none;
-    background: #243642;
-    color: white;
-    padding: 15px 40px; /* Augmente le padding pour rendre le bouton plus grand */
-    font-size: 1.5rem; /* Augmente la taille du texte pour le rendre plus visible */
+    background: white;
+    color: black;
+    padding: 15px 40px;
+    font-size: 0.9rem;
     font-weight: 700;
-    border-radius: 50px; /* Garder l'arrondi des bords */
+    border-radius: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-block;
     text-align: center;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
-    outline: none; /* Supprime le contour lors du focus */
-    border: none;  /* Supprime la bordure par défaut */
+    outline: none;
+    border: none; /* Supprime la bordure par défaut */
+
+    &:hover {
+      background: #555;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      transform: scale(1.1);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+.button-section {
+  height: 80%;
+}
+
+  .play-master-btn {
+    text-decoration: none;
+    background: white;
+    color: black;
+    padding: 15px 40px;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
+    outline: none;
+    border: none; /* Supprime la bordure par défaut */
 
     &:hover {
       background: #555;
@@ -149,7 +181,6 @@
 
   /* Challenge Button Section */
   .challenge-btn-section {
-    margin-top: 20px;
 
     .challenge-btn {
       background-color: #243642;  /* Bleu foncé */

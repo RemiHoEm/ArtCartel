@@ -8,15 +8,8 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <script src="/js/highcharts.js"></script>
-    <script src="/js/modules/stock.js"></script>
-
-
-
-    <!-- Inclure home.js uniquement sur la page d'accueil -->
-    <% if controller.controller_name == "pages" && controller.action_name == "home" %>
-      <%= javascript_include_tag "home" %>
-    <% end %>
+    <%# <script src="/js/highcharts.js"></script>
+    <script src="/js/modules/stock.js"></script> %>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">

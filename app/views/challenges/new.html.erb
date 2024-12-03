@@ -71,13 +71,6 @@
           <div class="info">Conservation site : <%=@artwork.museum%></div>
         </div>
 
-
-        <div
-          style="width: 100%; height: 250px; border-radius: 5px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-
         <div data-controller="flow">
           <button class="btn btn-primary"
             data-action="click->flow#start">Let's play!!</button>
@@ -95,8 +88,8 @@
           <button data-flow-target="whenShowBtn" type="button" class="d-none btn btn-primary" data-bs-toggle="modal" data-bs-target="#whenModal">
             When?
           </button>
-  
-  
+
+
           <div class="col-12" data-controller="form-input">
             <%= simple_form_for([@games_artwork, @challenge], html: { data: { "form-input-target": "form", "games-artwork-id": @games_artwork.id } } )  do |f| %>
               <!-- map modal -->
@@ -142,7 +135,7 @@
                   </div>
                 </div>
               <% end %>
-    
+
               <!-- when name modal -->
               <div class="modal fade" id="whenModal" tabindex="-1" aria-labelledby="whenModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-bottom">

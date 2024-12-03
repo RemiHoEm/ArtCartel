@@ -16,15 +16,15 @@
                 <h2 class="fw-bolder"><%=challenge.score.to_i%></h2>
                 <div class="étoile">
                   <% if challenge.score.to_i > 9600 %>
-                    <%= image_tag("étoileargent5.png") %>
+                    <%= image_tag("etoileargent5.png") %>
                   <% elsif challenge.score.to_i > 7200 && challenge.score.to_i <= 9600 %>
-                    <%= image_tag("étoileargent4.png") %>
+                    <%= image_tag("etoileargent4.png") %>
                   <% elsif challenge.score.to_i > 4800 && challenge.score.to_i <= 7200 %>
-                    <%= image_tag("étoileargent3.png") %>
+                    <%= image_tag("etoileargent3.png") %>
                   <% elsif challenge.score.to_i > 2400 && challenge.score.to_i <= 4800 %>
-                    <%= image_tag("étoileargent2.png") %>
+                    <%= image_tag("etoileargent2.png") %>
                   <% elsif challenge.score.to_i > 0 && challenge.score.to_i <= 2400 %>
-                    <%= image_tag("étoileargent1.png") %>
+                    <%= image_tag("etoileargent1.png") %>
                   <% end %>
                 </div>
                 </div>

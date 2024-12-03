@@ -33,7 +33,6 @@ class ChallengesController < ApplicationController
 
     if @challenge.save!
 
-
       user_latitude = params[:latitude].to_f
       user_longitude = params[:longitude].to_f
       user_date = Date.new(params[:creation_date].to_i) # Assurez-vous que la date est bien envoyée

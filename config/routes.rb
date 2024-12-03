@@ -7,13 +7,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :games, only: [:create]
+  resources :games, only: [:create] do
+    collection do
+      post :challenge_friend
+    end
+  end
   resources :games_artworks, only: [] do
     resources :challenges, only: [:new, :create] do
       post 'compare', on: :collection
     end
   end
-  resources :users_games, only: :show
+  resources :users_games, only: [:show, :create]
 
 
   # Categories routes for filtering by theme

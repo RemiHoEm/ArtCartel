@@ -39,9 +39,13 @@ class ChallengesController < ApplicationController
       user_artist = params[:artist]
 
       artwork = Artwork.find(@games_artwork.artwork.id)
-      fuzzy_artist = FuzzyMatch.new(Artwork.pluck(:artist))
-      corrected_artist_name = fuzzy_artist.find(user_artist)
-      artist_score = corrected_artist_name == artwork.artist ? 2000 : 0
+      if artwork.artist == "anonyme"
+        artist_score = 2000
+      else
+        fuzzy_artist = FuzzyMatch.new(Artwork.pluck(:artist))
+        corrected_artist_name = fuzzy_artist.find(user_artist)
+        artist_score = corrected_artist_name == artwork.artist ? 2000 : 0
+      end
 
       distance = haversine_distance(user_latitude, user_longitude, artwork.latitude, artwork.longitude)
 

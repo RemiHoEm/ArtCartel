@@ -5,6 +5,17 @@
   }
 }
 
+.jauge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jauge img {
+  width: 200px;
+  height: 40px;
+}
+
 /* Jauge de date interactive */
 input[type="range"] {
   -webkit-appearance: none; /* Pour que le style du range soit plus personnalisable */

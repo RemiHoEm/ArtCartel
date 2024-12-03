@@ -1,14 +1,13 @@
-<div class="home-page">
+<div class="home-page" style="background-image: url('<%= asset_path('ban.jpg') %>');">
   <!-- Hero Section -->
   <div class="hero">
     <h1 class="game-title">ArtCartel</h1>
     <p class="subtitle">Discover. Play. Master.</p>
 
-    <%# <!-- Difficulty Switch -->
+    <!-- Difficulty Switch -->
     <div class="difficulty-switch">
       <button class="difficulty-btn active" id="normal-btn">Normal</button>
       <button class="difficulty-btn" id="easy-btn">Easy</button>
-
     </div>
   </div>
 
@@ -71,14 +70,9 @@
         </div>
   <!-- Play Button -->
   <div class="play-section">
+      </div>
     <%# <button class="play-btn">PLAY</button> %>
-    <%= link_to "PLAY", games_path, class: "play-btn", data: {turbo_method: :post} %>
-  </div>
-
-  <!-- Challenge Button -->
-    <div class="challenge-btn-section">
-      <button class="challenge-btn">Challenge a friend</button>
-    </div>
+    <%= link_to "Play", games_path, class: "play-btn", data: {turbo_method: :post} %>
   </div>
 
   <!-- Options Section -->
@@ -151,5 +145,3 @@
     </div>
   </div>
 </div>
-      </div>
-

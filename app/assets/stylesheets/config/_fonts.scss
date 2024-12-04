@@ -1,6 +1,7 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
 // Import local fonts
 @font-face {
@@ -10,8 +11,8 @@
 
 // Define font variables
 // $my-font: "Neue Montreal", sans-serif;
-$body-font: "Abyssinica SIL", sans-serif;
-$headers-font: "Abyssinica SIL", sans-serif;
+$body-font: "Montserrat", sans-serif;
+$headers-font: "Montserrat", sans-serif;
 
 // Global styles
 body {
@@ -20,7 +21,7 @@ body {
   color: #333;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p, a, div {
   font-family: $headers-font;
-  font-weight: 700;
+  font-weight: 200;
 }

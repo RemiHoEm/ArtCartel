@@ -1,36 +1,7 @@
 <div class="container bg-black">
   <div class="row">
       <div class="col-12">
-          <div style="width: 100%; height: 100%;">
-          <% @users_game.challenges.each do |challenge| %>
-            <% artwork = challenge.artwork %>
-              <div class="card-product d-flex justify-content-between p-2">
-                <%= image_tag (artwork.photo)%>
-                <div class="card-product-infos">
-                  <h2 class="d-flex justify-content-center fw-bolder"><%= "#{artwork.name}" %></h2>
-                  <p class="d-flex justify-content-center"><%= "#{artwork.artist}" %></p>
-                  <p class="d-flex justify-content-center"><%= "#{artwork.creation_date}" %></p>
-                </div>
-                <div class="div">
-                <h2 class="fw-bold">score</h2>
-                <h2 class="fw-bolder"><%=challenge.score.to_i%></h2>
-                <div class="étoile">
-                  <% if challenge.score.to_i > 9600 %>
-                    <%= image_tag("etoileargent5.png") %>
-                  <% elsif challenge.score.to_i > 7200 && challenge.score.to_i <= 9600 %>
-                    <%= image_tag("etoileargent4.png") %>
-                  <% elsif challenge.score.to_i > 4800 && challenge.score.to_i <= 7200 %>
-                    <%= image_tag("etoileargent3.png") %>
-                  <% elsif challenge.score.to_i > 2400 && challenge.score.to_i <= 4800 %>
-                    <%= image_tag("etoileargent2.png") %>
-                  <% elsif challenge.score.to_i > 0 && challenge.score.to_i <= 2400 %>
-                    <%= image_tag("etoileargent1.png") %>
-                  <% end %>
-                </div>
-                </div>
-              </div>
-            <% end %>
-            <div class="card-product-total d-flex justify-content-space-between p-2">
+        <div class="card-product-total d-flex justify-content-center p-2">
                 <div class="ms-3 py-2">
                   <div class="d-flex justify-content-center card-product-total-title">total score</div>
                   <h2 class="total_score m-1 d-flex justify-content-center"><%= @users_game.total_score.to_i %></h2>
@@ -48,10 +19,37 @@
                     <% end %>
                   </div>
                 </div>
-                <div class="div">
-                      <%= link_to "Play again", games_path, class: "play-btn", data: {turbo_method: :post} %>
-                </div>
             </div>
+          <div style="width: 100%; height: 100%;">
+          <% @users_game.challenges.each do |challenge| %>
+            <% artwork = challenge.artwork %>
+              <div class="card-product d-flex justify-content-between p-2">
+                <%= image_tag (artwork.photo)%>
+                <div class="card-product-infos">
+                  <h2 class="d-flex justify-content-center fw-bolder"><%= "#{artwork.name}" %></h2>
+                  <p class="d-flex justify-content-center"><%= "#{artwork.artist}" %></p>
+                  <p class="d-flex justify-content-center"><%= "#{artwork.creation_date}" %></p>
+                </div>
+                <div class="div">
+                <h2 class="fw-bold"></h2>
+                <h2 class="fw-bolder"><%=challenge.score.to_i%>pts</h2>
+                <div class="étoile">
+                  <% if challenge.score.to_i > 9600 %>
+                    <%= image_tag("etoileargent5.png") %>
+                  <% elsif challenge.score.to_i > 7200 && challenge.score.to_i <= 9600 %>
+                    <%= image_tag("etoileargent4.png") %>
+                  <% elsif challenge.score.to_i > 4800 && challenge.score.to_i <= 7200 %>
+                    <%= image_tag("etoileargent3.png") %>
+                  <% elsif challenge.score.to_i > 2400 && challenge.score.to_i <= 4800 %>
+                    <%= image_tag("etoileargent2.png") %>
+                  <% elsif challenge.score.to_i > 0 && challenge.score.to_i <= 2400 %>
+                    <%= image_tag("etoileargent1.png") %>
+                  <% end %>
+                </div>
+                </div>
+              </div>
+            <% end %>
+            
 
             <div class="card-product-footer">
                 <div class="play-section d-flex justify-content-between p-2">
@@ -71,6 +69,9 @@
                   </div>
                 </div>
             </div>
+          <div class="div d-flex justify-content-center">
+                      <%= link_to "Play again", games_path, class: "play-btn", data: {turbo_method: :post} %>
+                </div>
           </div>
       </div>
   </div>

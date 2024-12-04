@@ -321,3 +321,38 @@
       box-shadow: none;
     }
   }
+
+  .play-master-modal-btn {
+    text-decoration: none;
+    background: white;
+    color: black;
+    padding: 4px 24px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
+    outline: none;
+    border: none; /* Supprime la bordure par défaut */
+
+    &:hover {
+      background: #555;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      transform: scale(1.1);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  .link {
+    background-color: whitesmoke;
+    border-radius: 8px;
+    width: 40%;
+  }

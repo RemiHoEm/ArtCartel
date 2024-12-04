@@ -31,28 +31,23 @@
 
 #btn-map{
   border-color: white;
+  box-shadow: 0 6px 15px rgba(94, 95, 95, 0.9);
 }
 
 #btn-artist{
   border-color: white;
+  box-shadow: 0 6px 15px rgba(94, 95, 95, 0.9);
 }
 
 #btn-date{
   border-color: white;
+  box-shadow: 0 6px 15px rgba(94, 95, 95, 0.9);
 }
 
 #btn-play{
   display: flex;
   justify-content: center;
   margin-top: 60px;
-}
-
-.my-popup{
-  color: black;
-}
-
-.my-popup-content{
-  background-color: #999999;
 }
 
 #mapModalLabel{
@@ -76,15 +71,15 @@
 }
 
 #mapModal .modal-content {
-  background-color: #999999; /* Couleur de fond de la modal */
+  background-color: #ffffff; /* Couleur de fond de la modal */
 }
 
 #artistModal .modal-content{
-  background-color: #999999;
+  background-color: #ffffff;
 }
 
 #whenModal .modal-content{
-  background-color: #999999;
+  background-color: #ffffff;
 }
 
 .container {

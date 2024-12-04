@@ -144,8 +144,7 @@
                         <%= f.input :creation_date, as: :range, input_html: { min: "-3000", max: "2024", value: "0", step: "1", oninput: "updateSliderValue(this)" } %>
                         <span id="sliderValue" style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: #fff; padding: 5px 10px; border-radius: 4px; border: 1px solid #ccc; font-weight: bold;">0</span>
                         <!-- Affichage de la date correspondante -->
-                        <span id="sliderDate" style="display: block; margin-top: 10px; font-size: 1.2rem;">Year: 0</span>
-                      </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                       <%= f.submit "Submit answers", class: "btn btn-primary", id:"btn-date",  data: { action: "click->form-input#submit click->flow#close"} %>
@@ -167,7 +166,7 @@
       <div class="my-popup-content d-flex flex-column">
         <!-- Results Header -->
         <div>
-          <h2 class="p-2 text-center">Your results</h2>
+          <h2 class="p-2 text-center" id="result-title">Your results</h2>
         </div>
         <!-- Popup Map -->
         <div class="d-flex flex-column justify-content-center">

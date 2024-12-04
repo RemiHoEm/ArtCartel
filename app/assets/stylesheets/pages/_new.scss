@@ -15,6 +15,10 @@
   transition: transform 0.2s ease, background-color 0.2s ease; /* Animation pour l'effet de soulèvement et la couleur */
 }
 
+.modal-header{
+  background-color: white;
+}
+
 /* Lorsqu'on clique sur le bouton (état :active) */
 .btn-primary:active {
   transform: translateY(-4px); /* Soulève légèrement le bouton */
@@ -71,15 +75,15 @@
 }
 
 #mapModal .modal-content {
-  background-color: #ffffff; /* Couleur de fond de la modal */
+  background-color: #000000; /* Couleur de fond de la modal */
 }
 
 #artistModal .modal-content{
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 #whenModal .modal-content{
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .container {
@@ -169,7 +173,7 @@ input[type="range"]:focus {
 /* Affichage de la date sous la jauge */
 #sliderDate {
   font-size: 18px;
-  color: #243642;
+  color: white;
   font-weight: 600;
 }
 

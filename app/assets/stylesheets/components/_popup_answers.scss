@@ -1,4 +1,3 @@
-
 .my-popup {
   visibility: hidden;
   opacity: 0;
@@ -9,23 +8,15 @@
   bottom: 0;
   transition: opacity 0.3s ease, visibility 0s linear 0.3s;
   length: 300px;
-  color: black;
-}
-
-#result-title{
-  color: black;
-}
-
-.popup {
-  height: 50vh;
+  color: white; /* Texte de la popup en blanc */
+  border-top: white;
 }
 
 .my-popup.active {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.3s ease, visibility 0s linear;
-  background-color: rgba(0, 0, 0, 0.4);
-  // backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.4); /* Légère opacité noire pour l'arrière-plan */
   z-index: 2;
 }
 
@@ -35,7 +26,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: black;
+  background: black; /* Fond noir derrière la popup */
   opacity: 0.3;
   z-index: 9999;
 }
@@ -49,14 +40,16 @@
   right: 0;
   top: 250px;
   bottom: 10px;
-  width: 90%;
-  background: white;
+  width: 100%; /* 100% de largeur pour la popup */
   padding: 10px;
   padding-bottom: 10px;
   border-radius: 20px;
-  background: whitesmoke;
+  background: black; /* Fond noir pour le contenu */
+  color: white; /* Texte blanc à l'intérieur de la popup */
+  box-sizing: border-box; /* Important pour gérer les bordures et padding */
 }
 
+/* Close Button */
 .my-popup-close-btn-wrapper {
   display: flex;
   position: absolute;
@@ -71,7 +64,6 @@
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
 }
 
@@ -80,8 +72,9 @@
   background: #dbdbdb;
 }
 
+/* Popup Text and Results */
 .footer_popup_answer {
-  margin: 16px 24px 16px 24px;
+  margin: 16px 24px;
   justify-content: space-around;
 }
 
@@ -91,29 +84,19 @@
   justify-items: center;
   align-content: center;
   font-size: 100%;
-  gap: 6px
-}
-
-.map_popup_answer {
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-}
-
-.map_txt_popup_answer {
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+  gap: 6px;
 }
 
 .card-pop-up {
   display: flex;
+  color: black;
+  font-weight: bold;
   flex-direction: column;
   justify-content: space-evenly;
-  border-radius: 5px;
-  background-color: #dbdbdb;
-  width: 95%;
+  background-color: #EEEEEE;
+  width: 100%;
   min-height: 90px;
   align-self: center;
-  margin: 2px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
@@ -136,20 +119,14 @@
   object-fit: scale-down;
 }
 
-
+/* Button Styling */
 .btn-ghost {
-  color: white;
-  background-color: #243642;
-  border: 1px solid #4A4A4A;
+  color: black;
+  background-color: white;
+  border: 1px solid white;
   padding: 8px 24px;
   border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.btn-ghost:hover {
-  opacity: 1;
+  font-weight: bold;
 }
 
 .all-results {
@@ -161,15 +138,28 @@
 }
 
 .card-pop-up-long {
-  border-radius: 5px;
-  background-color: #dbdbdb;
-  width: 95%;
+  background-color: #EEEEEE;
+  color: black;
+  font-weight: bold;
   min-height: 60px;
   align-self: center;
-  margin: 2px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
+}
+
+/* Specific adjustments for the map inside popup */
+.map_popup_answer {
+  width: 100%;  /* Ensure map takes full width */
+  padding: 15px;
+  margin: 5px 0;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#results-map {
+  width: 100%;
+  height: 250px;
 }

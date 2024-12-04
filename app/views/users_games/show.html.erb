@@ -1,6 +1,7 @@
 <div class="container bg-black">
   <div class="row">
       <div class="col-12">
+
         <div class="card-product-total d-flex justify-content-center p-2">
                 <div class="ms-3 py-2">
                   <div class="d-flex justify-content-center card-product-total-title">total score</div>
@@ -20,6 +21,15 @@
                   </div>
                 </div>
             </div>
+
+      <%# LEADERBOARD %>
+      <div class="Leaderboard">
+        <%# <% @all_players.each do |player| %>
+            <%# <%= player.username %>
+        <%# <%end%> 
+      </div>
+      <%# PLAYERS GAME RESULTS %>
+
           <div style="width: 100%; height: 100%;">
           <% @users_game.challenges.each do |challenge| %>
             <% artwork = challenge.artwork %>

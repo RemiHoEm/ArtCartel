@@ -32,16 +32,21 @@
           <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title"> Copy this link !</h4>
+                <h5 class="modal-title"> Share this link with your friends !</h5>
               </div>
-              <div class="modal-body">
+              <div class="modal-body d-flex flex-column align-items-center gap-4">
               <!-- Game Code-->
-                <p data-invitation-target="invitationCode"></p>
+              <div data-controller="copy-to-clipboard" data-copy-to-clipboard-feedback-text-value="Copied!" class="d-flex flex-row">
+                <input class="form-control link" type="text" data-copy-to-clipboard-target="input" value="" readonly>
+                  <div class="m-0" data-invitation-target="invitationCode"></div>
+                </input>
+                <button class="play-btn" id="copy-button" data-action="click->copy-to-clipboard#copy"> Copy </button>
+              </div>
               <!-- Start Game directly -->
-                <%= link_to "start to play", "", class: 'btn btn-primary', data: { invitation_target: "playBtn" } %>
+                <%= link_to "START GAME", "", class: 'play-master-modal-btn', data: { invitation_target: "playBtn" } %>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="play-btn" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
@@ -63,7 +68,7 @@
               <div class="modal-body">
                 <%= simple_form_for :invitation_code, url: users_games_path, method: :post do |f| %>
                 <%= f.input :invitation_code, label: "Your invitation link", placeholder: "Paste your invitation code" %>
-                <%= f.submit "Join game!", class: "btn btn-primary" %>
+                <%= f.submit "Join game", class: "play-btn" %>
                 <% end %>
               </div>
               </div>

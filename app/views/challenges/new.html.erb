@@ -5,6 +5,15 @@
 
           <!-- Options Section -->
 
+          <!-- Challenge Progress Section -->
+        <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px; margin-bottom: 15px;">
+          <label for="challenge-progress"></label>
+          <!-- Barre de progression -->
+          <progress id="challenge-progress" class="progress custom-progress" value="<%= (@current_challenge.to_f / 5) * 100 %>" max="100" style="width: 80%; height: 5px;">
+            <%= @current_challenge %> / 5
+          </progress>
+        </div>
+
         <div style="display: flex; justify-content: center; align-items: center; height: 60px;">
           <h1><%=@artwork.name%></h1>
         </div>
@@ -275,9 +284,6 @@
 
       sliderValue.textContent = value;
 
-      // Afficher la date correspondante dans le span en bas de la jauge
-/*       sliderDate.textContent = `Year: ${value}`;
- */
       // Calculer la position relative du curseur
       const sliderWidth = slider.offsetWidth;
       const position = ((value - slider.min) / (slider.max - slider.min)) * sliderWidth;
@@ -296,5 +302,4 @@
       updateSliderValue(slider);  // Met à jour la valeur du slider et les éléments associés
     }
   }
-
 </script>

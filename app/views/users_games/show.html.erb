@@ -3,36 +3,40 @@
       <div class="col-12">
 
       <%# LEADERBOARD %>
+    <div class="leaderboard-container">
+        <h2>Leaderboard</h2>
       <div class="leaderboard">
-      <h2>Leaderboard</h2>
       <table class="table table-striped">
-        <thead>
-            <tr>
-              <th> Ranking </th>
-              <th> Username </th>
-              <th> Score </th>
-            </tr>
-        </thead>
         <tbody>
           <% @players_scores.each do |player| %>
         <tr>
-          <td><%= "#{@ranking}" %></td>
-          <% @ranking = @ranking + 1%>
-          <% if player.username == current_user.username %>
-            <td class="fw-bolder"><%= "#{player.username}" %></td>
-          <%else%>
-            <td><%= "#{player.username}"%></td>
-          <%end%>
-          <% if player.username == current_user.username %>
-          <td class="fw-bolder"><%= "#{player.total_score.to_i}" %></td>
-          <%else%>
-          <td><%= "#{player.total_score.to_i}" %></td>
-          <%end%>
+          <td><% if @ranking == 1 %>
+                <%= image_tag 'medalor_360.png', style: 'width: 30px; height: 30px;' %>
+              <% elsif @ranking == 2 %>
+                <%= image_tag 'medalsilver_360.png', style: 'width: 30px; height: 30px;' %>
+              <% elsif @ranking == 3 %>
+                <%= image_tag 'medalbronze_360.png', style: 'width: 30px; height: 30px;' %>
+              <% else %>
+                <%= @ranking %>
+              <% end %></td>
+
+          <td colspan="2" class="player-box">
+              <div class="player-details">
+                <p class="<%= 'fw-bolder' if player.username == current_user.username %>">
+                  <%= player.username %>
+                </p>
+                <p class="<%= 'fw-bolder' if player.username == current_user.username %>">
+                  <%= player.total_score.to_i %>
+                </p>
+              </div>
+            </td>
         </tr>
+          <% @ranking += 1 %>
           <%end%>
         </tbody>
       </table>
       </div>
+    </div>
       <%# PLAYERS SCORES %>
       <h2>Your Scores</h2>
 

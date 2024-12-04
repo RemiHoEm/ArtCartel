@@ -2,6 +2,16 @@ class UsersGamesController < ApplicationController
 
   def show
     @users_game = UsersGame.find(params[:id])
+    puts @users_game
+
+    @game_id = @users_game.game_id
+    puts @game_id
+
+    @all_players = UsersGame.where(game_id: @game_id).pluck(:user_id)
+    puts @all_players
+
+    # @users = User.all
+
   end
 
   def create

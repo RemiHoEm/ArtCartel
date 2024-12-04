@@ -1,0 +1,48 @@
+/* sessions.scss - Styles spécifiques à la page de connexion Devise */
+
+.login-page {
+  background-color: black; /* Fond sombre pour la page de connexion */
+  color: white; /* Texte en blanc */
+  font-family: 'Abyssinica SIL';
+  height: 100vh;
+}
+
+h2 {
+  color: white; /* Titre en blanc */
+  text-align: center;
+  margin-top: 50px;
+}
+
+.form-inputs {
+  margin-top: 20px;
+}
+
+.form-inputs input,
+.form-inputs select,
+.form-inputs textarea {
+  color: white; /* Texte dans les champs de saisie */
+  background-color: #444; /* Fond des champs de saisie */
+  border: 1px solid #555; /* Bordure des champs de saisie */
+}
+
+.form-inputs input:focus,
+.form-inputs select:focus,
+.form-inputs textarea:focus {
+  background-color: #555; /* Fond des champs de saisie au focus */
+  border-color: #fff; /* Bordure des champs de saisie au focus */
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 20px;
+  background-color: white;
+}
+
+.devise-links a {
+  color: white; /* Liens en blanc */
+  text-decoration: none;
+}
+
+.devise-links a:hover {
+  text-decoration: underline; /* Sous-lignage des liens au survol */
+}

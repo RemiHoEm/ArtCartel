@@ -144,12 +144,16 @@
                         <%= f.input :creation_date, as: :range, input_html: { min: "-3000", max: "2024", value: "0", step: "1", oninput: "updateSliderValue(this)" } %>
                         <span id="sliderValue" style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: #fff; padding: 5px 10px; border-radius: 4px; border: 1px solid #ccc; font-weight: bold;">0</span>
                         <!-- Affichage de la date correspondante -->
+                        <div class="d-flex justify-content-between"style="margin-top: 4px;">
+                          <%= image_tag 'arrowremove1.png', alt: 'Retirer 1 an', onclick: 'changeYear(-1)', style: 'width: 50px; height: 50px; margin-right: 10px; cursor: pointer;' %>
+                          <%= image_tag 'arrowadd1.png', alt: 'Ajouter 1 an', onclick: 'changeYear(1)', style: 'width: 50px; height: 50px; cursor: pointer;' %>
+                        </div>
                       </div>
                     </div>
                     <div class="modal-footer">
                       <%= f.submit "Submit answers", class: "btn btn-primary", id:"btn-date",  data: { action: "click->form-input#submit click->flow#close"} %>
                     </div>
-                    
+
                   </div>
                 </div>
               </div>
@@ -264,4 +268,15 @@
       // Déplacer le span au-dessus du curseur
       sliderValue.style.left = `${position}px`;
   }
-  </script>
+  function changeYear(delta) {
+                        const slider = document.querySelector('input[type="range"]');
+                        let newValue = parseInt(slider.value) + delta;
+
+                        // Limiter la valeur entre les valeurs minimales et maximales du curseur
+                        if (newValue >= parseInt(slider.min) && newValue <= parseInt(slider.max)) {
+                          slider.value = newValue;
+                          updateSliderValue(slider);  // Met à jour la valeur du slider et les éléments associés
+                        }
+                      }
+
+</script>

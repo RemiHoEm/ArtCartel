@@ -26,6 +26,10 @@
                 <%= f.submit "Submit answers", class: "btn btn-primary", data: { action: "click->form-input#submit"} %>
               <% end %>
               <button data-form-input-target="popup" class="d-none" data-action="click->popup#openPopup">Submit answers</button>
+              <div style="margin-top: 10px;">
+                <button type="button" onclick="changeYear(-1)" style="padding: 5px 10px; margin-right: 10px;">Retirer 1 an</button>
+                <button type="button" onclick="changeYear(1)" style="padding: 5px 10px;">Ajouter 1 an</button>
+              </div>
 
               
             <script>

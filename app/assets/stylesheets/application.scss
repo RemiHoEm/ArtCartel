@@ -10,6 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "login";
+@import "signup";
 
 // Le fichier contenant les styles pour le slider
 @import "pages/new";  // Assurez-vous que ce fichier est correctement référencé

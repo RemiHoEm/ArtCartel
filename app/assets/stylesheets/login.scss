@@ -1,0 +1,67 @@
+/* sessions.scss - Styles spécifiques à la page de connexion Devise */
+
+.login-page {
+  background-color: black;
+  color: white;
+  font-family: 'Abyssinica SIL';
+  height: 100vh;
+}
+
+.login-page a {
+  text-decoration: none;
+}
+
+.login-page a:hover {
+  text-decoration: none;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.form-inputs {
+  margin-top: 20px;
+}
+
+.form-inputs input,
+.form-inputs select,
+.form-inputs textarea {
+  color: white;
+  background-color: #444;
+  border: 1px solid #555;
+}
+
+.form-inputs input:focus,
+.form-inputs select:focus,
+.form-inputs textarea:focus {
+  background-color: #555;
+  border-color: #fff;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 20px;
+  background-color: white;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.9rem;
+  text-align: center;
+  background-color: white;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.devise-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.devise-links a:hover {
+  text-decoration: underline;
+}
+

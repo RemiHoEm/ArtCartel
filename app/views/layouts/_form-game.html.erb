@@ -17,15 +17,20 @@
                   <%= f.input :creation_date, as: :range, input_html: { min: "-3000", max: "2024", value: "0", step: "1", oninput: "updateSliderValue(this)" } %>
                   <span id="sliderValue" style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: #fff; padding: 5px 10px; border-radius: 4px; border: 1px solid #ccc; font-weight: bold;">0</span>
                   <!-- Affichage de la date correspondante -->
-                  <span id="sliderDate" style="display: block; margin-top: 10px; font-size: 1.2rem;">Year: 0</span>
-              </div>
+                 </div>
+
 
                     <!-- Affichage de la date correspondante -->
 
                 <%= f.submit "Submit answers", class: "btn btn-primary", data: { action: "click->form-input#submit"} %>
               <% end %>
               <button data-form-input-target="popup" class="d-none" data-action="click->popup#openPopup">Submit answers</button>
+              <div style="margin-top: 10px;">
+                <button type="button" onclick="changeYear(-1)" style="padding: 5px 10px; margin-right: 10px;">Retirer 1 an</button>
+                <button type="button" onclick="changeYear(1)" style="padding: 5px 10px;">Ajouter 1 an</button>
+              </div>
 
+              
             <script>
             function updateSliderValue(slider) {
                 const value = slider.value;
@@ -42,6 +47,16 @@
 
                 // Déplacer le span au-dessus du curseur
                 sliderValue.style.left = `${position}px`;
+            }
+            function changeYear(delta) {
+                const slider = document.querySelector('input[type="range"]');
+                let newValue = parseInt(slider.value) + delta;
+
+                // Limiter la valeur entre les valeurs minimales et maximales du curseur
+                if (newValue >= parseInt(slider.min) && newValue <= parseInt(slider.max)) {
+                    slider.value = newValue;
+                    updateSliderValue(slider);  // Met à jour la valeur du slider et les éléments associés
+                }
             }
             </script>
         </div>

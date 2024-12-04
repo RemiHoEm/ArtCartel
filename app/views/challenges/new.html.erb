@@ -51,16 +51,31 @@
           <% end %>
         <div style="display: flex; gap: 10px; flex; justify-content: center;">
           <% if @artwork.materials.present? %>
-            <div class="info">Materials : <%=@artwork.materials%></div>
+            <div class="info">
+              <%= image_tag 'materialsLogo.png', alt: 'Materials', style: 'width: 40px; height: 40px;' %>
+              <%= @artwork.materials %>
+            </div>
           <% else %>
-            <div class="info">Materials : / </div>
+            <div class="info">
+              <%= image_tag 'materialsLogo.png', alt: 'Materials', style: 'width: 40px; height: 40px;' %>
+              <p>/</p>
+            </div>
           <% end %>
           <% if @artwork.dimensions.present? %>
-            <div class="info">Dimensions : <%=@artwork.dimensions%></div>
+            <div class="info">
+              <%= image_tag 'dimensionLogo.png', alt: 'Dimensions', style: 'width: 40px; height: 40px;' %>
+              <%= @artwork.dimensions %>
+            </div>
           <% else %>
-            <div class="info">Dimensions : / </div>
+            <div class="info">
+              <%= image_tag 'dimensionLogo.png', alt: 'Dimensions', style: 'width: 40px; height: 40px;' %>
+              <p>/</p>
+            </div>
           <% end %>
-          <div class="info">Conservation site : <%=@artwork.museum%></div>
+          <div class="info">
+              <%= image_tag 'museumLogo.png', alt: 'Dimensions', style: 'width: 40px; height: 40px;' %>
+              <%= @artwork.museum %>
+          </div>
         </div>
 
         <div data-controller="flow">
@@ -155,6 +170,7 @@
                     <div class="modal-footer">
                       <%= f.submit "Submit answers", class: "btn btn-primary", id:"btn-date",  data: { action: "click->form-input#submit click->flow#close"} %>
                     </div>
+
                   </div>
                 </div>
               </div>
@@ -270,6 +286,7 @@
       sliderValue.style.left = `${position}px`;
   }
   function changeYear(delta) {
+
     const slider = document.querySelector('input[type="range"]');
     let newValue = parseInt(slider.value) + delta;
 

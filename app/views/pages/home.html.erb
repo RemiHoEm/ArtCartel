@@ -36,18 +36,13 @@
               </div>
               <div class="modal-body d-flex flex-column align-items-center gap-4">
               <!-- Game Code-->
-              <div data-controller="copy-to-clipboard" data-copy-to-clipboard-feedback-text-value="Copied!" class="d-flex flex-row">
-                <input class="form-control link" type="text" data-copy-to-clipboard-target="input" value="" readonly>
-                  <div class="m-0" data-invitation-target="invitationCode"></div>
-                </input>
-                <button class="play-btn" id="copy-button" data-action="click->copy-to-clipboard#copy"> Copy </button>
-              </div>
+                  <div class="m-0 link" data-invitation-target="invitationCode"></div>
               <!-- Start Game directly -->
-                <%= link_to "START GAME", "", class: 'play-master-modal-btn', data: { invitation_target: "playBtn" } %>
+                <%= link_to "START GAME", "", class: 'play-btn', data: { invitation_target: "playBtn" } %>
               </div>
-              <div class="modal-footer">
+              <%# <div class="modal-footer">
                 <button type="button" class="play-btn" data-bs-dismiss="modal">Close</button>
-              </div>
+              </div> %>
             </div>
           </div>
         </div>
@@ -63,18 +58,18 @@
           <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title"> Join a game !</h4>
+                <h4 class="modal-title m-1"> Join a game !</h4>
               </div>
-              <div class="modal-body">
+              <div class="modal-body m-4">
                 <%= simple_form_for :invitation_code, url: users_games_path, method: :post do |f| %>
-                <%= f.input :invitation_code, label: "Your invitation link", placeholder: "Paste your invitation code" %>
+                <%= f.input :invitation_code, label: false, placeholder: "Enter your invitation code here" %>
                 <%= f.submit "Join game", class: "play-btn" %>
                 <% end %>
               </div>
               </div>
-              <div class="modal-footer">
+              <%# <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-              </div>
+              </div> %>
             </div>
           </div>
   </div>
@@ -83,41 +78,41 @@
   </div>
 
   <!-- Options Section -->
-  <div class="options-section">
+  <%# <div class="options-section">
     <button type="button" class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#categoryModal">
-      <img src="<%= asset_path('earth-globe.png') %>" alt="Categories Icon" class="icon-img">
-    </button>
+      <img src="<%= asset_path('earth-globe.png') %>
+    <%# </button> %>
 
-    <button type="button" class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#techniqueModal">
-      <img src="<%= asset_path('color-palette.png') %>" alt="Techniques Icon" class="icon-img">
-    </button>
+    <%# <button type="button" class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#techniqueModal">
+      <img src="<%= asset_path('color-palette.png') %>
+    <%# </button> %>
 
-    <button type="button" class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#museumModal">
-      <img src="<%= asset_path('museum.png') %>" alt="Museums Icon" class="icon-img">
-    </button>
-  </div>
+    <%# <button type="button" class="btn btn-primary btn-round" data-bs-toggle="modal" data-bs-target="#museumModal"> %>
+      <%# <img src="<%= asset_path('museum.png') %>
+    <%# </button> %>
+  <%# </div> %>
 
   <!-- Modals Section -->
   <!-- Categories Modal -->
-  <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+  <%# <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="categoryModalLabel">CATEGORIES</h1>
         </div>
-        <div class="modal-body">
-          <ul>
+        <div class="modal-body"> %>
+          <%# <ul>
             <% Category.where(theme: "Culture").each do |category| %>
-              <li><%= category.name %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+              <%# <li><%= category.name %>
+            <%# <% end %>
+          <%# </ul> %>
+        <%# </div> %>
+      <%# </div> %>
+    <%# </div> %>
+  <%# </div> %>
 
   <!-- Techniques Modal -->
-  <div class="modal fade" id="techniqueModal" tabindex="-1" aria-labelledby="techniqueModalLabel" aria-hidden="true">
+  <%# <div class="modal fade" id="techniqueModal" tabindex="-1" aria-labelledby="techniqueModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -126,30 +121,29 @@
         <div class="modal-body">
           <ul>
             <% Category.where(theme: "Technique").each do |technique| %>
-              <li><%= technique.name %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+              <%# <li><%= technique.name</li>
+            <%# <% end %>
+        <%# </div> %>
+      <%# </div> %>
+    <%# </div> %>
+  <%# </div> %>
 
   <!-- Museums Modal -->
-  <div class="modal fade" id="museumModal" tabindex="-1" aria-labelledby="museumModalLabel" aria-hidden="true">
+  <%# <div class="modal fade" id="museumModal" tabindex="-1" aria-labelledby="museumModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="museumModalLabel">MUSEUMS</h1>
         </div>
-        <div class="modal-body">
-          <ul>
-            <% Category.where(theme: "Museum").where(name: "Metropolitan Museum of Art").each do |museum| %>
-              <li><%= museum.name %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="modal-body"> %>
+          <%# <ul> %>
+            <%# <% Category.where(theme: "Museum").where(name: "Metropolitan Museum of Art").each do |museum| %>
+              <%# <li><%= museum.name %>
+            <%# <% end %>
+          <%# </ul> %>
+        <%# </div> %>
+      <%# </div> %>
+    <%# </div> %>
+  <%# </div> %>
 </div>
       </div>

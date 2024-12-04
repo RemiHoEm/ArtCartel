@@ -267,14 +267,15 @@
       // Déplacer le span au-dessus du curseur
       sliderValue.style.left = `${position}px`;
   }
-  function changeYear(delta) {
-    const slider = document.querySelector('input[type="range"]');
-    let newValue = parseInt(slider.value
-    // Limiter la valeur entre les valeurs minimales et maximales du curseur
-    if (newValue >= parseInt(slider.min) && newValue <= parseInt(slider.max)) {
-      slider.value = newValue;
-      updateSliderValue(slider);  // Met à jour la valeur du slider et les éléments associés
-    }
+function changeYear(delta) {
+                        const slider = document.querySelector('input[type="range"]');
+                        let newValue = parseInt(slider.value) + delta;
+
+                        // Limiter la valeur entre les valeurs minimales et maximales du curseur
+                        if (newValue >= parseInt(slider.min) && newValue <= parseInt(slider.max)) {
+                          slider.value = newValue;
+                          updateSliderValue(slider);  // Met à jour la valeur du slider et les éléments associés
+                        }
                       }
 
-  </script>
+</script>

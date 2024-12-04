@@ -8,7 +8,7 @@ export default class extends Controller {
     markers: Array,
     artwork: String,
     userCoordinates: Object,
-    artworkCoordinates: Object 
+    artworkCoordinates: Object
   }
 
   static targets = ["artisant"]
@@ -18,7 +18,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/light-v11",
+      style: 'mapbox://styles/mapbox/streets-v11',
       zoom: 2
     });
 
@@ -44,6 +44,10 @@ export default class extends Controller {
       markerElement.innerHTML = `<i class="fa-solid fa-location-dot fa-2x"></i>`; // Font Awesome icône
       markerElement.style.cursor = "pointer";
 
+      markerElement.style.cursor = "pointer";
+        markerElement.style.color = "red";
+        markerElement.style.fontSize = "13px";
+
       const marker = new mapboxgl.Marker( { element: markerElement})
         .setLngLat([ lng, lat ])
         .addTo(this.map)
@@ -61,11 +65,11 @@ export default class extends Controller {
   #addLineBetweenMarkers() {
     const userLatLng = [this.userCoordinatesValue.lng, this.userCoordinatesValue.lat];
     const artworkLatLng = [this.artworkCoordinatesValue.lng, this.artworkCoordinatesValue.lat];
-  
+
     const line = new mapboxgl.LngLatBounds();
     line.extend(userLatLng);
     line.extend(artworkLatLng);
-  
+
     this.map.addLayer({
       id: 'line',
       type: 'line',
@@ -84,10 +88,10 @@ export default class extends Controller {
         'line-width': 3
       }
     });
-  
+
     this.map.fitBounds(line, { padding: 50 });
   }
-  
+
   async #compareCoordinates(lat, lng) {
     // Récupérer la date du slider (assurez-vous que le slider a un ID spécifique)
   const userDate = document.getElementById('sliderValue').innerText; // Exemple : récupère la valeur du slider

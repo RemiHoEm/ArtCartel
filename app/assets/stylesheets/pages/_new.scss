@@ -5,6 +5,26 @@
   }
 }
 
+.custom-progress{
+  background-color: rgb(131, 131, 131);
+}
+
+.custom-progress::-webkit-progress-bar {
+  background-color: rgb(131, 131, 131);/* Arrière-plan pour Webkit (Chrome, Safari, Edge) */
+}
+
+.custom-progress::-moz-progress-bar {
+  background-color: rgb(131, 131, 131); /* Arrière-plan pour Firefox */
+}
+
+.custom-progress::-webkit-progress-value {
+  background-color: #ffffff; /* Couleur de la partie remplie pour Webkit */
+}
+
+.custom-progress::-moz-progress-bar {
+  background-color: #ffffff; /* Couleur de la partie remplie pour Firefox */
+}
+
 .btn-primary {
   background-color: white;
   color: black;
@@ -205,7 +225,6 @@ input[type=range]::-ms-thumb {
   color: #ffffff;
 
 }
-
 
 /* Personnalisation pour l'écran mobile, ajuster la taille du slider */
 @media(max-width: 576px) {

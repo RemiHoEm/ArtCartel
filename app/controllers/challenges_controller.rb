@@ -14,6 +14,7 @@ class ChallengesController < ApplicationController
     game = @games_artwork.game
     users_game = UsersGame.find_by(game: game, user: current_user)
     @users_game = users_game
+    @current_challenge = @games_artwork.position
     if @games_artwork.last?
       @next_page_path = users_game_path(users_game)
     else
@@ -30,7 +31,6 @@ class ChallengesController < ApplicationController
     users_game = UsersGame.find_by(game: game, user: current_user)
     @challenge.users_game = users_game
     @challenge.games_artwork = @games_artwork
-
     if @challenge.save!
 
       user_latitude = params[:latitude].to_f

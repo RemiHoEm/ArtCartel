@@ -25,11 +25,12 @@ class ChallengesController < ApplicationController
   #not finished yet, add pop up with result and answer and potentially more
   def create
     @games_artwork = GamesArtwork.find(params[:games_artwork_id])
-    @challenge = Challenge.new(challenge_params)
     game = @games_artwork.game
     users_game = UsersGame.find_by(game: game, user: current_user)
-    @challenge.users_game = users_game
-    @challenge.games_artwork = @games_artwork
+    @challenge = Challenge.find_by(users_game: users_game, games_artwork: @games_artwork)
+    # @challenge = @challenge || Challenge.new(users_game: users_game, games_artwork: @games_artwork)
+    @challenge ||= Challenge.new(users_game: users_game, games_artwork: @games_artwork)
+    @challenge.assign_attributes(challenge_params)
 
     if @challenge.save!
 

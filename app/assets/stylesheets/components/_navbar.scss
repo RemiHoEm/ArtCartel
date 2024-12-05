@@ -21,3 +21,63 @@
   font-size: 48px;
 }
 
+
+/* Style pour le bouton burger */
+.menu-toggle {
+  cursor: pointer;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Style pour le menu latéral */
+.off-canvas-menu {
+  position: fixed;
+  top: 0;
+  right: -250px; /* Menu caché en dehors de la vue */
+  width: 200px;
+  height: 100%;
+  background-color: #111;
+  color: white;
+  overflow-x: hidden;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000; /* Placer au-dessus de tout autre contenu */
+}
+
+.off-canvas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.off-canvas-links {
+  list-style: none;
+  padding: 0;
+}
+
+.off-canvas-item {
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 18px;
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.off-canvas-item:hover {
+  background-color: #333;
+}
+
+/* Fermeture du menu */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+}

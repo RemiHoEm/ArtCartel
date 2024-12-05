@@ -11,7 +11,7 @@ class GameCreator
     else
       @category_artworks = Artwork.all
     end
-    @category_artworks.shuffle.first(5).each_with_index do |artwork, index|
+    @category_artworks.shuffle.first(4).each_with_index do |artwork, index|
       GamesArtwork.create(game: @game, artwork: artwork, position: index + 1)
     end
     @game

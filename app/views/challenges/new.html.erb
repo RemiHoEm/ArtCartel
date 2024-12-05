@@ -9,8 +9,8 @@
         <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px; margin-bottom: 15px;">
           <label for="challenge-progress"></label>
           <!-- Barre de progression -->
-          <progress id="challenge-progress" class="progress custom-progress" value="<%= (@current_challenge.to_f / 5) * 100 %>" max="100" style="width: 80%; height: 5px;">
-            <%= @current_challenge %> / 5
+          <progress id="challenge-progress" class="progress custom-progress" value="<%= (@current_challenge.to_f / 4) * 100 %>" max="100" style="width: 80%; height: 5px;">
+            <%= @current_challenge %> / 4
           </progress>
         </div>
 

@@ -53,36 +53,39 @@
             <p><%= "" %></p>
           <% end %>
 
-        <div style="display: flex; gap: 10px; flex; justify-content: center;">
-          <% if @artwork.materials.present? %>
-            <div class="info">
-              <%= image_tag 'materialsLogo.png', alt: 'Materials', style: 'width: 40px; height: 40px;' %>
-              <%= @artwork.materials %>
-            </div>
-          <% else %>
-            <div class="info">
-              <%= image_tag 'materialsLogo.png', alt: 'Materials', style: 'width: 40px; height: 40px;' %>
-              <p>/</p>
-            </div>
-          <% end %>
+          <div style="display: flex; justify-content: center; gap: 20px;">
 
-          <% if @artwork.dimensions.present? %>
-            <div class="info">
-              <%= image_tag 'dimensionLogo.png', alt: 'Dimensions', style: 'width: 40px; height: 40px;' %>
-              <%= @artwork.dimensions %>
-            </div>
-          <% else %>
-            <div class="info">
-              <%= image_tag 'dimensionLogo.png', alt: 'Dimensions', style: 'width: 40px; height: 40px;' %>
-              <p>/</p>
-            </div>
-          <% end %>
+            <% if @artwork.materials.present? %>
+              <div class="info" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <%= image_tag 'materialsLogo.png', alt: 'Materials', style: 'width: 40px; height: 40px;' %>
+                <span><%= @artwork.materials %></span>
+              </div>
+            <% else %>
+              <div class="info" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <%= image_tag 'materialsLogo.png', alt: 'Materials', style: 'width: 40px; height: 40px;' %>
+                <span>/</span>
+              </div>
+            <% end %>
 
-          <div class="info">
+            <% if @artwork.dimensions.present? %>
+              <div class="info" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <%= image_tag 'dimensionLogo.png', alt: 'Dimensions', style: 'width: 40px; height: 40px;' %>
+                <span><%= @artwork.dimensions %></span>
+              </div>
+            <% else %>
+              <div class="info" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <%= image_tag 'dimensionLogo.png', alt: 'Dimensions', style: 'width: 40px; height: 40px;' %>
+                <span>/</span>
+              </div>
+            <% end %>
+
+            <div class="info" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
               <%= image_tag 'museumLogo.png', alt: 'Museum', style: 'width: 40px; height: 40px;' %>
-              <%= @artwork.museum %>
+              <span><%= @artwork.museum %></span>
+            </div>
+
           </div>
-        </div>
+
 
         <div data-controller="flow">
           <div id="btn-play">
@@ -182,6 +185,32 @@
                   </div>
                 </div>
               </div>
+              <script>
+                function updateSliderValue(slider) {
+                const value = slider.value;
+                const sliderValue = document.getElementById('sliderValue');
+
+                sliderValue.textContent = value;
+
+                // Calculer la position relative du curseur
+                const sliderWidth = slider.offsetWidth;
+                const position = ((value - slider.min) / (slider.max - slider.min)) * sliderWidth;
+
+                // Déplacer le span au-dessus du curseur
+                sliderValue.style.left = `${position}px`;
+            }
+
+            function changeYear(delta) {
+                const slider = document.querySelector('input[type="range"]');
+                let newValue = parseInt(slider.value) + delta;
+
+                // Limiter la valeur entre les valeurs minimales et maximales du curseur
+                if (newValue >= parseInt(slider.min) && newValue <= parseInt(slider.max)) {
+                    slider.value = newValue;
+                    updateSliderValue(slider);  // Met à jour la valeur du slider et les éléments associés
+                }
+            }
+                </script>
             <% end %>
             <button data-form-input-target="popup" class="d-none" data-action="click->popup#openPopup">Submit answers</button>
           </div>
@@ -196,7 +225,9 @@
       <div class="my-popup-content d-flex flex-column">
         <!-- Results Header -->
         <div>
+
           <h1 class="result text-center mb-1" id="result-title">Your results</h1>
+
         </div>
         <!-- Popup Map -->
         <div class="d-flex flex-column justify-content-center">

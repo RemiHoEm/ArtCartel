@@ -153,3 +153,80 @@
   width: 75%;
   margin: 5px;
 }
+
+/* Leaderboard Container */
+.leaderboard-container {
+  max-width: 600px;
+  margin: 20px auto;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Table Styling */
+.leaderboard {
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  padding: 5px;
+}
+
+.table {
+  width: auto; /* Rétrécir la largeur pour s'adapter au contenu */
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  background-color: #2c2c2c;
+}
+
+.table td {
+  text-align: center;
+  border: none;
+  padding: 3px 8px;
+}
+
+/* Colonne des médailles */
+.table td:first-child {
+  background-color: #2c2c2c; /* Même couleur que le fond de la table */
+  color: white;
+  font-size: 18px;
+  padding-left: 1px;
+}
+
+/* Player Box Styling */
+.player-box {
+  background-color: #000000 !important;
+  color: rgb(252, 251, 251) !important;
+  border-radius: 8px;
+  padding: 5px 10px; /* Réduction des marges intérieures */
+  text-align: left;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  width: 90%;
+  margin-left: auto; /* Centrage horizontal */
+  margin-right: auto;
+}
+
+/* Player Details */
+.player-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px; /* Augmentation de la taille du texte */
+  line-height: 1.5;
+}
+
+.player-details p {
+  margin: 0;
+  font-size: 18px; /* Réduction de la taille du texte */
+  line-height: 1.2; /* Ajuste l'espacement vertical entre les lignes */
+}
+
+.fw-bolder {
+  font-weight: bold;
+}
+
+#star-leaderboard {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

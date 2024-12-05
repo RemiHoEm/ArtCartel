@@ -6,16 +6,38 @@ class GameCreator
 
   def call
     @game = Game.create(invitation_code: SecureRandom.hex(3))
-    if @category
-      @category_artworks = @category.artworks
-    else
-      @category_artworks = Artwork.all
+
+    categories = Category.all.shuffle.first(4)
+
+    selected_artworks = []
+
+    categories.each do |category|
+      category_artworks = category.artworks
+      next if category_artworks.empty?
+
+      selected_artworks << category_artworks.shuffle.first
     end
-    @category_artworks.shuffle.first(4).each_with_index do |artwork, index|
+
+    selected_artworks.each_with_index do |artwork, index|
+
       GamesArtwork.create(game: @game, artwork: artwork, position: index + 1)
     end
+
     @game
   end
+
+  # def call
+  #   @game = Game.create(invitation_code: SecureRandom.hex(3))
+  #   if @category
+  #     @category_artworks = @category.artworks
+  #   else
+  #     @category_artworks = Artwork.all
+  #   end
+  #   @category_artworks.shuffle.first(5).each_with_index do |artwork, index|
+  #     GamesArtwork.create(game: @game, artwork: artwork, position: index + 1)
+  #   end
+  #   @game
+  # end
 
   private
 

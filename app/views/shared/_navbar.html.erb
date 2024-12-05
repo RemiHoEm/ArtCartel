@@ -1,27 +1,49 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid mt-4">
     <div class="d-flex justify-content-start align-items-center">
-
-    <%= link_to root_path, class: "penseur-logo" do %>
-      <%= image_tag "penseurLogoNB.png" %>
-    <% end %>
-    <div class="navbar-title">ArtCartel</div>
+      <%= link_to root_path, class: "penseur-logo" do %>
+        <%= image_tag "penseurLogoNB.png" %>
+      <% end %>
+      <div class="navbar-title">ArtCartel</div>
     </div>
 
-    <div class="dropdown">
-      <%= image_tag("menu-bar.png", alt: "Dropdown image", class: "dropdown-toggle", role: "button", data: { bs_toggle: "dropdown" }, aria: { expanded: "false" }) %>
-      <ul class="dropdown-menu dropdown-menu-end" data-bs-theme="dark">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+    <!-- Menu Burger Button -->
+    <div class="menu-toggle" id="menu-toggle">
+      <%= image_tag "menu-bar.png", alt: "Menu", class: "menu-icon" %>
     </div>
   </div>
 </div>
+
+<!-- Menu Latéral -->
+<div class="off-canvas-menu" id="off-canvas-menu">
+  <div class="off-canvas-header">
+    <button class="close-btn" id="close-btn">&times;</button>
+  </div>
+  <ul class="off-canvas-links">
+    <% if user_signed_in? %>
+      <li><%= link_to "Home", root_path, class: "off-canvas-item" %></li>
+      <li><%= link_to "Log out", destroy_user_session_path, class: "off-canvas-item", data: { turbo_method: :delete } %></li>
+    <% else %>
+      <li><%= link_to "Login", new_user_session_path, class: "off-canvas-item" %></li>
+    <% end %>
+  </ul>
+</div>
+
+<script>
+ document.addEventListener("turbo:load", function() {  // Utilisation de turbo:load
+  const menuToggle = document.getElementById("menu-toggle");
+  const offCanvasMenu = document.getElementById("off-canvas-menu");
+  const closeBtn = document.getElementById("close-btn");
+
+  // Ouvrir le menu
+  menuToggle.addEventListener("click", function() {
+    offCanvasMenu.style.right = "0"; // Faire apparaître le menu
+  });
+
+  // Fermer le menu
+  closeBtn.addEventListener("click", function() {
+    offCanvasMenu.style.right = "-250px"; // Fermer le menu (cache le menu en dehors de la vue)
+  });
+});
+
+</script>

@@ -330,6 +330,11 @@
   animation: scaleIn 0.5s ease forwards;
 }
 
+.modal-max-height {
+  max-height: 75vh;
+  overflow: scroll;
+}
+
 /* Définir l'animation */
 @keyframes scaleIn {
   0% {

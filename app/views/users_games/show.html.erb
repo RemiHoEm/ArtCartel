@@ -6,7 +6,12 @@
 
     <div class="leaderboard-container">
       <% if @users_game.game.users.count > 1 %>
-        <h2>Leaderboard</h2>
+        <div class="d-flex align-items-baseline justify-content-between">
+          <h2>Leaderboard</h2>
+          <%= link_to users_game_path(@users_game), class: "text-white" do %>
+            <i class="fa-solid fa-arrows-rotate"></i>
+          <% end %>
+        </div>
       <div class="leaderboard">
       <table class="table table-striped">
         <tbody>

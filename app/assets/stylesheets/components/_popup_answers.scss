@@ -39,8 +39,7 @@
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 250px;
-  bottom: 10px;
+  bottom: 0px;
   width: 100%; /* 100% de largeur pour la popup */
   padding: 10px;
   padding-bottom: 10px;
@@ -48,6 +47,8 @@
   background: black; /* Fond noir pour le contenu */
   color: white; /* Texte blanc à l'intérieur de la popup */
   box-sizing: border-box; /* Important pour gérer les bordures et padding */
+  max-height: 75vh;
+  overflow: scroll;
 }
 
 /* Close Button */

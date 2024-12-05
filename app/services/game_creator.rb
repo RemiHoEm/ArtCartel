@@ -19,6 +19,7 @@ class GameCreator
     end
 
     selected_artworks.each_with_index do |artwork, index|
+
       GamesArtwork.create(game: @game, artwork: artwork, position: index + 1)
     end
 

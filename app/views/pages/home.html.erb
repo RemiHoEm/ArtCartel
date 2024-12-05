@@ -21,6 +21,7 @@
           <%# <button type="button" class="challenge-btn" data-bs-toggle="modal" data-bs-target="#ChallengeModal" >Challenge a Friend</button> %>
           <%= link_to "Challenge a friend", challenge_friend_games_path,
             class: "play-btn",
+            id:"challenge-a-friend",
             data: {
               action: "click->invitation#createGame",
               turbo_method: :post
@@ -50,7 +51,7 @@
 
     <!-- Join Button -->
       <div class="join-btn-section" data-bs-toggle="modal" data-bs-target="JoinModal">
-          <button type="button" class="play-btn" data-bs-toggle="modal" data-bs-target="#JoinModal" >    Join a game    </button>
+          <button type="button" class="play-btn" data-bs-toggle="modal" data-bs-target="#JoinModal" id="join-a-game" >    Join a game    </button>
         </div>
     <!-- Modal -->
         <div id="JoinModal" class="modal fade" role="dialog">

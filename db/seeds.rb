@@ -6,10 +6,6 @@ Artwork.destroy_all
 puts "Starting seed deployment..."
 puts "Creating categories"
 
-african = Category.create!(
-  name: "African Art",
-  theme: "Culture",
-)
 egyptian = Category.create!(
   name: "Egyptian Art",
   theme: "Culture",

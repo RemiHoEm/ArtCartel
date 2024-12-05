@@ -114,10 +114,13 @@
             <div class="card-product-footer">
                 <div class="play-section d-flex justify-content-between p-2">
                   <div class="div">
+                    <% artist = (0...@users_game.challenges.count).map { |i| [@users_game.challenges[i].artwork.name, @users_game.challenges[i].artist_score.to_i] } %>
+                    <% geo = (0...@users_game.challenges.count).map { |i| [@users_game.challenges[i].artwork.name, @users_game.challenges[i].geo_score.to_i] } %>
+                    <% time = (0...@users_game.challenges.count).map { |i| [@users_game.challenges[i].artwork.name, @users_game.challenges[i].time_score.to_i] } %>
                     <%= column_chart([
-                      { name: "artist score", data: { @users_game.challenges[0].artwork.name => @users_game.challenges[0].artist_score.to_i, @users_game.challenges[1].artwork.name => @users_game.challenges[1].artist_score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].artist_score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].artist_score.to_i, } },
-                      { name: "geo score", data: { @users_game.challenges[0].artwork.name => @users_game.challenges[0].geo_score.to_i, @users_game.challenges[1].artwork.name => @users_game.challenges[1].geo_score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].geo_score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].geo_score.to_i, } },
-                      { name: "date score", data: { @users_game.challenges[0].artwork.name => @users_game.challenges[0].time_score.to_i, @users_game.challenges[1].artwork.name => @users_game.challenges[1].time_score.to_i, @users_game.challenges[2].artwork.name => @users_game.challenges[2].time_score.to_i, @users_game.challenges[3].artwork.name => @users_game.challenges[3].time_score.to_i, } }
+                      { name: "artist score", data: artist.to_h },
+                      { name: "geo score", data: geo.to_h },
+                      { name: "date score", data: time.to_h }
                       ],
                       width: "350px",
                       height: "260px",

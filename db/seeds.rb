@@ -1,4 +1,5 @@
 Challenge.destroy_all
+GamesArtwork.destroy_all
 Category.destroy_all
 Artwork.destroy_all
 

@@ -45,7 +45,7 @@ export default class extends Controller {
       markerElement.style.cursor = "pointer";
 
       markerElement.style.cursor = "pointer";
-        markerElement.style.color = "red";
+        markerElement.style.color = "#ED6856";
         markerElement.style.fontSize = "13px";
 
       const marker = new mapboxgl.Marker( { element: markerElement})

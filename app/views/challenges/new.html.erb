@@ -90,7 +90,7 @@
         <div data-controller="flow">
           <div id="btn-play">
 
-            <button class="btn btn-primary" data-action="click->flow#start">Let's play</button>
+            <button class="play-btn" data-action="click->flow#start">Let's play</button>
           </div>
 
           <!-- map modal btn -->
@@ -131,7 +131,7 @@
                       <%= f.input :longitude, as: :hidden, input_html: { id: 'longitude' } %>
                     </div>
                     <div class="modal-footer">
-                      <button data-action="click->flow#goToSecondStep"type="button" class="btn btn-primary" id="btn-map" data-bs-dismiss="modal">Next</button>
+                      <button data-action="click->flow#goToSecondStep"type="button" class="play-btn" id="btn-map" data-bs-dismiss="modal">Next</button>
                     </div>
                   </div>
                 </div>
@@ -150,7 +150,7 @@
                         <%= f.input :artist, label: "Artist's name", placeholder: "Type your artist guess", input_html: { id: 'artist' } %>
                       </div>
                       <div class="modal-footer">
-                        <button data-action="click->flow#goToThirdStep"type="button" class="btn btn-primary" id="btn-artist" data-bs-dismiss="modal">Next</button>
+                        <button data-action="click->flow#goToThirdStep"type="button" class="play-btn" id="btn-artist" data-bs-dismiss="modal">Next</button>
                       </div>
                     </div>
                   </div>
@@ -179,7 +179,7 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <%= f.submit "Submit answers", class: "btn btn-primary", id:"btn-date",  data: { action: "click->form-input#submit click->flow#close"} %>
+                      <%= f.submit "Submit answers", class: "play-btn", id:"btn-date",  data: { action: "click->form-input#submit click->flow#close"} %>
                     </div>
 
                   </div>
@@ -225,7 +225,9 @@
       <div class="my-popup-content d-flex flex-column">
         <!-- Results Header -->
         <div>
-          <h2 class="p-2 text-center" id="result-title">Your results</h2>
+
+          <h1 class="result text-center mb-1" id="result-title">Your results</h1>
+
         </div>
         <!-- Popup Map -->
         <div class="d-flex flex-column justify-content-center">
@@ -237,41 +239,60 @@
             data-artwork-coordinates-value="<%= @artwork_coordinates.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
-        <div class="all-results">
-          <div class="card-pop-up-long">
-            <div class="text-center" id="geo-score" style="margin-bottom: 0;"></div>
-            <div class="text-center" id="pop-text" style="margin-bottom: 0;"></div>
-          </div>
+        <div class="all-results mt-1">
+            <div class="card-pop-up-long d-flex flex-row p-1">
+        <%# image %>
+            <div>
+              <%= image_tag("globeLogo.png", style: "height: 50px !important;") %>
+            </div>
+        <%# results %>
+            <div>
+              <div class="text-center" id="geo-score" style="margin-bottom: 0; font-weight: 700;"></div>
+              <div class="text-center" id="pop-text" style="margin-bottom: 0; font-weight: 500;"></div>
+            </div>
+            </div>
         <!-- Artist and Date Details -->
         <div class="d-flex flex-column">
           <div class="text_popup_answer d-flex flex-row">
+          <!-- image -->
             <!-- Artist Section -->
-            <div class="card-pop-up">
-              <p class="text-center mb-0" id="artist-score"></p>
+            <div class="card-pop-up d-flex flex-row">
+            <div class="align-self-center">
+              <%= image_tag("artistLogo.png", style: "height: 50px !important;") %>
+            </div>
+            <div class="align-self-center">
+              <p class="text-center mb-0" id="artist-score" style="font-weight: 700;"></p>
               <div id="correct_artist" class="d-none">
-                <p class="mb-auto text-center correct-answer"> Correct: <%= @artwork.artist %></p>
+                <p class="mb-auto text-center correct-answer" style="font-weight: 500;"> <%= @artwork.artist %></p>
               </div>
               <div id="incorrect_artist" class="d-none">
-                <p class="mb-auto text-center false-answer" id="artist-guess"></p>
-                <p class="mb-auto text-center correct-answer">Correct: <%= @artwork.artist %></p>
+                <p class="mb-auto text-center false-answer" id="artist-guess" style="font-weight: 500;"></p>
+                <p class="mb-auto text-center correct-answer" style="font-weight: 500;"> <%= @artwork.artist %></p>
               </div>
             </div>
+            </div>
             <!-- Date Section -->
-            <div class="card-pop-up">
-              <p class="text-center mb-0" id="pop-time"></p>
+            <div class="card-pop-up d-flex flex-row">
+            <div class="align-self-center">
+              <%= image_tag("timeLogo.png", style: "height: 50px !important;") %>
+            </div>
+            <div class="align-self-center">
+              <p class="text-center mb-0" id="pop-time" style="font-weight: 700;"></p>
               <div id="correct_date" class="d-none">
-                <p class="mb-auto text-center correct-answer">Correct: <%= @artwork.creation_date %></p>
+                <p class="mb-auto text-center correct-answer" style="font-weight: 500;"> <%= @artwork.creation_date %></p>
               </div>
               <div id="incorrect_date" class="d-none">
-                <p class="mb-auto text-center false-answer" id="date-guess"></p>
-                <p class="mb-auto text-center correct-answer">Correct: <%= @artwork.creation_date %></p>
+                <p class="mb-auto text-center false-answer" style="font-weight: 500;" id="date-guess"></p>
+                <p class="mb-auto text-center correct-answer" style="
+                font-weight: 500;"> <%= @artwork.creation_date %></p>
               </div>
+            </div>
             </div>
           </div>
         </div>
         <!-- Total Score Section -->
         <div class="card-pop-up-long d-flex flex-column justify-content-center">
-          <div class="text-center" id="pop-score"></div>
+          <div class="text-center" id="pop-score" style="font-weight: 700;"></div>
           <!-- Star Ratings -->
           <div class="d-none " id="fivestar" style="align-self: center;">
             <%= image_tag("etoileargent5.png", style: "height: 30px !important; width: 150px;") %>
@@ -289,11 +310,12 @@
             <%= image_tag("etoileargent1.png", style: "height: 30px !important; width: 150px;") %>
           </div>
         </div>
+        </div>
         <!-- Buttons Section -->
-        <div class="d-flex justify-content-around pt-4">
-          <a class="btn btn-ghost" target="_blank" href="<%= @artwork.info_link %>">More Info</a>
-          <%= link_to "Next", @next_page_path, class: "my-popup-close-btn btn btn-ghost text-decoration-none", id: 'next' %>
-          <%= link_to "End Game", users_game_path(@users_game), class: "my-popup-close-btn btn btn-custom text-decoration-none d-none", id: 'end-game' %>
+        <div class="d-flex justify-content-around">
+          <a class="play-btn" target="_blank" href="<%= @artwork.info_link %>">More Info</a>
+          <%= link_to "Next", @next_page_path, class: "play-btn text-decoration-none", id: 'next' %>
+          <%= link_to "End Game", users_game_path(@users_game), class: "play-btn text-decoration-none d-none", id: 'end-game' %>
         </div>
         </div>
         </div>

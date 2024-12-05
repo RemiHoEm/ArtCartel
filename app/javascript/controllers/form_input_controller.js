@@ -52,12 +52,12 @@ export default class extends Controller {
       let date_guess = document.getElementById('date-guess');
       sentence.textContent = `You are ${data.distance} km away`
 
-      score.textContent = `Total score : ${data.total_score}`;
-      time.textContent = `Time score : ${data.time_score}`;
-      artist.textContent = `Artist score : ${data.artist_score}`;
+      score.textContent = `Total points : ${data.total_score}`;
+      time.textContent = `${data.time_score} pts`;
+      artist.textContent = `${data.artist_score} pts`;
       artist_guess.textContent = `${art}`;
       date_guess.textContent = `${date}`;
-      geoscore.textContent = `Geoscore : ${data.geoscore}`;
+      geoscore.textContent = `${data.geoscore} pts`;
 
       let next = document.getElementById('next')
       let end = document.getElementById('end-game')
@@ -66,7 +66,7 @@ export default class extends Controller {
         next.classList.add("d-none");
         end.classList.remove("d-none");
       }
-
+      
       if (data.correct_artist_name === true) {
         document.getElementById('correct_artist').classList.remove('d-none');
       } else {

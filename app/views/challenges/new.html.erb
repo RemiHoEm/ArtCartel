@@ -185,6 +185,32 @@
                   </div>
                 </div>
               </div>
+              <script>
+                function updateSliderValue(slider) {
+                const value = slider.value;
+                const sliderValue = document.getElementById('sliderValue');
+
+                sliderValue.textContent = value;
+
+                // Calculer la position relative du curseur
+                const sliderWidth = slider.offsetWidth;
+                const position = ((value - slider.min) / (slider.max - slider.min)) * sliderWidth;
+
+                // Déplacer le span au-dessus du curseur
+                sliderValue.style.left = `${position}px`;
+            }
+
+            function changeYear(delta) {
+                const slider = document.querySelector('input[type="range"]');
+                let newValue = parseInt(slider.value) + delta;
+
+                // Limiter la valeur entre les valeurs minimales et maximales du curseur
+                if (newValue >= parseInt(slider.min) && newValue <= parseInt(slider.max)) {
+                    slider.value = newValue;
+                    updateSliderValue(slider);  // Met à jour la valeur du slider et les éléments associés
+                }
+            }
+                </script>
             <% end %>
             <button data-form-input-target="popup" class="d-none" data-action="click->popup#openPopup">Submit answers</button>
           </div>

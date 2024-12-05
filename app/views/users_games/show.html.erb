@@ -3,6 +3,7 @@
       <div class="col-12">
 
       <%# LEADERBOARD %>
+      <% if @users_game.game.users.count > 1 %>
       <div class="leaderboard">
       <h2>Leaderboard</h2>
       <table class="table table-striped">
@@ -34,6 +35,8 @@
       </table>
 
       </div>
+      <% end %>
+
       <%# PLAYERS SCORES %>
       <h2>Your Scores</h2>
 

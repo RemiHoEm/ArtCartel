@@ -38,7 +38,7 @@ body{
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: 64px;
+  // margin-bottom: 64px;
   padding: calc(var(--bs-modal-padding) - var(--bs-modal-footer-gap)* .5);
   background-color: var(--bs-modal-footer-bg);
   border-top: var(--bs-modal-footer-border-width) solid var(--bs-modal-footer-border-color);

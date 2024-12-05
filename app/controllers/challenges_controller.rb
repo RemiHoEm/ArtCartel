@@ -66,7 +66,7 @@ class ChallengesController < ApplicationController
       @challenge.score = total_score
 
       # Display in pop-up depending on answers of user
-      @correct_artist_name = corrected_artist_name == artwork.artist
+      @correct_artist_name = corrected_artist_name == artwork.artist || user_artist.nil?
 
       @correct_date = user_date == artwork.creation_date
 

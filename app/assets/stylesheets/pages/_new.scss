@@ -292,3 +292,43 @@ input[type=range]::-ms-thumb {
   font-size: 12px;
   margin-bottom: 6px;
 }
+
+.play-btn {
+  text-decoration: none;
+  background: black;
+  color: white;
+  /* padding: 15px 40px; */
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
+  outline: none;
+  border: solid; /* Supprime la bordure par défaut */
+  font-family: "Montserrat", sans-serif;
+
+  &:hover {
+    background: #555;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+#result-title {
+      /* border-top: 1px solid white; */
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: black;
+      text-align: center;
+      background-color: white;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+}

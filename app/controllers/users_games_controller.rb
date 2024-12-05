@@ -13,6 +13,7 @@ class UsersGamesController < ApplicationController
                           .order('total_score DESC') # Optional: order by total score
 
     @ranking = 1
+
   end
 
   def create

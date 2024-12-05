@@ -14,6 +14,7 @@ class ChallengesController < ApplicationController
     game = @games_artwork.game
     users_game = UsersGame.find_by(game: game, user: current_user)
     @users_game = users_game
+    @current_challenge = @games_artwork.position
     if @games_artwork.last?
       @next_page_path = users_game_path(users_game)
     else
@@ -27,6 +28,7 @@ class ChallengesController < ApplicationController
     @games_artwork = GamesArtwork.find(params[:games_artwork_id])
     game = @games_artwork.game
     users_game = UsersGame.find_by(game: game, user: current_user)
+
     @challenge = Challenge.find_by(users_game: users_game, games_artwork: @games_artwork)
     # @challenge = @challenge || Challenge.new(users_game: users_game, games_artwork: @games_artwork)
     @challenge ||= Challenge.new(users_game: users_game, games_artwork: @games_artwork)

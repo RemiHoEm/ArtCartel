@@ -6,6 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%# <script src="/js/highcharts.js"></script>
@@ -17,6 +19,8 @@
     <%= render 'shared/ios_pwa_links' %>
 
     <title><%= meta_title %></title>
+    <%= favicon_link_tag "favicon.ico" %>
+
     <meta name="description" content="<%= meta_description %>">
 
     <!-- Facebook Open Graph data -->
@@ -32,6 +36,9 @@
     <meta name="twitter:title" content="<%= meta_title %>">
     <meta name="twitter:description" content="<%= meta_description %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
+
+
+
   </head>
 
   <body>

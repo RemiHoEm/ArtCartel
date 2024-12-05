@@ -88,8 +88,7 @@
 
 
         <div data-controller="flow">
-          <div id="btn-play">
-
+          <div id="btn-play" class="mt-5">
             <button class="play-btn" data-action="click->flow#start">Let's play</button>
           </div>
 
@@ -239,11 +238,11 @@
             data-artwork-coordinates-value="<%= @artwork_coordinates.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
-        <div class="all-results mt-1">
-            <div class="card-pop-up-long d-flex flex-row p-1">
+        <div class="all-results mt-1 ms-0 me-0">
+            <div class="card-pop-up-long d-flex flex-row p-1 justify-content-center">
         <%# image %>
             <div>
-              <%= image_tag("globeLogo.png", style: "height: 50px !important;") %>
+              <%= image_tag("globeLogo.png", style: "height: 50px !important; margin-right: 12px;") %>
             </div>
         <%# results %>
             <div>

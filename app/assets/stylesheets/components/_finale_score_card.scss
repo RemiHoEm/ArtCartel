@@ -25,7 +25,7 @@
   border-bottom: solid;
   border-bottom-width: thin;
   border-color: #EEEEEE;
-
+  padding-bottom: 30px;
 }
 
 .card-product-footer {
@@ -35,8 +35,7 @@
   display: flex;
   align-items: center;
   margin-top: 5px;
-
-
+  padding-top: 30px;
 }
 
 .card-product img {
@@ -96,7 +95,8 @@
   text-align: center;
   box-shadow: 0 6px 15px rgba(121, 206, 184, 0.9);
   transition: all;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 50px;
 
   &:hover {
     background: #555; /* Changement de couleur au survol */
@@ -230,3 +230,4 @@
   align-items: center;
   justify-content: center;
 }
+

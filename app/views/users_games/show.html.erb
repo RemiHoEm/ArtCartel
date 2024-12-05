@@ -3,6 +3,7 @@
       <div class="col-12">
 
       <%# LEADERBOARD %>
+      <% if @users_game.game.users.count > 1 %>
       <div class="leaderboard">
       <h2>Leaderboard</h2>
       <table class="table table-striped">
@@ -33,6 +34,8 @@
         </tbody>
       </table>
       </div>
+      <% end %>
+
       <%# PLAYERS SCORES %>
       <h2>Your Scores</h2>
 
@@ -60,7 +63,7 @@
       <div class="Leaderboard">
         <%# <% @all_players.each do |player| %>
             <%# <%= player.username %>
-        <%# <%end%> 
+        <%# <%end%>
       </div>
       <%# PLAYERS GAME RESULTS %>
 
@@ -93,7 +96,7 @@
                 </div>
               </div>
             <% end %>
-            
+
 
             <div class="card-product-footer">
                 <div class="play-section d-flex justify-content-between p-2">

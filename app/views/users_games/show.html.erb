@@ -5,9 +5,9 @@
       <%# LEADERBOARD %>
 
     <div class="leaderboard-container">
+      <% if @users_game.game.users.count > 1 %>
         <h2>Leaderboard</h2>
 
-      <% if @users_game.game.users.count > 1 %>
 
       <div class="leaderboard">
       <table class="table table-striped">

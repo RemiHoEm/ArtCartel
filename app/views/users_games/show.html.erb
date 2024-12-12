@@ -71,15 +71,15 @@
                   <div class="d-flex justify-content-center card-product-total-title mt-3">total score</div>
                   <h2 class="total_score m-1 d-flex justify-content-center"><%= @users_game.total_score.to_i %></h2>
                   <div class="étoile-tot d-flex justify-content-center">
-                    <% if @users_game.total_score.to_i > 48000 %>
+                    <% if @users_game.total_score.to_i > 38400 %>
                       <%= image_tag("etoileor5.png") %>
-                    <% elsif @users_game.total_score.to_i > 36000 && @users_game.total_score.to_i <= 48000 %>
+                    <% elsif @users_game.total_score.to_i > 28800 && @users_game.total_score.to_i <= 38400 %>
                       <%= image_tag("etoileor4.png") %>
-                    <% elsif @users_game.total_score.to_i > 24000 && @users_game.total_score.to_i <= 36000 %>
+                    <% elsif @users_game.total_score.to_i > 19200 && @users_game.total_score.to_i <= 28800 %>
                       <%= image_tag("etoileor3.png") %>
-                    <% elsif @users_game.total_score.to_i > 12000 && @users_game.total_score.to_i <= 24000 %>
+                    <% elsif @users_game.total_score.to_i > 9600 && @users_game.total_score.to_i <= 19200 %>
                       <%= image_tag("etoileor2.png") %>
-                    <% elsif @users_game.total_score.to_i > 0 && @users_game.total_score.to_i <= 12000 %>
+                    <% elsif @users_game.total_score.to_i > 0 && @users_game.total_score.to_i <= 9600 %>
                       <%= image_tag("etoileor1.png") %>
                     <% end %>
                   </div>

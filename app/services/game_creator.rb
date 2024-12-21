@@ -7,7 +7,7 @@ class GameCreator
   def call
     @game = Game.create(invitation_code: SecureRandom.hex(3))
 
-    categories = Category.where(theme:"Culture").shuffle
+    categories = Category.where(theme:"Culture").shuffle.first(4)
 
     selected_artworks = []
 

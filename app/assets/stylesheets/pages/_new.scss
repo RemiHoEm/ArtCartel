@@ -68,7 +68,11 @@
   box-shadow: 0 6px 15px rgba(94, 95, 95, 0.9);
 }
 
-
+#btn-play{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
 
 #mapModalLabel{
   color: black;
@@ -173,6 +177,7 @@ input[type="range"] {
   border-radius: 5px;
   outline: none;
   transition: background 0.3s ease; /* Effet de transition au survol */
+  
 }
 
 input[type="range"]:focus {

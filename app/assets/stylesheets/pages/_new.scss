@@ -71,7 +71,7 @@
 #btn-play{
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 #mapModalLabel{
@@ -115,7 +115,7 @@ h1, .info, #toggleButton, #attribution {
 }
 
 #toggleButton {
-  margin-top: 20px; /* Marge au-dessus du bouton Attribution Licence */
+  margin-top: 10px; /* Marge au-dessus du bouton Attribution Licence */
   font-size: 16px;
   cursor: pointer;
 }
@@ -177,6 +177,7 @@ input[type="range"] {
   border-radius: 5px;
   outline: none;
   transition: background 0.3s ease; /* Effet de transition au survol */
+  
 }
 
 input[type="range"]:focus {

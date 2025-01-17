@@ -40,7 +40,7 @@
   left: 0;
   right: 0;
   bottom: 0px;
-  width: 100%; /* 100% de largeur pour la popup */
+  width: 100%; /* 100% de largeur pour la popup par défaut */
   padding: 10px;
   padding-bottom: 10px;
   border-radius: 20px;
@@ -50,6 +50,14 @@
   max-height: 75vh;
   overflow: scroll;
 }
+
+/* Media Query pour les écrans plus larges (ordinateurs) */
+@media (min-width: 768px) {
+  .my-popup-content {
+    width: 50%; /* 50% de largeur pour les ordinateurs */
+  }
+}
+
 
 /* Close Button */
 .my-popup-close-btn-wrapper {

@@ -113,7 +113,8 @@
             <%= simple_form_for([@games_artwork, @challenge], html: { data: { "form-input-target": "form", "games-artwork-id": @games_artwork.id } }) do |f| %>
               <!-- map modal -->
               <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-bottom">
+
+                <div class="modal-dialog modal-dialog-centered" style="align-items: flex-end;">
                   <div class="modal-content modal-max-height" style="justify-content: center;">
                     <div class="modal-header">
                       <h1 class="modal-title fs-5" id="mapModalLabel">Where was it made?</h1>
@@ -139,7 +140,7 @@
               <% if @artwork.artist != "anonyme" %>
                 <!-- artist name modal -->
                 <div class="modal fade" id="artistModal" tabindex="-1" aria-labelledby="artistModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-bottom">
+                  <div class="modal-dialog modal-dialog-centered" style="align-items: flex-end;">
                     <div class="modal-content modal-max-height">
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="artistModalLabel">Who made it?</h1>
@@ -158,7 +159,7 @@
 
               <!-- when name modal -->
               <div class="modal fade" id="whenModal" tabindex="-1" aria-labelledby="whenModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-bottom">
+                <div class="modal-dialog modal-dialog-centered" style="align-items: flex-end;">
                   <div class="modal-content modal-max-height">
                     <div class="modal-header">
                       <h1 class="modal-title fs-5" id="whenModalLabel">When was it made?</h1>

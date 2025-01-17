@@ -177,7 +177,7 @@ input[type="range"] {
   border-radius: 5px;
   outline: none;
   transition: background 0.3s ease; /* Effet de transition au survol */
-  
+
 }
 
 input[type="range"]:focus {
@@ -332,4 +332,17 @@ input[type=range]::-ms-thumb {
       background-color: white;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
+}
+
+/* Largeur de la modal par défaut pour les petits écrans (téléphones) */
+.modal-dialog {
+  width: 100%; /* 100% de largeur sur les petits écrans */
+
+}
+
+/* Media query pour les écrans plus larges (ordinateurs) */
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 100%; /* 50% de largeur sur les écrans larges */
+  }
 }

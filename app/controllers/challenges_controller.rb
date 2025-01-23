@@ -1,7 +1,6 @@
 class ChallengesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
-  #not finished, need to add the logic that we do not show same artwork in one game & not only artworks from one category
   def new
     @games_artwork = GamesArtwork.find(params[:games_artwork_id])
     @challenge = Challenge.new
@@ -23,7 +22,6 @@ class ChallengesController < ApplicationController
     end
   end
 
-  #not finished yet, add pop up with result and answer and potentially more
   def create
     @games_artwork = GamesArtwork.find(params[:games_artwork_id])
     game = @games_artwork.game

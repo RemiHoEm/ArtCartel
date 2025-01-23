@@ -72,7 +72,86 @@
                   <h2 class="total_score m-1 d-flex justify-content-center"><%= @users_game.total_score.to_i %></h2>
                   <div class="étoile-tot d-flex justify-content-center">
                     <% if @users_game.total_score.to_i > 38400 %>
-                      <%= image_tag("etoileor5.png") %>
+                      <%= image_tag("etoileor5.png", onload: "fiesta()") %>
+                        <div class="superslot">
+                          <div class="slot">
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                            <div>⭐</div>
+                          </div>
+                          <script>
+                            const containerSlot = document.querySelector('.slot')
+
+                            function fiesta(){
+
+                              const TLCONF = gsap.timeline()
+
+                              TLCONF
+                              .to('.slot div', {
+                                y: "random(-100,100)",
+                                x: "random(-100,100)",
+                                z: "random(0,1000)",
+                                rotation: "random(-90,90)",
+                                duration: 1
+                              })
+                              .to('.slot div', {autoAlpha: 0, duration: 0.3}, '-=0.2')
+                              .add(() => {
+                                containerSlot.innerHTML = "";
+                              })
+                            }
+
+                          </script>
+                        </div>
                     <% elsif @users_game.total_score.to_i > 28800 && @users_game.total_score.to_i <= 38400 %>
                       <%= image_tag("etoileor4.png") %>
                     <% elsif @users_game.total_score.to_i > 19200 && @users_game.total_score.to_i <= 28800 %>
@@ -101,7 +180,7 @@
                 <h2 class="fw-bolder"><%=challenge.score.to_i%>pts</h2>
                 <div class="étoile">
                   <% if challenge.score.to_i > 9600 %>
-                    <%= image_tag("etoileargent5.png") %>
+                    <%= image_tag("etoileargent5.png")%>
                   <% elsif challenge.score.to_i > 7200 && challenge.score.to_i <= 9600 %>
                     <%= image_tag("etoileargent4.png") %>
                   <% elsif challenge.score.to_i > 4800 && challenge.score.to_i <= 7200 %>
@@ -143,5 +222,5 @@
           </div>
       </div>
   </div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 </div>

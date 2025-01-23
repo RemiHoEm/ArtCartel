@@ -66,7 +66,7 @@ export default class extends Controller {
         next.classList.add("d-none");
         end.classList.remove("d-none");
       }
-      
+
       if (data.correct_artist_name === true) {
         document.getElementById('correct_artist').classList.remove('d-none');
       } else {
@@ -180,6 +180,6 @@ export default class extends Controller {
             }
         });
     });
-}
+  }
 
 }
